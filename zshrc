@@ -65,7 +65,7 @@ bindkey '^[[Z' undo                                             # Shift+tab undo
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '~/.zshrc'
+zstyle :compinstall filename '/home/kpatino/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -77,12 +77,11 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 ## Alias section
-alias !!="sudo !!"						 quicker sudo !!
+alias !!="sudo !!"						# quicker 'sudo !!' usually just use up arrow instead of !!
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
-alias la='ls -ah'						 Human-readable sizes
-alias ll='ls -lh'						 Human-readable sizes
+alias la='ls -ah'						# Human-readable sizes
+alias ll='ls -lh'						# Human-readable sizes
 alias wttr='curl -s wttr.in | head -7'
 alias yt-dl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
-# nano hate meant to get me to stop using nano and use vim
-alias nano="echo you stupid motherfucker; sleep 0.7; vim"
+alias nano="echo you stupid motherfucker; sleep 1; vim"
