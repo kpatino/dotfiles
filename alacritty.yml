@@ -1,0 +1,60 @@
+font:
+    normal:
+          family: CaskaydiaCove Nerd Font Mono
+          style: Regular
+    size: 20
+colors:
+  # Default colors
+  primary:
+    background: '#232323'
+    foreground: '#f9f9f9'
+    dim_foreground:    '#232323'
+    bright_foreground: '#f9f9f9'
+    dim_background:    '#202020' # not sure
+    bright_background: '#3a3a3a' # not sure
+
+  # Cursor colors
+  cursor:
+    text:   '#fcfcfc'
+    cursor: '#6b6b6b'
+
+  # Normal colors
+  normal:
+    black:   '#6b6b6b'
+    red:     '#ff453a'
+    green:   '#32d74b'
+    yellow:  '#ffd60a'
+    blue:    '#0a84ff'
+    magenta: '#bf5af2'
+    cyan:    '#5ac8fa'
+    white:   '#f9f9f9'
+  # Bright colors
+  bright:
+    black:   '#6b6b6b'
+    red:     '#ff453a'
+    green:   '#32d74b'
+    yellow:  '#ffd60a'
+    blue:    '#0a84ff'
+    magenta: '#bf5af2'
+    cyan:    '#5ac8fa'
+    white:   '#f9f9f9'
+
+  # Dim colors
+  dim:
+    black:   '#6b6b6b'
+    red:     '#ff453a'
+    green:   '#32d74b'
+    yellow:  '#ffd60a'
+    blue:    '#0a84ff'
+    magenta: '#bf5af2'
+    cyan:    '#5ac8fa'
+    white:   '#f9f9f9'
+
+window:
+  padding:
+    x: 10
+    y: 10
+
+background_opacity: 0.70
+
+
