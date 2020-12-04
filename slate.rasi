@@ -1,3 +1,5 @@
+*/ from https://github.com/aryadotid21/dotfile/blob/main/config/rofi/config/slate.rasi ;*/
+
 * {
   background-color: #23232310;
   border-color: #75A4CD20;
