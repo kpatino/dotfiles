@@ -29,6 +29,9 @@ setopt prompt_subst
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # Use history substring search
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+# Use auto suggestions
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -77,11 +80,15 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 ## Alias section
-alias !!="sudo !!"						# quicker 'sudo !!' usually just use up arrow instead of !!
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
-alias la='ls -ah'						# Human-readable sizes
-alias ll='ls -lh'						# Human-readable sizes
+alias ls='exa --icons'							                            # exa remap
+alias la='exa -ah --icons'						                          # Human-readable sizes
+alias ll='exa -lh --icons'						                          # Human-readable sizes
+alias lsa='exa -alh --icons'
 alias wttr='curl -s wttr.in | head -7'
 alias yt-dl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
 alias nano="echo you stupid motherfucker; sleep 1; vim"
+alias vi='vim'
+alias ra='ranger'
+alias removeorphans='paru -Rs $(paru -Qqtd)'
