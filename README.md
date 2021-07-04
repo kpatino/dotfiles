@@ -8,7 +8,7 @@ Easy backup for my dotfiles
 sway  
 grim  
 grimshot  
-swappy  (AUR)
+swappy (AUR)  
 slurp  
 copyq  
 mako  
