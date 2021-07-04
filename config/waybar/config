@@ -1,0 +1,110 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 40, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-center": ["clock"],
+    "modules-right": ["custom/waybar-mpris", "idle_inhibitor", "pulseaudio", "tray", "custom/power"],
+    // Modules configuration
+    // "sway/workspaces": {
+    //     "disable-scroll": true,
+    //     "all-outputs": true,
+    //     "format": "{name}: {icon}",
+    //     "format-icons": {
+    //         "1": "",
+    //         "2": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+    //         "urgent": "",
+    //         "focused": "",
+    //         "default": ""
+    //     }
+    // },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "sway/window": {
+        "format": "{}",
+        "max-length": 60
+    },
+
+    "clock": {
+        "timezone": "America/Chicago",
+        "format": "{:%a %b %d, %I:%M %p}",
+        "tooltip-format": "{:%a %b %d %Y, %I:%M %p}",
+        "interval": 1,
+        "tooltip": true
+    },
+    "cpu": {
+        "format": " {usage:3}%",
+        "tooltip": false
+    },
+    "memory": {
+        "format": " {:3}%"
+    },
+    "network": {
+        "format": "{icon}",
+        "format-alt": "{icon} {ifname} {ipaddr}/{cidr}",
+        "format-alt-click": "click-right",
+        "format-icons": {
+            "wifi": ["", "" ,""],
+            "ethernet": [""],
+            "disconnected": [""]
+        },
+        "on-click": "alacritty -e nmtui",
+    "tooltip": false
+    },
+    "custom/waybar-mpris": {
+        "return-type": "json",
+        "exec": "waybar-mpris --position --autofocus --interpolate --play \uf04b --pause \uf04c --order 'SYMBOL:ARTIST:TITLE:POSITION'",
+        "on-click": "waybar-mpris --send toggle",
+        // This option will switch between players on right click.
+        "on-click-right": "waybar-mpris --send player-next",
+        // The options below will switch the selected player on scroll
+        // "on-scroll-up": "waybar-mpris --send player-next",
+        // "on-scroll-down": "waybar-mpris --send player-prev",
+        // The options below will go to next/previous track on scroll
+        "on-scroll-up": "waybar-mpris --send next",
+        "on-scroll-down": "waybar-mpris --send prev",
+        "escape": true
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "\uf06e",
+            "deactivated": "\uf070"
+        },
+        "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol"
+    },
+    "tray": {
+        "icon-size": 22,
+        "spacing": 10
+    },
+    "custom/power": {
+        "format": "",
+        "on-click": "wlogout",
+        "tooltip": false
+    }
+}%                                                                                                                                                
