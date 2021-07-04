@@ -6,7 +6,7 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#232323'
+    background: '#141414'
     foreground: '#f9f9f9'
       #dim_foreground:    '#232323'
       #bright_foreground: '#f9f9f9'
