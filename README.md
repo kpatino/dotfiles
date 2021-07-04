@@ -28,5 +28,5 @@ zsh-theme-powerlevel10k-git (AUR)
 ## themes
 GTK Theme: WhiteSur by vinceliuice  
 KDE/QT Theme: WhiteSur by vinceliuice  
-Icon Theme: WhiteSur by vinceliuice 
+Icon Theme: WhiteSur by vinceliuice  
 Cursor: WhiteSur-cursors by vinceliuice 
