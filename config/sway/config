@@ -30,6 +30,7 @@ font pango: Noto Sans 12
 #
 # Set wallpaper
 output * bg '/home/kpatino/Pictures/Saved Pictures/Wallpapers/Landscapes/ChicagoCloud.jpg' fill
+#output * bg '/home/kpatino/Pictures/Saved Pictures/Wallpapers/Landscapes/Cheems.png' fill
 
 # Configure monitor settings
 output DP-1 mode 2560x1440@164.999Hz
@@ -139,8 +140,8 @@ input "1133:16500:Logitech_G305" {
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
+    bindsym $mod+Shift+b splith
+    bindsym $mod+Shift+v splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -206,16 +207,22 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Windows 10 screenshot shortcuts
-#bindsym $mod+Shift+s exec 'grimshot save area - | swappy -f -'
-#bindsym $mod+Print exec 'grimshot save output - | swappy -f -'
-#bindsym Alt+Print exec 'grimshot save window - | swappy -f -'
-bindsym $mod+Shift+s exec 'flameshot gui'
+bindsym $mod+Shift+s exec 'grimshot save area - | swappy -f -'
+bindsym $mod+Print exec 'grimshot save output - | swappy -f -'
+bindsym Alt+Print exec 'grimshot save window - | swappy -f -'
 
 # bpytop ctrl+esc
 bindsym ctrl+Escape exec 'alacritty -e bpytop'
 
+# clipboard menu
+exec copyq
+bindsym $mod+v exec copyq toggle
+
 # Color picker
-#bindsym $mod+Shift+p exec 'grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy'
+bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
+
+# Tamefox
+#exec [ -x $HOME/.local/bin/tamefox ] && $HOME/.local/bin/tamefox
 
 # Logout
 bindsym Ctrl+Alt+Delete exec wlogout
@@ -232,17 +239,14 @@ exec nm-applet --indicator
 # Bluetooth
 exec blueman-applet
 
-# Gammastep
-#exec gammastep-indicator
-
 # Cursor
 seat seat0 xcursor_theme WhiteSur-cursors 36
 
 exec_always {
-    #gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-dark-pink'
-    gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
-    gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
-    gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur-pink-dark'
+    gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-dark"
+    gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-dark"
+    gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur-dark'
+    gsettings set org.gnome.desktop.wm.preferences button-layout ''
 }
 
 # Start corectrl at startup
@@ -250,33 +254,29 @@ exec corectrl
 
 # Sway border
 default_border pixel 8
-gaps outer 8
+gaps outer 4
 gaps inner 4
 
 # class                 border  bground text    indicator child_border
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+client.focused          #242424 #242424 #ffffff #242424   #242424
+client.focused_inactive #373737 #373737 #ffffff #373737   #373737
+client.unfocused        #373737 #373737 #ffffff #373737   #373737
+client.urgent           #373737 #ff453a #ffffff #ff453a   #ff453a
+client.placeholder      #373737 #373737 #ffffff #373737   #373737
 
-client.background       #F8F8F2
-
-#exec '/home/kpatino/.config/sway/xdg-desktop-portal-wlr.sh'
-
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
-
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="bubble"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_role="Preferences"] floating enable
-for_window [window_role="About"] floating enable
-for_window [window_type="dialog"] floating enable
-for_window [window_type="menu"] floating enable
+client.background       #ffffff
 
 # firefox bug things
 for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
 for_window [app_id="firefox"] adaptive_sync off
+
+for_window [title="Archive Manager"] floating enable
+for_window [title="blueman"] floating enable
+for_window [title="Bluetooth Devices"] floating enable
+for_window [title="Calculator"] floating enable
+for_window [title="Network Connections"] floating enable
+for_window [title="Volume Control"] floating enable
+
+for_window [app_id="copyq"] floating enable, sticky enable, resize set height 600px width 550px, move position cursor, move down 330
 
 include @sysconfdir@/sway/config.d/*
