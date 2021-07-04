@@ -47,7 +47,7 @@ if [[ "${terminfo[khome]}" != "" ]]; then
   bindkey "${terminfo[khome]}" beginning-of-line                # [Home] - Go to beginning of line
 fi
 bindkey '^[[8~' end-of-line                                     # End key
-bindkey '^[[F' end-of-line                                     # End key
+bindkey '^[[F' end-of-line                                      # End key
 if [[ "${terminfo[kend]}" != "" ]]; then
   bindkey "${terminfo[kend]}" end-of-line                       # [End] - Go to end of line
 fi
@@ -82,13 +82,16 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 ## Alias section
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
-alias ls='exa --icons'							                            # exa remap
-alias la='exa -ah --icons'						                          # Human-readable sizes
-alias ll='exa -lh --icons'						                          # Human-readable sizes
+alias ls='exa --icons'                                          # exa remap
+alias la='exa -ah --icons'                                      # Human-readable sizes
+alias ll='exa -lh --icons'                                      # Human-readable sizes
 alias lsa='exa -alh --icons'
 alias wttr='curl -s wttr.in | head -7'
 alias yt-dl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
-alias nano="echo you stupid motherfucker; sleep 1; vim"
+alias mp3-dl="youtube-dl --extract-audio --audio-format"
 alias vi='vim'
 alias ra='ranger'
 alias removeorphans='paru -Rs $(paru -Qqtd)'
+alias update='paru'
+alias install='paru -Syu'
+alias remove='paru -R'
