@@ -5,16 +5,16 @@ using github as a backup for my dotfiles
 Easy backup for my dotfiles
 
 ## packages 
-sway  
+alacritty  
+copyq  
 grim  
 grimshot  
-swappy (AUR)  
-slurp  
-copyq  
 mako  
-waybar  
 rofi  
-alacritty   
+slurp  
+swappy (AUR)  
+sway  
+waybar  
 waybar-mpris-git (AUR)  
 zsh  
 zsh-autosuggestions  
@@ -22,6 +22,7 @@ zsh-completions
 zsh-history-substring-search  
 zsh-syntax-highlighting  
 zsh-theme-powerlevel10k-git (AUR)  
+
 
 GTK Theme: WhiteSur by vinceliuice  
 KDE/QT Theme: WhiteSur by vinceliuice  
