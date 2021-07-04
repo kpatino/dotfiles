@@ -14,8 +14,10 @@ rofi
 slurp  
 swappy (AUR)  
 sway  
+swaylock  
 waybar  
 waybar-mpris-git (AUR)  
+wlogout  
 zsh  
 zsh-autosuggestions  
 zsh-completions  
