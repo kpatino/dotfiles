@@ -1,8 +1,7 @@
 # kevin's dotfiles
 
 ## info
-using github as a backup for my dotfiles
-Easy backup for my dotfiles
+using github as a backup for my linux dotfiles  
 
 ## packages 
 alacritty  
