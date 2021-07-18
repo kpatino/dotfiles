@@ -29,3 +29,7 @@ GTK Theme: WhiteSur by vinceliuice
 KDE/QT Theme: WhiteSur by vinceliuice  
 Icon Theme: WhiteSur by vinceliuice  
 Cursor: WhiteSur-cursors by vinceliuice 
+
+## useful programs
+vorta (AUR)  
+corectrl (AUR)  
