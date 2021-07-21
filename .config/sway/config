@@ -1,12 +1,17 @@
 # Read `man 5 sway` for a complete reference.
 
+### Services that need to be executed first
 # GTK 20 second fix from swaywm wiki
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 # Gnome policy kit authentication agent
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
+
+# Wob socket for volume
+set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
+exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color '#FA0E0E0E' --bar-color '#FFBF5AF2'
 
 ### Variables
 #
@@ -20,40 +25,30 @@ set $right l
 # Your preferred terminal emulator
 set $term alacritty
 # Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-#set $menu dmenu_path | dmenu | xargs swaymsg exec --
-
+set $menu wofi
+# Background image path
+set $background '/home/kpatino/Pictures/Saved Pictures/Wallpapers/Landscapes/macos-monterey.jpeg'
+# Set font
 font pango: Noto Sans 12
 
 ### Output configuration
 #
-# Set wallpaper
-output * bg '/home/kpatino/Pictures/Saved Pictures/Wallpapers/Landscapes/ChicagoCloud.jpg' fill
-#output * bg '/home/kpatino/Pictures/Saved Pictures/Wallpapers/Landscapes/Cheems.png' fill
-
 # Configure monitor settings
 output DP-1 mode 2560x1440@164.999Hz
 output DP-1 subpixel rgb
-output * adaptive_sync off
-output * max_render_time 1
+output DP-1 adaptive_sync off
+output DP-1 max_render_time 1
+output * bg $background fill
 
 ### Idle configuration
 exec swayidle -w \
-         timeout 300 'swaylock -f -i /home/kpatino/Pictures/Saved\ Pictures/Wallpapers/Landscapes/ChicagoCloud.jpg' \
+         timeout 300 'swaylock -f -i $background \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -i "/home/kpatino/Pictures/Saved Pictures/Wallpapers/Landscapes/ChicagoCloud.jpg"'
-
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+         before-sleep 'swaylock -f -i $background'
 
 ### Input configuration
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
 input "1133:16500:Logitech_G305" {
-    accel_profile "flat"
+    accel_profile "flat"    
     pointer_accel 0
 }
 
@@ -68,9 +63,9 @@ input "1133:16500:Logitech_G305" {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -modi combi -icon-theme 'WhiteSur-pink-dark' -show-icons -drun-show-actions"
-    bindsym $mod+Shift+d exec "rofi -combi-modi window,run -show combi -modi combi -icon-theme 'WhiteSur-pink-dark' -show-icons -drun-show-actions"
-
+    bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -modi combi -icon-theme 'WhiteSur-dark' -show-icons -drun-show-actions" 
+    bindsym $mod+Shift+d exec "rofi -combi-modi window,run -show combi -modi combi -icon-theme 'WhiteSur-dark' -show-icons -drun-show-actions" 
+    
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -82,7 +77,7 @@ input "1133:16500:Logitech_G305" {
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec wlogout
+    bindsym $mod+Shift+e exec wlogout 
 #
 # Moving around:
 #
@@ -196,12 +191,32 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+#
+# Status Bar:
+#
+bar {
+    swaybar_command waybar
+}
+
+#
+# Run commands everytime
+#
+exec_always {
+    gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-dark"
+    gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-dark"
+    gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur-dark'
+    gsettings set org.gnome.desktop.wm.preferences button-layout ''
+}
+
 # Audio control
-# Use pactl to adjust volume.
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+# Use pamixer to adjust volume.
+
+bindsym XF86AudioRaiseVolume exec pamixer -ui 1 && pamixer --get-volume > $WOBSOCK
+bindsym XF86AudioLowerVolume exec pamixer -ud 1 && pamixer --get-volume > $WOBSOCK
+bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
+
+# Audio player control
+
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
@@ -219,35 +234,25 @@ exec copyq
 bindsym $mod+v exec copyq toggle
 
 # Color picker
-bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
-
-# Tamefox
-#exec [ -x $HOME/.local/bin/tamefox ] && $HOME/.local/bin/tamefox
+bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy 
 
 # Logout
 bindsym Ctrl+Alt+Delete exec wlogout
 
 # Notications
 exec mako
-# Top bar
-bar {
-    swaybar_command waybar
-}
+
 # Network Manager
 exec nm-applet --indicator
 
 # Bluetooth
 exec blueman-applet
 
+# Backups
+exec vorta
+
 # Cursor
 seat seat0 xcursor_theme WhiteSur-cursors 36
-
-exec_always {
-    gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-dark"
-    gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-dark"
-    gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur-dark'
-    gsettings set org.gnome.desktop.wm.preferences button-layout ''
-}
 
 # Start corectrl at startup
 exec corectrl
@@ -258,14 +263,16 @@ gaps outer 4
 gaps inner 4
 
 # class                 border  bground text    indicator child_border
-client.focused          #242424 #242424 #ffffff #242424   #242424
-client.focused_inactive #373737 #373737 #ffffff #373737   #373737
-client.unfocused        #373737 #373737 #ffffff #373737   #373737
-client.urgent           #373737 #ff453a #ffffff #ff453a   #ff453a
-client.placeholder      #373737 #373737 #ffffff #373737   #373737
+client.focused          #202020 #242424 #ffffff #202020   #202020
+client.focused_inactive #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
+client.unfocused        #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
+client.urgent           #0e0e0e #ff453a #ffffff #ff453a   #ff453a
+client.placeholder      #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
 
 client.background       #ffffff
 
+### Window fixes
+#
 # firefox bug things
 for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
 for_window [app_id="firefox"] adaptive_sync off
