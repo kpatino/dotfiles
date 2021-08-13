@@ -36,7 +36,7 @@
         "format": "{:%a %b %d, %I:%M %p}",
         "tooltip-format": "{:%a %b %d %Y, %I:%M %p}",
         "interval": 1,
-        "tooltip": true
+        "tooltip": true  
     },
     "cpu": {
         "format": " {usage:3}%",
@@ -69,7 +69,8 @@
         // The options below will go to next/previous track on scroll
         "on-scroll-up": "waybar-mpris --send next",
         "on-scroll-down": "waybar-mpris --send prev",
-        "escape": true
+        "escape": true,
+        "max-length": 60
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -107,4 +108,4 @@
         "on-click": "wlogout",
         "tooltip": false
     }
-}%                                                                                                                                                
+}

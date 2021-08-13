@@ -42,9 +42,9 @@ output * bg $background fill
 
 ### Idle configuration
 exec swayidle -w \
-         timeout 300 'swaylock -f -i $background \
+         timeout 300 'swaylock -F -f -i $background' \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -i $background'
+         before-sleep 'swaylock -F -f -i $background'
 
 ### Input configuration
 input "1133:16500:Logitech_G305" {
@@ -258,7 +258,7 @@ seat seat0 xcursor_theme WhiteSur-cursors 36
 exec corectrl
 
 # Sway border
-default_border pixel 8
+default_border pixel 4
 gaps outer 4
 gaps inner 4
 
