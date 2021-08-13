@@ -11,7 +11,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Wob socket for volume
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color '#FA0E0E0E' --bar-color '#FFBF5AF2'
+exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color '#0E0E0EFA' --bar-color '#BF5AF2FF'
 
 ### Variables
 #
