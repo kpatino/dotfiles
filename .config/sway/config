@@ -11,7 +11,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Wob socket for volume
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color '#0E0E0EFA' --bar-color '#BF5AF2FF'
+exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color '#0E0E0ECC' --bar-color '#BF5AF2FF' --overflow-bar-color '#FF453AFF'
 
 ### Variables
 #
@@ -227,7 +227,7 @@ bindsym $mod+Print exec 'grimshot save output - | swappy -f -'
 bindsym Alt+Print exec 'grimshot save window - | swappy -f -'
 
 # bpytop ctrl+esc
-bindsym ctrl+Escape exec 'alacritty -e bpytop'
+bindsym ctrl+Escape exec gnome-system-monitor
 
 # clipboard menu
 exec copyq
@@ -239,8 +239,8 @@ bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[
 # Logout
 bindsym Ctrl+Alt+Delete exec wlogout
 
-# Notications
-exec mako
+# Notications - not needed dbus will start it
+#exec mako
 
 # Network Manager
 exec nm-applet --indicator
@@ -281,6 +281,7 @@ for_window [title="Archive Manager"] floating enable
 for_window [title="blueman"] floating enable
 for_window [title="Bluetooth Devices"] floating enable
 for_window [title="Calculator"] floating enable
+for_window [title="System Monitor"] floating enable, resize set height 1280px width 960px
 for_window [title="Network Connections"] floating enable
 for_window [title="Volume Control"] floating enable
 
