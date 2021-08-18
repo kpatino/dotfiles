@@ -14,7 +14,6 @@ gnome-system-monitor
 grim  
 grimshot  
 mako  
-network-manager-applet  
 noto-fonts  
 polkit-gnome  
 rofi  
