@@ -8,9 +8,9 @@ border-size=3
 font=Noto Sans 16
 default-timeout=3000
 ignore-timeout=0
-background-color=#0e0e0efa
+background-color=#0e0e0ecc
 text-color=#ffffff
-progress-color=source #bf5af2fa
+progress-color=source #bf5af2
 markup=1
 
 [urgency=low]
