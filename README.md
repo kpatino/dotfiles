@@ -14,9 +14,9 @@ gnome-system-monitor
 grim  
 grimshot  
 mako  
-noto-fonts  
-polkit-gnome
 network-manager-applet  
+noto-fonts  
+polkit-gnome  
 rofi  
 slurp  
 swappy (AUR)  
@@ -25,7 +25,7 @@ swaylock
 vorta (AUR)  
 waybar  
 waybar-mpris-git (AUR)  
-wl-clipboard
+wl-clipboard  
 wlogout  
 wob (AUR)  
 zsh  
