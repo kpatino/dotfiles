@@ -63,8 +63,8 @@ input "1133:16500:Logitech_G305" {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -modi combi -icon-theme 'WhiteSur-dark' -show-icons -drun-show-actions" 
-    bindsym $mod+Shift+d exec "rofi -combi-modi window,run -show combi -modi combi -icon-theme 'WhiteSur-dark' -show-icons -drun-show-actions" 
+    bindsym $mod+d exec "rofi -show drun" 
+    bindsym Mod1+Tab exec "rofi -show window" 
     
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -239,12 +239,6 @@ bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[
 # Logout
 bindsym Ctrl+Alt+Delete exec wlogout
 
-# Notications - not needed dbus will start it
-#exec mako
-
-# Network Manager
-exec nm-applet --indicator
-
 # Bluetooth
 exec blueman-applet
 
@@ -277,6 +271,7 @@ client.background       #ffffff
 for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
 for_window [app_id="firefox"] adaptive_sync off
 
+# window prefrences 
 for_window [title="Archive Manager"] floating enable
 for_window [title="blueman"] floating enable
 for_window [title="Bluetooth Devices"] floating enable

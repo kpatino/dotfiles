@@ -1,0 +1,72 @@
+* {
+  bg: rgba(14, 14, 14, 0.8);
+  ac: #bf5af2;
+}
+
+* {
+  background-color: rgba(0, 0, 0, 0);
+  text-color: #ffffff;
+}
+
+window {
+  background-color: @bg;
+  border: 4;
+  border-color: #202020;
+  padding: 20;
+  width: 30%;
+  height: 50%;
+}
+
+mainbox {
+  children: [ inputbar, listview];
+  border-color: #ffffff0a;
+}
+
+listview {
+  columns: 1;
+  lines:   3;
+  spacing: 0;
+  cycle:   false;
+  dynamic: true;
+  layout:  vertical;
+}
+
+element {
+  border: 1;
+  orientation: horizontal;
+  padding: 15 15 15 15;
+}
+
+element selected {
+  background-color: @ac;
+  text-color: #ffffff;
+  transition: 40;
+}
+
+element-icon {
+  size: 40;
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
+}
+
+element-text {
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
+  text-color: #ffffff;
+}
+
+inputbar {
+  children: [ prompt, entry ];
+  padding: 4 8 4 8;
+}
+
+prompt {
+  enabled: true;
+  font:"Font Awesome 5 Free 16";
+  padding: 0.75% 1% 0% 1%;
+}
+
+entry {
+  padding: 8 12 8 12;
+  margin: 0% 0% 0% 0%;
+}
