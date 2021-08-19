@@ -11,8 +11,7 @@ NotoSans Nerd Font
 CaskaydiaCove Nerd Font Mono
 
 ## dependecies
-
-alacritty  
+  
 blueman  
 copyq  
 corectrl (AUR)  
