@@ -6,9 +6,9 @@ using github as a backup for my linux dotfiles
 
 ## fonts
 
-Noto Sans
-NotoSans Nerd Font
-CaskaydiaCove Nerd Font Mono
+Noto Sans  
+NotoSans Nerd Font  
+CaskaydiaCove Nerd Font Mono  
 
 ## dependencies
   
