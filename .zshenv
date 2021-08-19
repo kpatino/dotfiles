@@ -16,7 +16,7 @@ export LESSHISTFILE=-
 export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/default
 
 export EDITOR="vim"
-export TERMINAL="alacritty"
+export TERMINAL="foot"
 export BROWSER="firefox"
 export XDG_SESSION_TYPE=wayland
 export XDG_CURRENT_DESKTOP=sway

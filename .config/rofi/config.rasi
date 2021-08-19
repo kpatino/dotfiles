@@ -8,6 +8,8 @@ configuration {
   bw: 0;
   terminal: "alacritty";
   sidebar-mode: false;
-  font:"Noto Sans 16";
+  font:"NotoSans Nerd Font 16";
 }
-@import "/home/kpatino/.config/rofi/config/monterey.rasi"
+@import "~/.config/rofi/config/monterey.rasi"
+
+/* vim:ft=css

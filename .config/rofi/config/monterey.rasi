@@ -1,31 +1,31 @@
 * {
   bg: rgba(14, 14, 14, 0.8);
   ac: #bf5af2;
+  txt: #ffffff;
 }
 
 * {
   background-color: rgba(0, 0, 0, 0);
-  text-color: #ffffff;
+  text-color: @txt;
 }
 
 window {
   background-color: @bg;
   border: 4;
   border-color: #202020;
-  padding: 20;
+  padding: 16 16 0 16;
   width: 30%;
   height: 50%;
 }
 
 mainbox {
   children: [ inputbar, listview];
-  border-color: #ffffff0a;
 }
 
 listview {
   columns: 1;
   lines:   3;
-  spacing: 0;
+  spacing: 4;
   cycle:   false;
   dynamic: true;
   layout:  vertical;
@@ -34,12 +34,12 @@ listview {
 element {
   border: 1;
   orientation: horizontal;
-  padding: 15 15 15 15;
+  padding: 16 16 16 16;
 }
 
 element selected {
   background-color: @ac;
-  text-color: #ffffff;
+  text-color: @txt;
   transition: 40;
 }
 
@@ -50,9 +50,9 @@ element-icon {
 }
 
 element-text {
-  horizontal-align: 0.5;
+  margin: 0 0 0 10;
   vertical-align: 0.5;
-  text-color: #ffffff;
+  text-color: @txt;
 }
 
 inputbar {
@@ -62,11 +62,11 @@ inputbar {
 
 prompt {
   enabled: true;
-  font:"Font Awesome 5 Free 16";
-  padding: 0.75% 1% 0% 1%;
+  padding: 8 12 16 12;
 }
 
 entry {
-  padding: 8 12 8 12;
-  margin: 0% 0% 0% 0%;
+  padding: 8 12 16 12;
 }
+
+/* vim:ft=css

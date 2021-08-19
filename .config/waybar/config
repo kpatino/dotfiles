@@ -2,27 +2,9 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 40, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/waybar-mpris", "idle_inhibitor", "pulseaudio", "tray", "custom/power"],
-    // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+    "modules-right": ["custom/waybar-mpris", "tray", "pulseaudio", "idle_inhibitor", "custom/power"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -30,32 +12,12 @@
         "format": "{}",
         "max-length": 60
     },
-
     "clock": {
         "timezone": "America/Chicago",
-        "format": "{:%a %b %d, %I:%M %p}",
-        "tooltip-format": "{:%a %b %d %Y, %I:%M %p}",
+        "format": "{:%a %b %d  %I:%M %p}",
+        "tooltip-format": "{:%a %b %d %Y  %I:%M %p}",
         "interval": 1,
         "tooltip": true  
-    },
-    "cpu": {
-        "format": " {usage:3}%",
-        "tooltip": false
-    },
-    "memory": {
-        "format": " {:3}%"
-    },
-    "network": {
-        "format": "{icon}",
-        "format-alt": "{icon} {ifname} {ipaddr}/{cidr}",
-        "format-alt-click": "click-right",
-        "format-icons": {
-            "wifi": ["", "" ,""],
-            "ethernet": [""],
-            "disconnected": [""]
-        },
-        "on-click": "alacritty -e nmtui",
-    "tooltip": false
     },
     "custom/waybar-mpris": {
         "return-type": "json",
@@ -75,17 +37,17 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "\uf06e",
-            "deactivated": "\uf070"
+            "activated": "",
+            "deactivated": ""
         },
-        "tooltip": false
+        "tooltip": true
     },
     "pulseaudio": {
         "format": "{icon} {volume}% {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": " {volume}%",
+        "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
@@ -105,7 +67,8 @@
     },
     "custom/power": {
         "format": "",
-        "on-click": "wlogout",
+        "interval": "once",
+        "on-click": "rofi -modi system:$HOME/.config/rofi/config/powermenu.sh -show system",
         "tooltip": false
     }
 }

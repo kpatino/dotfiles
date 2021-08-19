@@ -4,12 +4,19 @@
 
 using github as a backup for my linux dotfiles
 
+## fonts
+
+Noto Sans
+NotoSans Nerd Font
+CaskaydiaCove Nerd Font Mono
+
 ## dependecies
 
 alacritty  
 blueman  
 copyq  
 corectrl (AUR)  
+foot (AUR)  
 gnome-system-monitor  
 grim  
 grimshot  
@@ -24,8 +31,7 @@ swaylock
 vorta (AUR)  
 waybar  
 waybar-mpris-git (AUR)  
-wl-clipboard  
-wlogout  
+wl-clipboard
 wob (AUR)  
 zsh  
 zsh-autosuggestions  
@@ -40,3 +46,9 @@ GTK Theme: WhiteSur by vinceliuice
 KDE/QT Theme: WhiteSur by vinceliuice  
 Icon Theme: WhiteSur by vinceliuice  
 Cursor: WhiteSur-cursors by vinceliuice
+
+Note: To apply the QT theme you'll need something like qt5ct and kvantum.
+
+## colors
+
+color palette comes from <https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/>
