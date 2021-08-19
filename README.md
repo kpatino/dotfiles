@@ -10,7 +10,7 @@ Noto Sans
 NotoSans Nerd Font
 CaskaydiaCove Nerd Font Mono
 
-## dependecies
+## dependencies
   
 blueman  
 copyq  
