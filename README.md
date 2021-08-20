@@ -8,7 +8,7 @@ not all dependencies are required, they are just packages that are used in my co
 ## preview
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/kpatino/dotfiles/main/screenshots/desktop%200.png" alt="screenshot of my swaywm rice" width=50% height=50%>
+  <img src="https://raw.githubusercontent.com/kpatino/dotfiles/main/screenshots/desktop%200.png" alt="screenshot of my swaywm rice" width=80% height=80%>
 </p>
 
 ## fonts
