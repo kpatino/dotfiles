@@ -63,3 +63,5 @@ Note: To apply the QT theme you'll need something like qt5ct and kvantum.
 - [lepton firefox css](https://github.com/black7375/Firefox-UI-Fix/)
 - [firefox theme](https://addons.mozilla.org/en-US/firefox/addon/matte-black-theme/)
 - [color palette](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/)
+- [music visualizer](https://github.com/karlstav/cava)
+- [pfetch](https://github.com/dylanaraps/pfetch)
