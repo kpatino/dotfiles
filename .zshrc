@@ -1,28 +1,32 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+
+# Disabled because of foot and I don't really need it https://codeberg.org/dnkl/foot/issues/558
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
+#
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=9999
 SAVEHIST=9999
 ## Options section
-setopt correct                                                  # Auto correct mistakes
+#setopt correct                                                 # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
 setopt nocaseglob                                               # Case insensitive globbing
 setopt rcexpandparam                                            # Array expension with parameters
 setopt nocheckjobs                                              # Don't warn about running processes when exiting
 setopt numericglobsort                                          # Sort filenames numerically when it makes sense
 setopt nobeep                                                   # No beep
+setopt sharehistory                                             # Share history
 setopt appendhistory                                            # Immediately append history instead of overwriting
 setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
-setopt autocd                                                   # if only directory path is entered, cd there.
-
-# enable substitution for prompt
-setopt prompt_subst
+setopt histfindnodups                                           # Ignore duplicates when searching
+setopt histreduceblanks                                         # Removes blank lines from history
+setopt autocd                                                   # If only directory path is entered, cd there.
+setopt prompt_subst                                             # Enable substitution for prompt
 
 ## Plugins section: Enable fish style features
 # Use syntax highlighting
@@ -32,15 +36,9 @@ source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring
 # Use auto suggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# bind UP and DOWN arrow keys to history substring search
-zmodload zsh/terminfo
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
 ## Keybindings section
-bindkey -e
+bindkey -e                                                      # Emacs keybindings 
+
 bindkey '^[[7~' beginning-of-line                               # Home key
 bindkey '^[[H' beginning-of-line                                # Home key
 if [[ "${terminfo[khome]}" != "" ]]; then
@@ -66,9 +64,19 @@ bindkey '^[[1;5C' forward-word                                  #
 bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
+# bind UP and DOWN arrow keys to history substring search
+zmodload zsh/terminfo
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/kpatino/.zshrc'
+
+zstyle ':completion:*' menu select
+zmodload zsh/complist
 
 autoload -Uz compinit
 compinit
@@ -80,18 +88,10 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 ## Alias section 
-alias df='df -h'                                                # Human-readable sizes
-alias free='free -m'                                            # Show sizes in MB
 alias ls='exa --icons'                                          # exa remap
-alias la='exa -ah --icons'                                      # Human-readable sizes 
-alias ll='exa -lh --icons'                                      # Human-readable sizes
-alias lsa='exa -alh --icons'
 alias wttr='curl -s wttr.in | head -7'
 alias yt-dl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
 alias mp3-dl="youtube-dl --extract-audio --audio-format"
 alias vi='vim'
 alias ra='ranger'
 alias removeorphans='paru -Rs $(paru -Qqtd)'
-alias update='paru'
-alias install='paru -Syu'
-alias remove='paru -R'
