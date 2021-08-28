@@ -18,6 +18,8 @@ Noto Sans
 [CaskaydiaCove Nerd Font Mono](https://github.com/imaandrew/caskaydia-cove)  
 
 ## dependencies
+
+Packages
   
 - blueman
 - copyq
