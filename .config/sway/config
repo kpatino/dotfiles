@@ -36,15 +36,16 @@ font pango: NotoSans Nerd Font 14
 # Configure monitor settings
 output DP-1 mode 2560x1440@164.999Hz
 output DP-1 subpixel rgb
-output DP-1 adaptive_sync off
+output DP-1 adaptive_sync on
 output DP-1 max_render_time 1
 output * bg $background fill
 
 ### Idle configuration
 exec swayidle -w \
-         timeout 300 'swaylock -F -f -i $background' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -F -f -i $background'
+         timeout 300 "swaylock -Ffei $background" \
+         timeout 600 'swaymsg "output * dpms off"' \
+             resume 'swaymsg "output * dpms on"' \
+         before-sleep "swaylock -Ffei $background"
 
 ### Input configuration
 input "1133:16500:Logitech_G305" {
@@ -63,7 +64,7 @@ input "1133:16500:Logitech_G305" {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec "rofi -show drun"
+    bindsym $mod+d exec "rofi -modi drun -show drun -drun-show-actions"
     bindsym $mod+Shift+d exec "rofi -show run"
     
     # Drag floating windows by holding down $mod and left mouse button.
@@ -206,11 +207,29 @@ bar {
 # Run commands everytime
 #
 exec_always {
-    gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-dark"
-    gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-dark"
+    gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-dark'
+    gsettings set org.gnome.desktop.wm.preferences theme 'WhiteSur-dark'
     gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur-dark'
     gsettings set org.gnome.desktop.wm.preferences button-layout ''
 }
+
+# Cursor
+seat seat0 xcursor_theme WhiteSur-cursors 36
+seat seat0 hide_cursor 60000
+
+# Sway border
+default_border pixel 4
+gaps outer 4
+gaps inner 4
+
+# class                 border  bground text    indicator child_border
+client.focused          #202020 #242424 #ffffff #202020   #202020
+client.focused_inactive #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
+client.unfocused        #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
+client.urgent           #0e0e0e #ff453a #ffffff #ff453a   #ff453a
+client.placeholder      #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
+
+client.background       #ffffff
 
 # Audio control
 # Use pamixer to adjust volume.
@@ -231,7 +250,7 @@ bindsym $mod+Print exec 'grimshot save output - | swappy -f -'
 bindsym Alt+Print exec 'grimshot save window - | swappy -f -'
 
 # night light
-#exec wlsunset
+exec wlsunset -l 0.0 -L 0.0
 
 # gnome system monitor ctrl+esc
 bindsym ctrl+Escape exec gnome-system-monitor
@@ -249,31 +268,14 @@ exec blueman-applet
 # Backups
 exec vorta
 
-# Cursor
-seat seat0 xcursor_theme WhiteSur-cursors 36
-
 # Start corectrl at startup
 exec corectrl
-
-# Sway border
-default_border pixel 4
-gaps outer 4
-gaps inner 4
-
-# class                 border  bground text    indicator child_border
-client.focused          #202020 #242424 #ffffff #202020   #202020
-client.focused_inactive #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
-client.unfocused        #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
-client.urgent           #0e0e0e #ff453a #ffffff #ff453a   #ff453a
-client.placeholder      #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
-
-client.background       #ffffff
 
 ### Window fixes
 #
 # firefox bug things
 for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
-for_window [app_id="firefox"] adaptive_sync off
+#for_window [app_id="firefox"] adaptive_sync off
 
 # window prefrences 
 for_window [title="Archive Manager"] floating enable
