@@ -15,7 +15,8 @@
     "clock": {
         "timezone": "America/Chicago",
         "format": "{:%a %b %d  %I:%M %p}",
-        "tooltip-format": "{:%a %b %d %Y  %I:%M %p}",
+        "today-format": "<b><u>{}</u></b>",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
         "interval": 1,
         "tooltip": true  
     },
@@ -40,7 +41,7 @@
             "activated": "",
             "deactivated": ""
         },
-        "tooltip": true
+        "tooltip": false
     },
     "pulseaudio": {
         "format": "{icon} {volume}% {format_source}",
@@ -69,6 +70,6 @@
         "format": "",
         "interval": "once",
         "on-click": "rofi -modi system:$HOME/.config/rofi/config/powermenu.sh -show system",
-        "tooltip": false
+        "tooltip": false,
     }
 }
