@@ -10,7 +10,7 @@
 # Use "start", "mid" and "end" for three color gradient
 
 # Main background, empty for terminal default, need to be empty if you want transparent background
-theme[main_bg]="0E0E0E"
+theme[main_bg]=""
 
 # Main text color
 theme[main_fg]="#F2F2F2"
@@ -80,7 +80,7 @@ theme[available_mid]="#FFD60A"
 theme[available_end]="#FFE014"
 
 # Mem/Disk used meter
-theme[used_start]="#F53126"
+theme[used_start]="#FF3126"
 theme[used_mid]="#FF453A"
 theme[used_end]="#FF4F44"
 
