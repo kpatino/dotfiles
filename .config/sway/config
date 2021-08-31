@@ -36,7 +36,7 @@ font pango: NotoSans Nerd Font 14
 # Configure monitor settings
 output DP-1 mode 2560x1440@164.999Hz
 output DP-1 subpixel rgb
-output DP-1 adaptive_sync on
+output DP-1 adaptive_sync off
 output DP-1 max_render_time 1
 output * bg $background fill
 
@@ -64,8 +64,8 @@ input "1133:16500:Logitech_G305" {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec "rofi -modi drun -show drun -drun-show-actions"
-    bindsym $mod+Shift+d exec "rofi -show run"
+    bindsym $mod+d exec "rofi -theme monterey -modi drun -show drun -drun-show-actions"
+    bindsym $mod+Shift+d exec "rofi -theme monterey -show run"
     
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -78,10 +78,10 @@ input "1133:16500:Logitech_G305" {
     bindsym $mod+Shift+c reload
 
     # Power menu
-    bindsym $mod+Shift+e exec rofi -modi system:$HOME/.config/rofi/config/powermenu.sh -show system
+    bindsym $mod+Shift+e exec rofi -theme monterey -modi system:$HOME/.config/rofi/powermenu.sh -show system
 
     # Power menu
-    bindsym Ctrl+Alt+Delete exec rofi -modi system:$HOME/.config/rofi/config/powermenu.sh -show system 
+    bindsym Ctrl+Alt+Delete exec rofi -theme monterey -modi system:$HOME/.config/rofi/powermenu.sh -show system 
 
 #
 # Moving around:

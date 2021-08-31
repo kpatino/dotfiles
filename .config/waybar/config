@@ -69,7 +69,7 @@
     "custom/power": {
         "format": "",
         "interval": "once",
-        "on-click": "rofi -modi system:$HOME/.config/rofi/config/powermenu.sh -show system",
+        "on-click": "rofi -theme monterey -modi system:$HOME/.config/rofi/powermenu.sh -show system",
         "tooltip": false,
     }
 }

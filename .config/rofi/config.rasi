@@ -10,6 +10,6 @@ configuration {
   sidebar-mode: false;
   font:"NotoSans Nerd Font 16";
 }
-@import "~/.config/rofi/config/monterey.rasi"
+@import "~/.config/rofi/monterey.rasi"
 
 /* vim:ft=css
