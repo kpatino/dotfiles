@@ -49,7 +49,8 @@ exec swayidle -w \
 
 ### Input configuration
 input "1133:16500:Logitech_G305" {
-    accel_profile "flat"    
+    accel_profile "flat"
+    scroll_factor 1.0
     pointer_accel 0
 }
 
@@ -208,8 +209,8 @@ bar {
 #
 exec_always {
     gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-dark'
-    gsettings set org.gnome.desktop.wm.preferences theme 'WhiteSur-dark'
     gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur-dark'
+    gsettings set org.gnome.desktop.wm.preferences theme 'WhiteSur-dark'
     gsettings set org.gnome.desktop.wm.preferences button-layout ''
 }
 
@@ -241,8 +242,11 @@ bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo
 # Audio player control
 
 bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioForward exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioRewind exec playerctl previous
 
 # Windows 10 screenshot shortcuts
 bindsym $mod+Shift+s exec 'grimshot save area - | swappy -f -'
@@ -285,7 +289,12 @@ for_window [title="Calculator"] floating enable
 for_window [title="System Monitor"] floating enable, resize set height 1280px width 960px
 for_window [title="Network Connections"] floating enable
 for_window [title="Volume Control"] floating enable
-
+for_window [title="Picture in picture"] floating enable
+for_window [title="Picture-in-Picture"] floating enable
+for_window [title="Friends List"] floating enable
 for_window [app_id="copyq"] floating enable, sticky enable, resize set height 600px width 550px, move position cursor, move down 330
+
+# detect if running in xwayland
+#for_window [shell=".*"] title_format "%title : %shell"
 
 include @sysconfdir@/sway/config.d/*
