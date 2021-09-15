@@ -1,22 +1,11 @@
 # Read `man 5 sway` for a complete reference.
 
-### Services that need to be executed first
-# GTK 20 second fix from swaywm wiki
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-
-# Gnome policy kit authentication agent
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
-
-# Wob socket for volume
-set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color '#0E0E0ECC' --bar-color '#BF5AF2FF' --overflow-bar-color '#FF453AFF'
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+# Alt key. In case you prefer Alt for $mod
+set $alt Alt
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -25,33 +14,52 @@ set $right l
 # Your preferred terminal emulator
 set $term foot
 # Your preferred application launcher
-set $menu wofi
-# Background image path
-set $background '~/Pictures/Saved Pictures/Wallpapers/Landscapes/macos-monterey.jpeg'
-# Set font
-font pango: NotoSans Nerd Font 14
+set $menu rofi -theme monterey
+# Your preferred background image
+set $wallpaper '~/Pictures/Saved Pictures/Wallpapers/Landscapes/macos-monterey.jpeg'
+# Your preferred Font name
+set $font NotoSans Nerd Font
+# Lock command
+set $lock swaylock -Fflei $wallpaper --font $font --inside-color 0e0e0ecc
+# Wob socket for volume
+set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
+
+### Run critical services
+#
+# GTK 20 second fix from swaywm wiki
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# Gnome policy kit authentication agent
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# Wob for volume control. yes this is critical
+exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color '#0E0E0ECC' --bar-color '#BF5AF2FF' --overflow-bar-color '#FF453AFF'
 
 ### Output configuration
 #
-# Configure monitor settings
-output DP-1 mode 2560x1440@164.999Hz
-output DP-1 subpixel rgb
-output DP-1 adaptive_sync off
-output DP-1 max_render_time 1
-output * bg $background fill
+# Configure background for all monitors
+output * bg $wallpaper fill
+# Configure DP-1 monitor settings
+output DP-1 {
+    mode 2560x1440@164.999Hz
+    subpixel rgb
+    max_render_time 1
+    adaptive_sync off
+}
 
 ### Idle configuration
+#
 exec swayidle -w \
-         timeout 300 "swaylock -Ffei $background" \
+         timeout 300 $lock \
          timeout 600 'swaymsg "output * dpms off"' \
              resume 'swaymsg "output * dpms on"' \
-         before-sleep "swaylock -Ffei $background"
+         before-sleep $lock
 
 ### Input configuration
+#
 input "1133:16500:Logitech_G305" {
     accel_profile "flat"
-    scroll_factor 1.0
     pointer_accel 0
+    scroll_factor 1.0
 }
 
 ### Key bindings
@@ -65,9 +73,9 @@ input "1133:16500:Logitech_G305" {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec "rofi -theme monterey -modi drun -show drun -drun-show-actions"
-    bindsym $mod+Shift+d exec "rofi -theme monterey -show run"
-    
+    bindsym $mod+d exec $menu -modi drun -show drun -drun-show-actions
+    bindsym $mod+Shift+d exec $menu -show run
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -79,10 +87,10 @@ input "1133:16500:Logitech_G305" {
     bindsym $mod+Shift+c reload
 
     # Power menu
-    bindsym $mod+Shift+e exec rofi -theme monterey -modi system:$HOME/.config/rofi/powermenu.sh -show system
+    bindsym $mod+Shift+e exec $menu -modi system:$HOME/.config/rofi/powermenu.sh -show system
 
     # Power menu
-    bindsym Ctrl+Alt+Delete exec rofi -theme monterey -modi system:$HOME/.config/rofi/powermenu.sh -show system 
+    bindsym Ctrl+$alt+Delete exec $menu -modi system:$HOME/.config/rofi/powermenu.sh -show system
 
 #
 # Moving around:
@@ -196,16 +204,51 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-
 #
-# Status Bar:
+# Custom binds:
+#
+   # Use pamixer to adjust volume
+   bindsym XF86AudioRaiseVolume exec pamixer -ui 1 && pamixer --get-volume > $WOBSOCK
+   bindsym XF86AudioLowerVolume exec pamixer -ud 1 && pamixer --get-volume > $WOBSOCK
+   bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
+   # Use playerctl to control media
+   bindsym XF86AudioPlay exec playerctl play-pause
+   bindsym XF86AudioStop exec playerctl stop
+   bindsym XF86AudioNext exec playerctl next
+   bindsym XF86AudioPrev exec playerctl previous
+   bindsym XF86AudioForward exec playerctl position 5+
+   bindsym XF86AudioRewind exec playerctl position 5-
+   # Windows screenshot shortcuts
+   bindsym $mod+Shift+s exec grimshot save area - | swappy -f -
+   bindsym $mod+Print exec grimshot save output - | swappy -f -
+   bindsym $alt+Print exec grimshot save window - | swappy -f -
+   # Windows clipboard shortcut
+   bindsym $mod+v exec copyq toggle
+   # Windows task manager/gnome system monitor
+   bindsym ctrl+Shift+Escape exec gnome-system-monitor
+   # Color picker
+   bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
+
+### Status Bar:
 #
 bar {
     swaybar_command waybar
 }
 
+### Run non-critical applications/services on startup
 #
-# Run commands everytime
+# Bluetooth
+exec blueman-applet
+# Backups
+exec vorta
+# Start corectrl at startup
+exec corectrl
+# Clipboard menu
+exec copyq --start-server
+# Night light
+exec wlsunset -l 0.0 -L 0.0
+
+### Run commands everytime
 #
 exec_always {
     gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-dark'
@@ -214,74 +257,36 @@ exec_always {
     gsettings set org.gnome.desktop.wm.preferences button-layout ''
 }
 
-# Cursor
+### Cursor settings
 seat seat0 xcursor_theme WhiteSur-cursors 36
 seat seat0 hide_cursor 60000
 
-# Sway border
-default_border pixel 4
-gaps outer 4
-gaps inner 4
-
-# class                 border  bground text    indicator child_border
-client.focused          #202020 #242424 #ffffff #202020   #202020
-client.focused_inactive #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
-client.unfocused        #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
-client.urgent           #0e0e0e #ff453a #ffffff #ff453a   #ff453a
-client.placeholder      #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
-
-client.background       #ffffff
-
-# Audio control
-# Use pamixer to adjust volume.
-
-bindsym XF86AudioRaiseVolume exec pamixer -ui 1 && pamixer --get-volume > $WOBSOCK
-bindsym XF86AudioLowerVolume exec pamixer -ud 1 && pamixer --get-volume > $WOBSOCK
-bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
-
-# Audio player control
-
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioStop exec playerctl stop
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioForward exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioRewind exec playerctl previous
-
-# Windows 10 screenshot shortcuts
-bindsym $mod+Shift+s exec 'grimshot save area - | swappy -f -'
-bindsym $mod+Print exec 'grimshot save output - | swappy -f -'
-bindsym Alt+Print exec 'grimshot save window - | swappy -f -'
-
-# night light
-exec wlsunset -l 0.0 -L 0.0
-
-# gnome system monitor ctrl+esc
-bindsym ctrl+Escape exec gnome-system-monitor
-
-# clipboard menu
-exec copyq
-bindsym $mod+v exec copyq toggle
-
-# Color picker
-bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy 
-
-# Bluetooth
-exec blueman-applet
-
-# Backups
-exec vorta
-
-# Start corectrl at startup
-exec corectrl
-
-### Window fixes
+### Sway window behavior and looks
 #
-# firefox bug things
+# Sway border rules:
+#
+    default_border pixel 4
+    gaps outer 4
+    gaps inner 4
+#
+# Sway client color definitions:
+#
+    # class                 border  bground text    indicator child_border
+    client.focused          #202020 #242424 #ffffff #202020   #202020
+    client.focused_inactive #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
+    client.unfocused        #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
+    client.urgent           #0e0e0e #ff453a #ffffff #ff453a   #ff453a
+    client.placeholder      #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
+    client.background       #ffffff
+#
+# Set font
+#
+font pango: $font 14
+
+### Window rules
+#
 for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
 #for_window [app_id="firefox"] adaptive_sync off
-
-# window prefrences 
 for_window [title="Archive Manager"] floating enable
 for_window [title="blueman"] floating enable
 for_window [title="Bluetooth Devices"] floating enable
@@ -291,10 +296,10 @@ for_window [title="Network Connections"] floating enable
 for_window [title="Volume Control"] floating enable
 for_window [title="Picture in picture"] floating enable
 for_window [title="Picture-in-Picture"] floating enable
+for_window [app_id="copyq"] floating enable, sticky enable, resize set height 800px width 600px, move position cursor, move down 330
+# Steam friends list
 for_window [title="Friends List"] floating enable
-for_window [app_id="copyq"] floating enable, sticky enable, resize set height 600px width 550px, move position cursor, move down 330
-
-# detect if running in xwayland
+# Add xwayland to xwayland windows
 #for_window [shell=".*"] title_format "%title : %shell"
 
 include @sysconfdir@/sway/config.d/*
