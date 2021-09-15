@@ -1,5 +1,16 @@
 # Read `man 5 sway` for a complete reference.
 
+### Run critical services
+#
+# GTK 20 second fix from swaywm wiki
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# Gnome policy kit authentication agent
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# Wob for volume control. yes this is critical
+set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
+exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color '#0E0E0ECC' --bar-color '#BF5AF2FF' --overflow-bar-color '#FF453AFF'
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -21,18 +32,6 @@ set $wallpaper '~/Pictures/Saved Pictures/Wallpapers/Landscapes/macos-monterey.j
 set $font NotoSans Nerd Font
 # Lock command
 set $lock swaylock -Fflei $wallpaper --font $font --inside-color 0e0e0ecc
-# Wob socket for volume
-set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-
-### Run critical services
-#
-# GTK 20 second fix from swaywm wiki
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-# Gnome policy kit authentication agent
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# Wob for volume control. yes this is critical
-exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color '#0E0E0ECC' --bar-color '#BF5AF2FF' --overflow-bar-color '#FF453AFF'
 
 ### Output configuration
 #
@@ -239,9 +238,9 @@ bar {
 #
 # Bluetooth
 exec blueman-applet
-# Backups
+# Borg backups
 exec vorta
-# Start corectrl at startup
+# Radeon WattMan Linux alternative
 exec corectrl
 # Clipboard menu
 exec copyq --start-server
@@ -281,7 +280,7 @@ seat seat0 hide_cursor 60000
 #
 # Set font
 #
-font pango: $font 14
+    font pango: $font 14
 
 ### Window rules
 #
