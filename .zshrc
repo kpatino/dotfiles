@@ -78,7 +78,7 @@ zstyle :compinstall filename '/home/kpatino/.zshrc'
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 
-autoload -Uz compinit
+autoload -Uz compinit 
 compinit
 
 # End of lines added by compinstall
@@ -95,3 +95,5 @@ alias mp3-dl="youtube-dl --extract-audio --audio-format"
 alias vi='vim'
 alias ra='ranger'
 alias removeorphans='paru -Rs $(paru -Qqtd)'
+alias wlcopy='wl-copy'
+alias wlpaste='wl-paste'
