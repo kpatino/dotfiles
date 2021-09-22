@@ -271,7 +271,7 @@ seat seat0 hide_cursor 60000
 # Sway client color definitions:
 #
     # class                 border  bground text    indicator child_border
-    client.focused          #202020 #242424 #ffffff #202020   #202020
+    client.focused          #232323 #242424 #ffffff #232323   #232323
     client.focused_inactive #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
     client.unfocused        #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
     client.urgent           #0e0e0e #ff453a #ffffff #ff453a   #ff453a
