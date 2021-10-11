@@ -28,10 +28,14 @@ Packages
 - grimshot
 - mako
 - noto-fonts
+- pamixer
+- playerctl
 - polkit-gnome
 - rofi
 - slurp
 - sway
+- swaybg
+- swayidle
 - swaylock
 - waybar
 - wl-clipboard
@@ -48,6 +52,7 @@ AUR packages
 - swappy
 - vorta
 - waybar-mpris-git
+- wlsunset
 - wob
 - zsh-theme-powerlevel10k-git
 
@@ -55,10 +60,10 @@ AUR packages
 
 GTK Theme: [WhiteSur by vinceliuice](https://github.com/vinceliuice/WhiteSur-gtk-theme)  
 KDE/QT Theme: [WhiteSur by vinceliuice](https://github.com/vinceliuice/WhiteSur-kde)  
-Icon Theme: [WhiteSur by vinceliuice](https://github.com/vinceliuice/WhiteSur-icon-theme)  
+Icon Theme: [Cutefish icons](https://github.com/cutefishos/icons)  
 Cursor: [WhiteSur-cursors by vinceliuice](https://github.com/vinceliuice/WhiteSur-cursors)
 
-Note: To apply the QT theme you'll need something like qt5ct and kvantum.
+Notes: To apply the QT theme you'll need something like qt5ct and kvantum. Gnome Tweaks can be used to change the default font and size.
 
 ## misc
 
