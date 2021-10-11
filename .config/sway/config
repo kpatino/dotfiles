@@ -31,7 +31,7 @@ set $wallpaper "~/Pictures/Saved Pictures/Wallpapers/Landscapes/macos-monterey.j
 # Your preferred Font name
 set $font NotoSans Nerd Font
 # Lock command
-set $lock swaylock -Fflei $wallpaper --font $font --inside-color 0e0e0ecc
+set $lock swaylock -Fflei $wallpaper
 
 ### Output configuration
 #
@@ -47,11 +47,11 @@ output DP-1 {
 
 ### Idle configuration
 #
-exec swayidle -w \
-         timeout 300 $lock \
-         timeout 600 'swaymsg "output * dpms off"' \
-             resume 'swaymsg "output * dpms on"' \
-         before-sleep $lock
+exec swayidle -w -d \
+        timeout 300 '$lock; makoctl set-mode away' \
+        timeout 600 'swaymsg "output * dpms off"' \
+            resume 'swaymsg "output * dpms on"; makoctl set-mode default' \
+        before-sleep '$lock; makoctl set-mode away' \
 
 ### Input configuration
 #

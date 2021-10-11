@@ -30,3 +30,7 @@ group-by=category
 
 [category=spotify]
 group-by=category
+
+[mode=away]
+default-timeout=0
+ignore-timeout=1
