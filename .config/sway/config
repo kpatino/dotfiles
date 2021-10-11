@@ -31,7 +31,7 @@ set $wallpaper "~/Pictures/Saved Pictures/Wallpapers/Landscapes/macos-monterey.j
 # Your preferred Font name
 set $font NotoSans Nerd Font
 # Lock command
-set $lock swaylock swaylock --config -i $wallpaper
+set $lock swaylock --config -i $wallpaper
 
 ### Output configuration
 #
