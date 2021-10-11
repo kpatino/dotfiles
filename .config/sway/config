@@ -9,7 +9,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activati
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Wob for volume control. yes this is critical
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color '#0E0E0ECC' --bar-color '#BF5AF2FF' --overflow-bar-color '#FF453AFF'
+exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color "#0E0E0ECC" --bar-color "#BF5AF2FF" --overflow-bar-color "#FF453AFF"
 
 ### Variables
 #
@@ -26,8 +26,8 @@ set $right l
 set $term foot
 # Your preferred application launcher
 set $menu rofi -theme monterey
-# Your preferred background image
-set $wallpaper '~/Pictures/Saved Pictures/Wallpapers/Landscapes/macos-monterey.jpeg'
+# Your preferred background image, must use double quotes for wallpaper
+set $wallpaper "~/Pictures/Saved Pictures/Wallpapers/Landscapes/macos-monterey.jpeg"
 # Your preferred Font name
 set $font NotoSans Nerd Font
 # Lock command
@@ -226,7 +226,7 @@ bindsym $mod+r mode "resize"
    # Windows task manager/gnome system monitor
    bindsym ctrl+Shift+Escape exec gnome-system-monitor
    # Color picker
-   bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
+   bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format "%[pixel:p{0,0}]" txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
 
 ### Status Bar:
 #
@@ -250,10 +250,10 @@ exec wlsunset -l 0.0 -L 0.0
 ### Run commands everytime
 #
 exec_always {
-    gsettings set org.gnome.desktop.interface gtk-theme 'WhiteSur-dark'
-    gsettings set org.gnome.desktop.interface icon-theme 'WhiteSur-dark'
-    gsettings set org.gnome.desktop.wm.preferences theme 'WhiteSur-dark'
-    gsettings set org.gnome.desktop.wm.preferences button-layout ''
+    gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-dark"
+    gsettings set org.gnome.desktop.interface icon-theme "Crule-dark"
+    gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-dark"
+    gsettings set org.gnome.desktop.wm.preferences button-layout ""
 }
 
 ### Cursor settings
