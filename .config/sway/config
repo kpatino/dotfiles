@@ -296,9 +296,22 @@ for_window [title="Volume Control"] floating enable
 for_window [title="Picture in picture"] floating enable
 for_window [title="Picture-in-Picture"] floating enable
 for_window [app_id="copyq"] floating enable, sticky enable, resize set height 800px width 600px, move position cursor, move down 330
-# Steam friends list
-for_window [title="Friends List"] floating enable
+for_window [app_id="pavucontrol"] floating enable
+
 # Add xwayland to xwayland windows
 #for_window [shell=".*"] title_format "%title : %shell"
+
+# Personal Gnome app fixes
+for_window {
+    [title="Archive Manager"] floating enable
+    [title="Calculator"] floating enable
+    [title="System Monitor"] floating enable, resize set height 1280px width 960px
+}
+
+# Personal Steam fixes
+for_window {
+    [title="Steam Guard"] floating enable
+    [title="Friends List"] floating enable
+}
 
 include @sysconfdir@/sway/config.d/*
