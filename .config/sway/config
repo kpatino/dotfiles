@@ -72,7 +72,7 @@ input "1133:16500:Logitech_G305" {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu -modi drun -show drun -drun-show-actions
+    bindsym $mod+d exec $menu -modi drun -show drun
     bindsym $mod+Shift+d exec $menu -show run
 
     # Drag floating windows by holding down $mod and left mouse button.
