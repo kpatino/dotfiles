@@ -3,7 +3,7 @@
 if [[ -n $@ ]]; then
 	case $1 in
 		'Lock')
-			swaylock -Ffei '~/Pictures/Saved Pictures/Wallpapers/Landscapes/macos-monterey.jpeg';;
+			swaylock --config $XDG_CONFIG_HOME/swaylock/config -i "~/Pictures/Saved Pictures/Wallpapers/Landscapes/macos-monterey.jpeg";;
 		'Logout')
 			loginctl terminate-user $USER;;
 		'Poweroff')
