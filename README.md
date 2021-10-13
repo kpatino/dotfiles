@@ -60,7 +60,7 @@ AUR packages
 
 GTK Theme: [WhiteSur by vinceliuice](https://github.com/vinceliuice/WhiteSur-gtk-theme)  
 KDE/QT Theme: [WhiteSur by vinceliuice](https://github.com/vinceliuice/WhiteSur-kde)  
-Icon Theme: [Cutefish icons](https://github.com/cutefishos/icons)  
+Icon Theme: [WhiteSur by vinceliuice](https://github.com/vinceliuice/WhiteSur-icon-theme)  
 Cursor: [WhiteSur-cursors by vinceliuice](https://github.com/vinceliuice/WhiteSur-cursors)
 
 Notes: To apply the QT theme you'll need something like qt5ct and kvantum. Gnome Tweaks can be used to change the default font and size.
