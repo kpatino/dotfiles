@@ -14,8 +14,8 @@ window {
   border: 4;
   border-color: #202020;
   padding: 16 16 0 16;
-  width: 30%;
-  height: 50%;
+  width: 768;
+  height: 720;
 }
 
 mainbox {

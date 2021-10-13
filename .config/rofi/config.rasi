@@ -2,14 +2,12 @@ configuration {
   show-icons: true;
   icon-theme: "WhiteSur-dark";
   display-drun: "";
+  display-run: "";
   location: 0;
-  fake-transparency: false;
-  hide-scrollbar: false;
-  bw: 0;
   terminal: "foot";
   sidebar-mode: false;
   font:"NotoSans Nerd Font 16";
+  theme:"monterey";
 }
-@import "~/.config/rofi/monterey.rasi"
 
 /* vim:ft=css
