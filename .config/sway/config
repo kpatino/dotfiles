@@ -238,8 +238,6 @@ bar {
 
 ### Run non-critical applications/services on startup
 #
-# Bluetooth
-exec blueman-applet
 # Borg backups
 exec vorta
 # Radeon WattMan Linux alternative
@@ -253,9 +251,11 @@ exec wlsunset -l 0.0 -L 0.0
 #
 exec_always {
     gsettings set org.gnome.desktop.interface gtk-theme "WhiteSur-dark"
-    gsettings set org.gnome.desktop.interface icon-theme "Crule-dark"
+    gsettings set org.gnome.desktop.interface icon-theme "WhiteSur-dark"
     gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-dark"
-    gsettings set org.gnome.desktop.wm.preferences button-layout ""
+    gsettings set org.gnome.desktop.wm.preferences button-layout ":close"
+    gsettings set org.gnome.desktop.interface cursor-theme "WhiteSur-cursors"
+    gsettings set org.gnome.desktop.interface cursor-size 36
 }
 
 ### Cursor settings
@@ -286,28 +286,31 @@ seat seat0 hide_cursor 60000
 
 ### Window rules
 #
-for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
-for_window [title="blueman"] floating enable
-for_window [title="Bluetooth Devices"] floating enable
-for_window [title="Picture in picture"] floating enable
-for_window [title="Picture-in-Picture"] floating enable
+for_window [app_id="blueberry"] floating enable
 for_window [app_id="copyq"] floating enable, sticky enable, resize set height 800px width 600px, move position cursor, move down 330
 for_window [app_id="pavucontrol"] floating enable
 
-# Add xwayland to xwayland windows
-#for_window [shell=".*"] title_format "%title : %shell"
+# Are you runing natively or through xwayland?
+for_window [shell=".*"] title_format "%title : %shell"
+
+# Personal Firefox fixes
+for_window {
+    [title="\ -\ Sharing\ Indicator$" app_id="firefox"] floating enable, sticky enable
+    [title="Picture in picture" app_id="firefox"] floating enable, sticky enable
+    [title="Picture-in-Picture" app_id="firefox"] floating enable, sticky enable
+}
 
 # Personal Gnome app fixes
 for_window {
-    [title="Archive Manager"] floating enable
-    [title="Calculator"] floating enable
-    [title="System Monitor"] floating enable, resize set height 1280px width 960px
+    [app_id="file-roller"] floating enable
+    [app_id="gnome-calculator"] floating enable
+    [app_id="gnome-system-monitor"] floating enable, resize set height 1280px width 960px
 }
 
 # Personal Steam fixes
 for_window {
-    [title="Steam Guard"] floating enable
-    [title="Friends List"] floating enable
+    [title="Steam Guard" app_id="steam"] floating enable
+    [title="Friends List" app_id="steam"] floating enable
 }
 
 include @sysconfdir@/sway/config.d/*
