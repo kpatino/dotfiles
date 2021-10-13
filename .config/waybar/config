@@ -1,10 +1,10 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 40, // Waybar height (to be removed for auto height)
+    "layer": "top",
+    "position": "top",
+    "height": 40,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/waybar-mpris", "tray", "pulseaudio", "idle_inhibitor", "custom/power"],
+    "modules-right": ["custom/waybar-mpris", "tray", "pulseaudio", "bluetooth", "network", "idle_inhibitor", "custom/power"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -12,48 +12,34 @@
         "format": "{}",
         "max-length": 60
     },
-    "clock": {
-        "timezone": "America/Chicago",
-        "format": "{:%a %b %d  %I:%M %p}",
-        "today-format": "<b><u>{}</u></b>",
-        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-        "interval": 1,
-        "tooltip": true  
-    },
-    "custom/waybar-mpris": {
-        "return-type": "json",
-        "exec": "waybar-mpris --position --autofocus --interpolate --play \uf04b --pause \uf04c --order 'SYMBOL:ARTIST:TITLE:POSITION'",
-        "on-click": "waybar-mpris --send toggle",
-        // This option will switch between players on right click.
-        "on-click-right": "waybar-mpris --send player-next",
-        // The options below will switch the selected player on scroll
-        // "on-scroll-up": "waybar-mpris --send player-next",
-        // "on-scroll-down": "waybar-mpris --send player-prev",
-        // The options below will go to next/previous track on scroll
-        "on-scroll-up": "waybar-mpris --send next",
-        "on-scroll-down": "waybar-mpris --send prev",
-        "escape": true,
-        "max-length": 60
-    },
-    "idle_inhibitor": {
+    "bluetooth": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "enabled": "",
+            "disabled": ""
         },
-        "tooltip": false
+        "on-click": "blueberry",
+        "tooltip":true
+    },
+    "clock": {
+        "timezone": "America/Chicago",
+        "format": "{:%a %b %d   %I:%M %p}  ",
+        "today-format": "<b><u>{}</u></b>",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "interval": 60,
+        "tooltip": true  
     },
     "pulseaudio": {
         "format": "{icon} {volume}% {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
+        "format-bluetooth": "{icon} {volume}%  {format_source}",
+        "format-bluetooth-muted": " {icon}  {format_source}",
+        "format-muted": " {format_source}",
         "format-source": "",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
-            "headset": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
@@ -61,6 +47,26 @@
         },
         "scroll-step": 1,
         "on-click": "pavucontrol"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "tooltip": true
+    },
+    "network": {
+        "format": "",
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "",
+        "tooltip-format": "{ifname} {ipaddr}/{cidr}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) {ipaddr}/{cidr}",
+        "tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr}",
+        "tooltip-format-disconnected": "{ifname} Disconnected",
+        "max-length": 50,
+        "interval": 60
     },
     "tray": {
         "icon-size": 22,
@@ -70,6 +76,17 @@
         "format": "",
         "interval": "once",
         "on-click": "rofi -theme monterey -modi system:$HOME/.config/rofi/powermenu.sh -show system",
-        "tooltip": false,
+        "on-click-right": "makoctl restore",
+        "tooltip": false
+    },
+    "custom/waybar-mpris": {
+        "return-type": "json",
+        "exec": "waybar-mpris --position --autofocus --interpolate --play \uf04b --pause \uf04c --order 'SYMBOL:ARTIST:TITLE:POSITION'",
+        "on-click": "waybar-mpris --send toggle",
+        "on-click-right": "waybar-mpris --send player-next",
+        "on-scroll-up": "waybar-mpris --send next",
+        "on-scroll-down": "waybar-mpris --send prev",
+        "escape": true,
+        "max-length": 60
     }
 }
