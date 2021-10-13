@@ -48,11 +48,12 @@ output DP-1 {
 
 ### Idle configuration
 #
-exec swayidle -w -d \
+exec swayidle -w \
         timeout 300 '$lock; makoctl set-mode away' \
+            resume 'makoctl set-mode default' \
         timeout 600 'swaymsg "output * dpms off"' \
             resume 'swaymsg "output * dpms on"; makoctl set-mode default' \
-        before-sleep '$lock; makoctl set-mode away' \
+        before-sleep '$lock' \
 
 ### Input configuration
 #
