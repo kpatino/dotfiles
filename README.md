@@ -21,7 +21,7 @@ Noto Sans
 
 Packages
   
-- blueman
+- blueberry
 - copyq
 - gnome-system-monitor
 - grim
