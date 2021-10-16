@@ -26,12 +26,10 @@ Packages
 - gnome-system-monitor
 - grim
 - grimshot
-- mako
 - noto-fonts
 - pamixer
 - playerctl
 - polkit-gnome
-- rofi
 - slurp
 - sway
 - swaybg
@@ -49,6 +47,8 @@ AUR packages
 
 - corectrl
 - foot
+- mako-git
+- rofi-lbonn-wayland-git
 - swappy
 - vorta
 - waybar-mpris-git
