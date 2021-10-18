@@ -8,19 +8,19 @@ border-size=3
 font=Noto Sans 16
 default-timeout=3000
 ignore-timeout=0
-background-color=#0e0e0ecc
-text-color=#ffffff
-progress-color=source #bf5af2
+background-color=#0E0E0ECC
+text-color=#FEFEFE
+progress-color=source #BF5AF2
 markup=1
 
 [urgency=low]
-border-color=#242424fa
+border-color=#28282DFA
 
 [urgency=normal]
-border-color=#242424fa
+border-color=#28282DFA
 
 [urgency=high]
-border-color=#ff453afa
+border-color=#FF453AFA
 default-timeout=0
 ignore-timeout=0
 

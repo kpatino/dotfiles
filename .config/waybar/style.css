@@ -56,7 +56,7 @@ window#waybar {
 }
 
 #bluetooth {
-    box-shadow: inset 0 -3px #5E5CE6;
+    box-shadow: inset 0 -3px #0A84FF;
 }
 
 #idle_inhibitor {
@@ -72,11 +72,11 @@ window#waybar {
 }
 
 #pulseaudio {
-    box-shadow: inset 0 -3px #BF5AF2;
+    box-shadow: inset 0 -3px #5E5CE6;
 }
 
 #tray {
-    box-shadow: inset 0 -3px #0a84ff;
+    box-shadow: inset 0 -3px #BF5AF2;
 }
 
 #custom-power {

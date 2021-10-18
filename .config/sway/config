@@ -9,7 +9,9 @@ exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activati
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Wob for volume control. yes this is critical
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color "#0E0E0ECC" --bar-color "#BF5AF2FF" --overflow-bar-color "#FF453AFF"
+exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color "#0E0E0ECC" --bar-color "#5E5CE6FF" --overflow-bar-color "#FF453AFF"
+# Start notification daemon, letting dbus start mako makes cursor small when hovering over it
+exec mako
 
 ### Variables
 #
@@ -41,7 +43,7 @@ output * bg $wallpaper fill
 # Adaptive sync causes flickering on my VG27A during normal use but not noticeable during gaming
 output DP-1 {
     mode 2560x1440@164.999Hz
-    subpixel rgb
+    #subpixel rgb
     max_render_time 1
     adaptive_sync off
 }
@@ -254,8 +256,6 @@ exec_always {
     gsettings set org.gnome.desktop.interface icon-theme "WhiteSur-dark"
     gsettings set org.gnome.desktop.wm.preferences theme "WhiteSur-dark"
     gsettings set org.gnome.desktop.wm.preferences button-layout ":close"
-    gsettings set org.gnome.desktop.interface cursor-theme "WhiteSur-cursors"
-    gsettings set org.gnome.desktop.interface cursor-size 36
 }
 
 ### Cursor settings
@@ -273,12 +273,12 @@ seat seat0 hide_cursor 60000
 # Sway client color definitions:
 #
     # class                 border  bground text    indicator child_border
-    client.focused          #232323 #242424 #ffffff #232323   #232323
-    client.focused_inactive #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
-    client.unfocused        #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
-    client.urgent           #0e0e0e #ff453a #ffffff #ff453a   #ff453a
-    client.placeholder      #0e0e0e #0e0e0e #ffffff #0e0e0e   #0e0e0e
-    client.background       #ffffff
+    client.focused          #282828 #282828 #FEFEFE #282828   #282828
+    client.focused_inactive #28282D #282828 #FEFEFE #282828   #282828
+    client.unfocused        #242424 #171717 #656565 #242424   #242424
+    client.urgent           #0e0e0e #ff453a #FEFEFE #ff453a   #ff453a
+    client.placeholder      #0e0e0e #0e0e0e #FEFEFE #0e0e0e   #0e0e0e
+    client.background       #FEFEFE
 #
 # Set font
 #
@@ -291,7 +291,7 @@ for_window [app_id="copyq"] floating enable, sticky enable, resize set height 80
 for_window [app_id="pavucontrol"] floating enable
 
 # Are you runing natively or through xwayland?
-for_window [shell=".*"] title_format "%title : %shell"
+#for_window [shell=".*"] title_format "%title : %shell"
 
 # Personal Firefox fixes
 for_window {
