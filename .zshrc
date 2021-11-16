@@ -1,8 +1,8 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-
-# Disabled because of foot and I don't really need it https://codeberg.org/dnkl/foot/issues/558
+# Currently disabled because foot starts too fast so it's not needed
+# https://codeberg.org/dnkl/foot/issues/558
 #if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
 #  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 #fi
@@ -14,27 +14,27 @@ HISTSIZE=9999
 SAVEHIST=9999
 ## Options section
 #setopt correct                                                 # Auto correct mistakes
+setopt appendhistory                                            # Immediately append history instead of overwriting
+setopt autocd                                                   # If only directory path is entered, cd there.
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
+setopt histfindnodups                                           # Ignore duplicates when searching
+setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
+setopt histreduceblanks                                         # Removes blank lines from history
+setopt nobeep                                                   # No beep
 setopt nocaseglob                                               # Case insensitive globbing
-setopt rcexpandparam                                            # Array expension with parameters
 setopt nocheckjobs                                              # Don't warn about running processes when exiting
 setopt numericglobsort                                          # Sort filenames numerically when it makes sense
-setopt nobeep                                                   # No beep
-setopt sharehistory                                             # Share history
-setopt appendhistory                                            # Immediately append history instead of overwriting
-setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
-setopt histfindnodups                                           # Ignore duplicates when searching
-setopt histreduceblanks                                         # Removes blank lines from history
-setopt autocd                                                   # If only directory path is entered, cd there.
 setopt prompt_subst                                             # Enable substitution for prompt
+setopt rcexpandparam                                            # Array expension with parameters
+setopt sharehistory                                             # Share history
 
 ## Plugins section: Enable fish style features
-# Use syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Use history substring search
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 # Use auto suggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Use history substring search
+source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+# Use syntax highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ## Keybindings section
 bindkey -e                                                      # Emacs keybindings 
@@ -88,12 +88,13 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 ## Alias section 
+alias cleancache='paccache -ruk0 && paccache -rk3'
 alias ls='exa --icons'                                          # exa remap
-alias wttr='curl -s wttr.in | head -7'
-alias yt-dl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
 alias mp3-dl="youtube-dl --extract-audio --audio-format"
-alias vi='vim'
 alias ra='ranger'
 alias removeorphans='paru -Rs $(paru -Qqtd)'
+alias vi='vim'
 alias wlcopy='wl-copy'
 alias wlpaste='wl-paste'
+alias wttr='curl -s wttr.in | head -7'
+alias yt-dl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
