@@ -50,11 +50,14 @@ AUR packages
 - mako-git
 - rofi-lbonn-wayland-git
 - swappy
-- vorta
 - waybar-mpris-git
 - wlsunset
 - wob
 - zsh-theme-powerlevel10k-git
+
+Flatpak packages
+
+- vorta
 
 ## themes
 
