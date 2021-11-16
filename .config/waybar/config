@@ -3,8 +3,8 @@
     "position": "top",
     "height": 40,
     "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["clock"],
-    "modules-right": ["custom/waybar-mpris", "tray", "pulseaudio", "bluetooth", "network", "idle_inhibitor", "custom/power"],
+    "modules-center": [],
+    "modules-right": ["custom/waybar-mpris", "tray", "pulseaudio", "bluetooth", "network", "idle_inhibitor", "clock"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -19,7 +19,7 @@
             "disabled": ""
         },
         "on-click": "blueberry",
-        "tooltip":true
+        "tooltip": false
     },
     "clock": {
         "timezone": "America/Chicago",
@@ -54,7 +54,7 @@
             "activated": "",
             "deactivated": ""
         },
-        "tooltip": true
+        "tooltip": false
     },
     "network": {
         "format": "",
