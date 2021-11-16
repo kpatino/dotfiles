@@ -7,7 +7,8 @@ configuration {
   terminal: "foot";
   sidebar-mode: false;
   font:"NotoSans Nerd Font 16";
-  theme:"monterey";
 }
+
+@theme "monterey"
 
 /* vim:ft=css

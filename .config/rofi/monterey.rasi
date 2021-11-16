@@ -1,7 +1,7 @@
 * {
   bg: rgba(14, 14, 14, 0.8);
-  ac: #bf5af2;
-  txt: #ffffff;
+  ac: #0860F2; /* Accent color */
+  txt: #FEFEFE; /* Text color */
 }
 
 * {
@@ -14,8 +14,8 @@ window {
   border: 4;
   border-color: #202020;
   padding: 16 16 0 16;
-  width: 768;
-  height: 720;
+  width: 768; /* 30% of the monitor's width */
+  height: 720; /* 50% of the monitor's height */
 }
 
 mainbox {
