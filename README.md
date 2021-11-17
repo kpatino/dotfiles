@@ -1,4 +1,5 @@
 # kevin's dotfiles
+i think my config goes hard feel free to copy
 
 ## info
 
