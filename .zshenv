@@ -35,7 +35,8 @@ export ECORE_EVAS_ENGINE=wayland-egl
 export ELM_ENGINE=wayland_egl
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland
-export SDL_VIDEODRIVER=wayland
+# TF2 doesn't like this option, may also affect other source games
+#export SDL_VIDEODRIVER=wayland
 # https://wiki.archlinux.org/title/Firefox#Applications_on_Wayland_can_not_launch_Firefox
 export MOZ_DBUS_REMOTE=1
 # https://github.com/swaywm/sway/wiki#disabling-client-side-qt-decorations
