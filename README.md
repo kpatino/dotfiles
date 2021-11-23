@@ -18,12 +18,15 @@ Noto Sans
 [NotoSans Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Noto/Sans/complete)  
 [CaskaydiaCove Nerd Font Mono](https://github.com/imaandrew/caskaydia-cove)  
 
-## dependencies
+## dependencies being used
 
 Packages
   
+- bat
 - blueberry
 - copyq
+- exa
+- gnome-keyring
 - gnome-system-monitor
 - grim
 - grimshot
@@ -31,6 +34,7 @@ Packages
 - pamixer
 - playerctl
 - polkit-gnome
+- seahorse
 - slurp
 - sway
 - swaybg
@@ -67,7 +71,7 @@ KDE/QT Theme: [WhiteSur by vinceliuice](https://github.com/vinceliuice/WhiteSur-
 Icon Theme: [WhiteSur by vinceliuice](https://github.com/vinceliuice/WhiteSur-icon-theme)  
 Cursor: [WhiteSur-cursors by vinceliuice](https://github.com/vinceliuice/WhiteSur-cursors)
 
-Notes: To apply the QT theme you'll need something like qt5ct and kvantum. Gnome Tweaks can be used to change the default font and size.
+Notes: To apply the QT theme you'll need qt5ct and kvantum. Gnome Tweaks can be used to change the default font and size.
 
 ## misc
 
