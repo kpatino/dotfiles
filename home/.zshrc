@@ -1,11 +1,10 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-# Currently disabled because foot starts too fast so it's not needed
 # https://codeberg.org/dnkl/foot/issues/558
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 #
 
 # Lines configured by zsh-newuser-install
@@ -96,5 +95,4 @@ alias removeorphans='paru -Rs $(paru -Qqtd)'
 alias vi='vim'
 alias wlcopy='wl-copy'
 alias wlpaste='wl-paste'
-alias wttr='curl -s wttr.in | head -7'
 alias yt-dl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"

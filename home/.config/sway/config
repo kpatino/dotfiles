@@ -3,9 +3,9 @@
 ### Run critical services
 #
 # GTK 20 second fix from swaywm wiki
-exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-# Gnome policy kit authentication agent
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
 # Wob for volume control. yes this is critical
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color "#0E0E0ECC" --bar-color "#FFFFFFFF" --overflow-bar-color "#FF453AFF"
@@ -46,8 +46,8 @@ output DP-1 {
     mode 2560x1440@164.999Hz
     subpixel rgb
     max_render_time 1
-    #adaptive_sync on
-    adaptive_sync off
+    adaptive_sync on
+    #adaptive_sync off
 }
 
 ### Idle configuration
@@ -268,8 +268,8 @@ seat seat0 hide_cursor 60000
 #
 # Sway border rules:
 #
-    default_border pixel 4
-    default_floating_border pixel 4
+    default_border pixel none
+    default_floating_border pixel none
     hide_edge_borders smart
     #gaps outer 4
     #gaps inner 4
@@ -298,23 +298,21 @@ for_window [app_id="pavucontrol"] floating enable
 #for_window [shell=".*"] title_format "%title : %shell"
 
 # Personal Firefox fixes
-for_window {
-    [title="\ -\ Sharing\ Indicator$" app_id="firefox"] floating enable, sticky enable
-    [title="Picture in picture" app_id="firefox"] floating enable, sticky enable
-    [title="Picture-in-Picture" app_id="firefox"] floating enable, sticky enable
-}
+for_window [title="\ -\ Sharing\ Indicator$" app_id="firefox"] floating enable, sticky enable
+for_window [title="\ -\ Sharing\ Indicator$" app_id="firefox"] floating enable, sticky enable
+for_window [title="\ -\ Sharing\ Indicator$" app_id="firefox"] floating enable, sticky enable
+for_window [title="Picture in picture" app_id="firefox"] floating enable, sticky enable
+for_window [title="Picture-in-Picture" app_id="firefox"] floating enable, sticky enable
+
 
 # Personal Gnome app fixes
-for_window {
-    [app_id="file-roller"] floating enable
-    [app_id="gnome-calculator"] floating enable
-    [app_id="gnome-system-monitor"] floating enable, resize set height 1280px width 960px
-}
+for_window [app_id="file-roller"] floating enable
+for_window [app_id="gnome-calculator"] floating enable
+for_window [app_id="gnome-system-monitor"] floating enable, resize set height 1280px width 960px
+
 
 # Personal Steam fixes
-for_window {
-    [title="Steam Guard" app_id="steam"] floating enable
-    [title="Friends List" app_id="steam"] floating enable
-}
+for_window [title="Steam Guard" app_id="steam"] floating enable
+for_window [title="Friends List" app_id="steam"] floating enable
 
 include @sysconfdir@/sway/config.d/*

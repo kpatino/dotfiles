@@ -61,7 +61,3 @@ export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
 
 # https://github.com/dylanaraps/pfetch#configuration
 export PF_INFO="ascii title os host kernel uptime pkgs memory shell de palette"
-
-# https://github.com/khanhas/spicetify-cli
-export SPICETIFY_INSTALL="$XDG_DATA_HOME/spicetify-cli"
-export PATH="$SPICETIFY_INSTALL:$PATH"
