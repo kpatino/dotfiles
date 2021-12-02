@@ -3,7 +3,7 @@ i think my config goes hard feel free to copy
 
 ## info
 
-using github as a backup for my linux dotfiles  
+using github as a backup for my linux dotfiles and system configuration  
 not all dependencies are required, they are just packages that are used in my configs  
 
 ## preview
