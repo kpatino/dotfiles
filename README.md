@@ -5,6 +5,7 @@ i think my config goes hard feel free to copy
 
 using github as a backup for my linux dotfiles and system configuration  
 not all dependencies are required, they are just packages that are used in my configs  
+docs folder contains some information on configuring sway (with gtk/gnome) if you don't want to search through the dotfiles to get something to work
 
 ## preview
 
