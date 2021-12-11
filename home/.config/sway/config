@@ -66,7 +66,7 @@ exec swayidle -w \
 input "1133:16500:Logitech_G305" {
     accel_profile "flat"
     pointer_accel 0
-    scroll_factor 1.0
+    scroll_factor 2.0
 }
 
 ### Key bindings
@@ -270,8 +270,8 @@ seat seat0 hide_cursor 60000
 #
 # Sway border rules:
 #
-    default_border pixel none
-    default_floating_border pixel none
+    default_border none
+    default_floating_border pixel 4
     hide_edge_borders smart
     #gaps outer 4
     #gaps inner 4
