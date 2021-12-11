@@ -72,13 +72,6 @@
         "icon-size": 22,
         "spacing": 10
     },
-    "custom/power": {
-        "format": "",
-        "interval": "once",
-        "on-click": "rofi -theme monterey -modi system:$HOME/.config/rofi/powermenu.sh -show system",
-        "on-click-right": "makoctl restore",
-        "tooltip": false
-    },
     "custom/waybar-mpris": {
         "return-type": "json",
         "exec": "waybar-mpris --position --autofocus --interpolate --play \uf04b --pause \uf04c --order 'SYMBOL:ARTIST:TITLE:POSITION'",
