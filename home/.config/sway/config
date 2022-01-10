@@ -47,7 +47,7 @@ output * bg $wallpaper fill
 output DP-1 {
     mode 2560x1440@164.999Hz
     subpixel rgb
-    max_render_time 1
+    #max_render_time 1
     adaptive_sync on
     #adaptive_sync off
 }
@@ -270,11 +270,9 @@ seat seat0 hide_cursor 60000
 #
 # Sway border rules:
 #
-    default_border none
+    default_border pixel 4
     default_floating_border pixel 4
-    hide_edge_borders smart
-    #gaps outer 4
-    #gaps inner 4
+    hide_edge_borders --i3 both
 #
 # Sway client color definitions:
 #
@@ -313,8 +311,13 @@ for_window [app_id="gnome-calculator"] floating enable
 for_window [app_id="gnome-system-monitor"] floating enable, resize set height 1280px width 960px
 
 
-# Personal Steam fixes
-for_window [title="Steam Guard" app_id="steam"] floating enable
-for_window [title="Friends List" app_id="steam"] floating enable
+# Fixes from manjaro sway github
+# https://github.com/Manjaro-Sway/desktop-settings/blob/sway/community/sway/etc/sway/config.d/98-application-defaults.conf
+for_window [app_id="firefox" title="^Library$"] floating enable, sticky enable
+for_window [app_id="floating_shell_portrait"] floating enable, sticky enable, resize set width 30 ppt height 40 ppt
+for_window [app_id="floating_shell"] floating enable, sticky enable
+for_window [title="Firefox — Sharing Indicator"] floating enable
+for_window [app_id="" title=".* is sharing your screen."] floating enable
+
 
 include @sysconfdir@/sway/config.d/*
