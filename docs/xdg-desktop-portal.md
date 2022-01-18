@@ -10,7 +10,7 @@ SystemD services should automatically start and assuming environment variables a
 
 ## Issues
 
-The current stable `xdg-desktop-portal` package causes the 20 second GTK bug despite the enviroment variables being passed when `xdg-desktop-portal-gtk` is installed. The current git package `xdg-desktop-portal-git` remedies it without anything needing to be changed.
+~~The current stable `xdg-desktop-portal` package causes the 20 second GTK bug despite the enviroment variables being passed when `xdg-desktop-portal-gtk` is installed. The current git package `xdg-desktop-portal-git` remedies it without anything needing to be changed.~~ Fixed in the latest xdg-desktop-portal.
 
 ## Relevant Links
 
