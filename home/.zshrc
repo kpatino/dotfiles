@@ -1,10 +1,11 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+# Currently disabled because foot starts fast enough and I don't need it
 # https://codeberg.org/dnkl/foot/issues/558
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
 #
 
 # Lines configured by zsh-newuser-install
@@ -88,11 +89,12 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 ## Alias section 
 alias cleancache='paccache -ruk0 && paccache -rk3'
-alias ls='exa --icons'                                          # exa remap
-alias mp3-dl="youtube-dl --extract-audio --audio-format"
+alias ls='exa --icons'
+alias mp3-dl="yt-dlp --extract-audio --audio-format mp3 --audio-quality 0"
 alias ra='ranger'
 alias removeorphans='paru -Rs $(paru -Qqtd)'
 alias vi='vim'
 alias wlcopy='wl-copy'
 alias wlpaste='wl-paste'
-alias yt-dl="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
+alias yt-dl="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
+alias xssh='env TERM=xterm-256color ssh'
