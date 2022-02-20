@@ -27,57 +27,54 @@ Packages
 - blueberry
 - copyq
 - exa
+- foot
 - gnome-keyring
 - gnome-system-monitor
 - grim
 - grimshot
 - noto-fonts
+- noto-fonts-cjk
+- noto-fonts-emoji
+- noto-fonts-extra
 - pamixer
 - playerctl
 - polkit-gnome
+- rofimoji
 - seahorse
 - slurp
+- swappy
 - sway
 - swaybg
 - swayidle
 - swaylock
 - waybar
 - wl-clipboard
+- yt-dlp
 - zsh
 - zsh-autosuggestions
 - zsh-completions
 - zsh-history-substring-search
 - zsh-syntax-highlighting
+- zsh-theme-powerlevel10k
 
 AUR packages
 
-- corectrl
-- foot
+- adwaita-qt
 - mako-git
+- qgnomeplatform
 - rofi-lbonn-wayland-git
-- swappy
 - waybar-mpris-git
 - wlsunset
 - wob
-- zsh-theme-powerlevel10k-git
-
-Flatpak packages
-
-- vorta
 
 ## themes
 
-GTK Theme: [WhiteSur by vinceliuice](https://github.com/vinceliuice/WhiteSur-gtk-theme)  
-KDE/QT Theme: [WhiteSur by vinceliuice](https://github.com/vinceliuice/WhiteSur-kde)  
 Icon Theme: [WhiteSur by vinceliuice](https://github.com/vinceliuice/WhiteSur-icon-theme)  
-Cursor: [WhiteSur-cursors by vinceliuice](https://github.com/vinceliuice/WhiteSur-cursors)
-
-Notes: To apply the QT theme you'll need qt5ct and kvantum. Gnome Tweaks can be used to change the default font and size.
+Cursor Theme: [WhiteSur-cursors by vinceliuice](https://github.com/vinceliuice/WhiteSur-cursors)
 
 ## misc
 
 - [lepton firefox css](https://github.com/black7375/Firefox-UI-Fix/)
 - [firefox theme](https://addons.mozilla.org/en-US/firefox/addon/matte-black-theme/)
 - [color palette](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/)
-- [music visualizer](https://github.com/karlstav/cava)
 - [pfetch](https://github.com/dylanaraps/pfetch)
