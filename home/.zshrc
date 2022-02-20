@@ -75,7 +75,8 @@ bindkey '^[[B' history-substring-search-down
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/kpatino/.zshrc'
 
-zstyle ':completion:*' menu select
+#zstyle ':completion:*' menu select
+zstyle ':completion::complete:*' gain-privileges 1
 zmodload zsh/complist
 
 autoload -Uz compinit 
@@ -88,11 +89,11 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 ## Alias section 
-alias cleancache='paccache -ruk0 && paccache -rk3'
 alias ls='exa --icons'
 alias mp3-dl="yt-dlp --extract-audio --audio-format mp3 --audio-quality 0"
 alias ra='ranger'
 alias removeorphans='paru -Rs $(paru -Qqtd)'
+alias rtop='radeontop -c -T'
 alias vi='vim'
 alias wlcopy='wl-copy'
 alias wlpaste='wl-paste'
