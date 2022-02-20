@@ -35,8 +35,6 @@ export ECORE_EVAS_ENGINE=wayland-egl
 export ELM_ENGINE=wayland_egl
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM=wayland
-# TF2 doesn't like this option, may also affect other source games
-#export SDL_VIDEODRIVER=wayland
 # https://wiki.archlinux.org/title/Firefox#Applications_on_Wayland_can_not_launch_Firefox
 export MOZ_DBUS_REMOTE=1
 # https://github.com/swaywm/sway/wiki#disabling-client-side-qt-decorations
@@ -46,9 +44,9 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 # QT settings
 export QT_PLUGIN_PATH=/usr/lib/qt/plugins
-export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_WAYLAND_FORCE_DPI=physical
-
+# https://github.com/FedoraQt/QGnomePlatform
+export QT_QPA_PLATFORMTHEME='gnome'
 
 # Export languages
 export LANG=en_US.UTF-8
@@ -58,6 +56,3 @@ export LC_ALL=en_US.UTF-8
 # https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step
 # https://nurdletech.com/linux-notes/agents/keyring.html
 export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
-
-# https://github.com/dylanaraps/pfetch#configuration
-export PF_INFO="ascii title os host kernel uptime pkgs memory shell de palette"
