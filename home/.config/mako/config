@@ -1,23 +1,25 @@
+max-history=12
 sort=-time
 max-icon-size=100
 width=420
 height=150
 padding=10
 margin=10
-border-size=3
+border-size=4
 font=Noto Sans 16
 default-timeout=3000
 ignore-timeout=0
-background-color=#0E0E0ECC
+background-color=#0E0E0EE5
 text-color=#FEFEFE
 progress-color=source #BF5AF2
 markup=1
+max-visible=8
 
 [urgency=low]
-border-color=#28282DFA
+border-color=#303030FF
 
 [urgency=normal]
-border-color=#28282DFA
+border-color=#303030FF
 
 [urgency=high]
 border-color=#FF453AFA
