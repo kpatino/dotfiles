@@ -4,7 +4,7 @@
     "height": 40,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
-    "modules-right": ["custom/waybar-mpris", "tray", "pulseaudio", "bluetooth", "network", "idle_inhibitor", "clock"],
+    "modules-right": ["custom/waybar-mpris", "tray", "custom/sunset", "idle_inhibitor", "pulseaudio", "bluetooth", "network", "clock"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -27,7 +27,8 @@
         "today-format": "<b><u>{}</u></b>",
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
         "interval": 60,
-        "tooltip": true  
+        "on-click": "makoctl restore",
+        "tooltip": true 
     },
     "pulseaudio": {
         "format": "{icon} {volume}% {format_source}",
@@ -72,9 +73,23 @@
         "icon-size": 22,
         "spacing": 10
     },
+    "custom/sunset": {
+        "interval": "once",
+        "tooltip": false,
+        "return-type": "json",
+        "format": "{icon}",
+        "format-icons": {
+            "on": "",
+            "off": ""
+        },
+        "exec": "~/.config/waybar/sunset.sh",
+        "on-click": "~/.config/waybar/sunset.sh toggle; pkill -RTMIN+6 waybar",
+        "exec-if": "~/.config/waybar/sunset.sh check",
+        "signal": 6
+    },
     "custom/waybar-mpris": {
         "return-type": "json",
-        "exec": "waybar-mpris --position --autofocus --interpolate --play \uf04b --pause \uf04c --order 'SYMBOL:ARTIST:TITLE:POSITION'",
+        "exec": "waybar-mpris --position --autofocus --play \uf04b --pause \uf04c --order 'SYMBOL:ARTIST:TITLE:POSITION'",
         "on-click": "waybar-mpris --send toggle",
         "on-click-right": "waybar-mpris --send player-next",
         "on-scroll-up": "waybar-mpris --send next",
