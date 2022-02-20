@@ -1,18 +1,15 @@
 * {
-  bg: rgba(14, 14, 14, 0.8);
-  ac: #0860F2; /* Accent color */
-  txt: #FEFEFE; /* Text color */
-}
-
-* {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
+  bg: rgba(14, 14, 14, 0.9); /* Background color */
+  ac: rgba(255, 255, 255, 0.1); /* Accent color */
+  txt: #FFFFFF; /* Text color */
   text-color: @txt;
 }
 
 window {
   background-color: @bg;
   border: 4;
-  border-color: #202020;
+  border-color: #303030;
   padding: 16 16 0 16;
   width: 768; /* 30% of the monitor's width */
   height: 720; /* 50% of the monitor's height */
@@ -44,7 +41,7 @@ element selected {
 }
 
 element-icon {
-  size: 40;
+  size: 48;
   horizontal-align: 0.5;
   vertical-align: 0.5;
 }

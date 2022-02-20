@@ -1,5 +1,4 @@
 configuration {
-  show-icons: true;
   icon-theme: "WhiteSur-dark";
   display-drun: "";
   display-run: "";
