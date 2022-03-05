@@ -57,6 +57,8 @@ exec swayidle -w \
             resume 'makoctl set-mode default' \
         timeout 600 'swaymsg "output * dpms off"' \
             resume 'swaymsg "output * dpms on"; makoctl set-mode default' \
+        timeout 900 'systemctl suspend' \
+            resume 'swaymsg "output * dpms on"; makoctl set-mode default' \
         before-sleep '$lock' \
 
 ### Input configuration

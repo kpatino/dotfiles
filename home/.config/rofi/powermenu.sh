@@ -4,6 +4,8 @@ if [[ -n $@ ]]; then
     case $1 in
         'Logout')
             loginctl terminate-user $USER;;
+        'Sleep')
+            systemctl suspend;;
         'Poweroff')
             systemctl poweroff;;
         'Reboot')
@@ -14,6 +16,7 @@ if [[ -n $@ ]]; then
     esac
 else
     echo -en "Logout\x00icon\x1fsystem-log-out-symbolic\n"
+    echo -en "Sleep\x00icon\x1fsystem-suspend-symbolic\n"
     echo -en "Poweroff\x00icon\x1fsystem-shutdown-symbolic\n"
     echo -en "Reboot\x00icon\x1fsystem-reboot-symbolic\n"
     echo -en "Firmware\x00icon\x1fsystem-run-symbolic\n"
