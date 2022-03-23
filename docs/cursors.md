@@ -4,7 +4,15 @@ Really annoying to configure. In my experience I need to set the cursor in 3 dif
 
 ## Flatpaks not picking up cursors
 
-Setting up `~/.icons/default/index.theme` fixed the issue.
+Set up `~/.icons/default/index.theme`
+
+Then apply this flatpak override
+
+`flatpak override --user --filesystem=~/.icons:ro`
+
+May or may not need
+
+`flatpak override --user --filesystem=/usr/share/icons:ro`
 
 ## Relevant links
 
