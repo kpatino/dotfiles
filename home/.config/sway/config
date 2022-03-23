@@ -257,7 +257,7 @@ bar {
 ### Run non-critical applications/services on startup
 #
 # Borg backups
-exec flatpak run com.borgbase.Vorta --daemonize
+exec com.borgbase.Vorta
 # Clipboard menu
 exec copyq --start-server
 
