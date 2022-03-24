@@ -16,4 +16,4 @@ May or may not need
 
 ## Relevant links
 
-https://wiki.archlinux.org/title/Cursor_themes#Configuration
+<https://wiki.archlinux.org/title/Cursor_themes#Configuration>
