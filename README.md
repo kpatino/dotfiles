@@ -59,6 +59,7 @@ Packages
 
 AUR packages
 
+- adw-gtk3
 - adwaita-qt
 - mako-git
 - qgnomeplatform
