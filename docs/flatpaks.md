@@ -8,16 +8,24 @@ You'll need to install the flatpak package and its dependencies and you'll also 
 - xdg-desktop-portal-gtk
 - xdg-desktop-portal-wlr
 
-## Issues
+## GTK themes
 
-### GTK themes
+For adwaita-dark you need to install the adwaita-dark flatpak theme. No need to set an enviroment variable for the theme to be used. It should be picked up by flatpak.
+`flatpak install org.gtk.Gtk3theme.Adwaita-dark`
 
-I think I needed to install adwaita-dark as a theme with `flatpak install org.gtk.Gtk3theme.Adwaita-dark` and then it worked.
+For adw-gtk3 install the following.
 
-### QT themes
+- Light theme: `flatpak install org.gtk.Gtk3theme.adw-gtk3`
+- Dark theme: `flatpak install org.gtk.Gtk3theme.adw-gtk3-dark`
 
-I don't how to use adwaita-dark for these but it's not too a dealbreaker for me.
+## QT themes
 
-### Cursors not working
+For qgnomeplatform I needed to download the right theme versions for PolyMC, OBS and Vorta  
+I needed to install versions 5.15, 5.15-21.08 (PolyMC), and 5.14 (Vorta)
+
+- `flatpak install org.kde.KStyle.Adwaita`
+- `flatpak install org.kde.PlatformTheme.QGnomePlatform`
+
+## Cursors not working
 
 See [cursors.md](cursors.md)
