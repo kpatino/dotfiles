@@ -31,8 +31,16 @@ window#waybar {
     box-shadow: inset 0 -3px #ffffff;
 }
 
-#workspaces button.urgent {
-    background-color: #ff453a;
+#workspaces button.urgent,
+#pulseaudio.muted,
+#network.disabled,
+#network.disconnected,
+#tray > .needs-attention {
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 #backlight,
@@ -62,6 +70,10 @@ window#waybar {
     margin: 0 4px;
 }
 
+#tray menu {
+    color: #FFFFFF;
+}
+
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
 }
@@ -71,9 +83,11 @@ window#waybar {
 }
 
 @keyframes blink {
+    from {
+        background-color: #FF453A;
+    }
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: rgba(0, 0, 0, 0);
     }
 }
 
