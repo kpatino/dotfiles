@@ -21,7 +21,7 @@ For adw-gtk3 install the following.
 ## QT themes
 
 For qgnomeplatform I needed to download the right theme versions for PolyMC, OBS and Vorta  
-I needed to install versions 5.15, 5.15-21.08 (PolyMC), and 5.14 (Vorta)
+I needed to install versions 5.15, and 5.15-21.08 (PolyMC and Vorta)
 
 - `flatpak install org.kde.KStyle.Adwaita`
 - `flatpak install org.kde.PlatformTheme.QGnomePlatform`
