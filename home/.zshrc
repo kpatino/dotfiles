@@ -99,3 +99,4 @@ alias wlcopy='wl-copy'
 alias wlpaste='wl-paste'
 alias yt-dl="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
 alias xssh='env TERM=xterm-256color ssh'
+alias xwayland-screencast='SDL_VIDEODRIVER=x11 wf-recorder -c rawvideo -m sdl -f pipe:xwayland-mirror'
