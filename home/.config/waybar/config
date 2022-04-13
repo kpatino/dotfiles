@@ -43,16 +43,14 @@
         "tooltip": true
     },
     "pulseaudio": {
-        "format": "{icon} {volume}",
+        "format": "{icon} {volume}{format_source}",
         "format-bluetooth": " {volume}",
-        "format-muted": "",
+        "format-muted": "婢",
+        "format-source": "",
+        "format-source-muted": " ",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
+            "headphone": "",
+            "headset": "",
             "default": [
                 "",
                 "",
@@ -79,7 +77,7 @@
         "tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr}",
         "tooltip-format-disconnected": "{ifname} Disconnected",
         "max-length": 50,
-        "interval": 60
+        "interval": 5
     },
     "tray": {
         "show-passive-items": false,
