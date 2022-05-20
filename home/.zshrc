@@ -9,7 +9,7 @@
 #
 
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
+HISTFILE="$XDG_STATE_HOME"/zsh/history
 HISTSIZE=9999
 SAVEHIST=9999
 ## Options section
@@ -73,20 +73,20 @@ bindkey '^[[B' history-substring-search-down
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/kpatino/.zshrc'
+zstyle :compinstall filename '$ZDOTDIR'
 
 #zstyle ':completion:*' menu select
 zstyle ':completion::complete:*' gain-privileges 1
 zmodload zsh/complist
 
 autoload -Uz compinit 
-compinit
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
 # End of lines added by compinstall
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f $XDG_CONFIG_HOME/powerlevel10k/p10k.zsh ]] || source $XDG_CONFIG_HOME/powerlevel10k/p10k.zsh
 
 ## Alias section 
 alias ls='exa --icons'
