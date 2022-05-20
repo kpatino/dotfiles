@@ -3,10 +3,9 @@
 # confirmations, etc.) must go above this block; everything else may go below.
 # Currently disabled because foot starts fast enough and I don't need it
 # https://codeberg.org/dnkl/foot/issues/558
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
-#
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # Lines configured by zsh-newuser-install
 HISTFILE="$XDG_STATE_HOME"/zsh/history
@@ -89,14 +88,15 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f $XDG_CONFIG_HOME/powerlevel10k/p10k.zsh ]] || source $XDG_CONFIG_HOME/powerlevel10k/p10k.zsh
 
 ## Alias section 
+alias df='duf'
 alias ls='exa --icons'
 alias mp3-dl="yt-dlp --extract-audio --audio-format mp3 --audio-quality 0"
 alias ra='ranger'
 alias removeorphans='paru -Rs $(paru -Qqtd)'
 alias rtop='radeontop -c -T'
 alias vi='vim'
-alias wlcopy='wl-copy'
+alias wlcopy='wl-copy --trim-newline'
 alias wlpaste='wl-paste'
-alias yt-dl="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
 alias xssh='env TERM=xterm-256color ssh'
 alias xwayland-screencast='SDL_VIDEODRIVER=x11 wf-recorder -c rawvideo -m sdl -f pipe:xwayland-mirror'
+alias yt-dl="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
