@@ -1,4 +1,5 @@
 # kevin's dotfiles
+
 i think my config goes hard feel free to copy
 
 ## info
@@ -17,15 +18,18 @@ docs folder contains some information on configuring sway (with gtk/gnome) if yo
 
 Noto Sans  
 [NotoSans Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Noto/Sans/complete)  
+[Cascadia Code](https://github.com/microsoft/cascadia-code)
 [CaskaydiaCove Nerd Font Mono](https://github.com/imaandrew/caskaydia-cove)  
 
 ## dependencies being used
 
 Packages
   
+- adwaita-qt5
 - bat
 - blueberry
 - copyq
+- duf
 - exa
 - foot
 - gnome-keyring
@@ -39,6 +43,7 @@ Packages
 - pamixer
 - playerctl
 - polkit-gnome
+- qgnomeplatform-qt5
 - rofimoji
 - seahorse
 - slurp
@@ -60,9 +65,8 @@ Packages
 AUR packages
 
 - adw-gtk3
-- adwaita-qt
+- gtklock
 - mako-git
-- qgnomeplatform
 - rofi-lbonn-wayland-git
 - waybar-mpris-git
 - wlsunset
