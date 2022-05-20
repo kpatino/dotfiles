@@ -32,11 +32,12 @@ set $term foot
 # Your preferred application launcher
 set $menu rofi -theme monterey -show-icons
 # Your preferred background image, must use double quotes for wallpaper
-set $wallpaper "~/Pictures/Saved Pictures/Wallpapers/Landscapes/macos-monterey.jpeg"
+set $wallpaper "$HOME/Pictures/Saved Pictures/Wallpapers/Landscapes/macos-monterey.jpeg"
 # Your preferred Font name
 set $font NotoSans Nerd Font
 # Lock command
-set $lock swaylock --config $XDG_CONFIG_HOME/swaylock/config -i $wallpaper
+#set $lock swaylock --config $XDG_CONFIG_HOME/swaylock/config -i $wallpaper
+set $lock gtklock --daemonize --style "$XDG_CONFIG_HOME/gtklock/style.css"
 
 ### Output configuration
 #
@@ -247,7 +248,7 @@ bindsym $mod+r mode "resize"
    # Windows task manager/gnome system monitor
    bindsym ctrl+Shift+Escape exec gnome-system-monitor
    # Color picker
-   bindsym $mod+Shift+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format "%[pixel:p{0,0}]" txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy
+   bindsym $mod+Shift+p exec $HOME/.local/bin/html-color-picker-for-sway
 
 ### Status Bar:
 #
@@ -334,17 +335,16 @@ for_window [title="ProtonUp-Qt - Wine\/Proton Installer" app_id="python3"] float
 for_window [instance="lxappearance"] floating enable
 for_window [app_id="pamac-manager"] floating enable
 for_window [app_id="blueberry.py"] floating enable
-for_window [app_id="firefox" title="^Library$"] floating enable, border pixel 4, sticky enable
+for_window [app_id="firefox" title="^Library$"] floating enable, sticky enable
 for_window [app_id="thunderbird" title=".*Reminder"] floating enable
-for_window [app_id="floating_shell_portrait"] floating enable, border pixel 4, sticky enable, resize set width 30 ppt height 40 ppt
-for_window [app_id="floating_shell"] floating enable, border pixel 4, sticky enable
-for_window [app_id="Manjaro.manjaro-settings-manager"] floating enable
+for_window [app_id="floating_shell_portrait"] floating enable, sticky enable, resize set width 30 ppt height 40 ppt
+for_window [app_id="floating_shell"] floating enable, sticky enable
 for_window [app_id="" title="Picture in picture"] floating enable, sticky enable
 for_window [app_id="" title="Picture-in-Picture"] floating enable, sticky enable
 for_window [instance="around"] floating enable, sticky enable
 for_window [app_id="xsensors"] floating enable
 for_window [title="Save File"] floating enable
-for_window [title="Firefox — Sharing Indicator"] floating enable
+for_window [title="Firefox .*— Sharing Indicator"] floating enable, sticky enable, move to scratchpad
 for_window [app_id="" title=".* is sharing your screen."] floating enable
 for_window [title="^wlay$"] floating enable
 
@@ -353,6 +353,5 @@ for_window [title="^Friends List$" class="Steam"] floating enable
 for_window [title="^Music Player$" class="Steam"] floating enable
 for_window [title="^Screenshot Uploader$" class="Steam"] floating enable
 for_window [title="^Steam - System Information$" class="Steam"] floating enable
-for_window [class="steam_app*"] inhibit_idle focus
 
 include @sysconfdir@/sway/config.d/*
