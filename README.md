@@ -65,7 +65,6 @@ Packages
 AUR packages
 
 - adw-gtk3
-- gtklock
 - mako-git
 - rofi-lbonn-wayland-git
 - waybar-mpris-git

@@ -36,8 +36,7 @@ set $wallpaper "$HOME/Pictures/Saved Pictures/Wallpapers/Landscapes/macos-monter
 # Your preferred Font name
 set $font NotoSans Nerd Font
 # Lock command
-#set $lock swaylock --config $XDG_CONFIG_HOME/swaylock/config -i $wallpaper
-set $lock gtklock --daemonize --style "$XDG_CONFIG_HOME/gtklock/style.css"
+set $lock swaylock --config $XDG_CONFIG_HOME/swaylock/config -i $wallpaper
 
 ### Output configuration
 #
