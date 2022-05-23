@@ -25,22 +25,27 @@
         "max-length": 60
     },
     "bluetooth": {
-        "format": "{icon}",
-        "format-icons": {
-            "enabled": "",
-            "disabled": ""
-        },
+        "format": "{status}",
+        "format-connected": "",
+        "format-connected-battery": "",
+        "format-disabled": "",
+        "format-off": "",
+        "format-on": "",
         "on-click": "blueberry",
-        "tooltip": false
+        "tooltip": true,
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
     },
     "clock": {
-        "timezone": "America/Chicago",
         "format": "{:%a %b %d   %I:%M %p}  ",
-        "today-format": "<b><u>{}</u></b>",
-        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
         "interval": 60,
         "on-click": "makoctl restore",
-        "tooltip": true
+        "timezone": "America/Chicago",
+        "today-format": "<b><u>{}</u></b>",
+        "tooltip": true,
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "pulseaudio": {
         "format": "{icon} {volume}{format_source}",
@@ -69,19 +74,20 @@
         "tooltip": false
     },
     "network": {
-        "format-wifi": "",
-        "format-ethernet": "",
         "format-disconnected": "",
-        "tooltip-format": "{ifname} {ipaddr}/{cidr}",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%) {ipaddr}/{cidr}",
-        "tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr}",
-        "tooltip-format-disconnected": "{ifname} Disconnected",
+        "format-ethernet": "",
+        "format-wifi": "",
+        "interval": 5,
         "max-length": 50,
-        "interval": 5
+        "tooltip": true,
+        "tooltip-format": "{ifname}\t{ipaddr}/{cidr}",
+        "tooltip-format-disconnected": "{ifname}\t{ipaddr}/{cidr}",
+        "tooltip-format-ethernet": "{ifname}\t{ipaddr}/{cidr}",
+        "tooltip-format-wifi": "{ifname}\t{ipaddr}/{cidr}\n\n{signalStrength}%"
     },
     "tray": {
-        "show-passive-items": false,
         "icon-size": 22,
+        "show-passive-items": false,
         "spacing": 10
     },
     "custom/sunset": {
@@ -99,13 +105,13 @@
         "signal": 6
     },
     "custom/waybar-mpris": {
-        "return-type": "json",
+        "escape": true,
         "exec": "waybar-mpris --autofocus --play \uf04b --pause \uf04c --order 'SYMBOL'",
+        "max-length": 80,
         "on-click": "waybar-mpris --send toggle",
         "on-click-right": "waybar-mpris --send player-next",
-        "on-scroll-up": "waybar-mpris --send next",
         "on-scroll-down": "waybar-mpris --send prev",
-        "escape": true,
-        "max-length": 80
+        "on-scroll-up": "waybar-mpris --send next",
+        "return-type": "json"
     }
 }
