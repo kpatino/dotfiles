@@ -18,7 +18,7 @@ docs folder contains some information on configuring sway (with gtk/gnome) if yo
 
 Noto Sans  
 [NotoSans Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Noto/Sans/complete)  
-[Cascadia Code](https://github.com/microsoft/cascadia-code)
+[Cascadia Code](https://github.com/microsoft/cascadia-code)  
 [CaskaydiaCove Nerd Font Mono](https://github.com/imaandrew/caskaydia-cove)  
 
 ## dependencies being used
