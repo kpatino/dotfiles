@@ -1,0 +1,50 @@
+add_newline = true
+
+format = """
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$character\
+"""
+
+right_format = """
+$cmd_duration\
+$python\
+$time"""
+
+[directory]
+truncate_to_repo = false
+style = "blue"
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vicmd_symbol = "[❮](green)"
+
+[git_branch]
+format = "[$branch]($style)"
+style = "white"
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "cyan"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "white"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
+
+[python]
+format = "[$virtualenv]($style) "
+style = "white"
+
+[time]
+disabled = false
+format = '[$time]($style)'
+style = "white"
+time_format = "%r" # Hour:Minute:Seconds AM/PM Format
+use_12hr = true
