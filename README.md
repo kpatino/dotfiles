@@ -47,6 +47,7 @@ Packages
 - rofimoji
 - seahorse
 - slurp
+- starship
 - swappy
 - sway
 - swaybg
