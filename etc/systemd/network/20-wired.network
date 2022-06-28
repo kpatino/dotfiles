@@ -1,10 +1,14 @@
 [Match]
 Name=enp4s0
 
+[Link]
+Multicast=yes
+
 [Network]
 DHCP=yes
 IPv6AcceptRA=true
 IPv6PrivacyExtensions=true
+MulticastDNS=true
 
 [IPv6AcceptRA]
 UseDNS=yes
