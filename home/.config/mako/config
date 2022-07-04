@@ -10,16 +10,17 @@ font=NotoSans Nerd Font, Noto Sans, Noto Sans CJK HK, Noto Sans CJK JP, Noto San
 default-timeout=3000
 ignore-timeout=0
 background-color=#0E0E0EE6
+border-color=#444444FA
 text-color=#FEFEFE
 progress-color=source #BF5AF2
 markup=1
 max-visible=8
 
 [urgency=low]
-border-color=#303030FA
+border-color=#444444FA
 
 [urgency=normal]
-border-color=#303030FA
+border-color=#444444FA
 
 [urgency=high]
 border-color=#FF453AFA
