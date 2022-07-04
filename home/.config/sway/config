@@ -43,11 +43,15 @@ set $lock swaylock --config $XDG_CONFIG_HOME/swaylock/config -i $wallpaper
 output * bg $wallpaper fill
 # Configure DP-1 monitor settings
 # VRR causes flickering on my VG27A during normal use but not noticeable while gaming
+# 144 hz and below don't have max memory clock problems
+# 144hz flickers even when VRR is off
 output DP-1 {
-    mode 2560x1440@164.999Hz
     subpixel none
-    #adaptive_sync on
+    #mode 2560x1440@143.972Hz
+    #mode 2560x1440@120.014Hz
+    mode 2560x1440@164.999Hz
     adaptive_sync off
+    #adaptive_sync on
 }
 
 ### Idle configuration
@@ -60,7 +64,8 @@ exec swayidle -w \
         timeout 900 'systemctl suspend' \
             resume 'swaymsg "output * dpms on"; makoctl set-mode default' \
         before-sleep '$lock' \
-        after-resume 'swaymsg "output * dpms on"; makoctl set-mode default'
+        after-resume 'swaymsg "output * dpms on"; makoctl set-mode default' \
+        lock '$lock; makoctl set-mode away' unlock 'makoctl set-mode default'
 
 ### Input configuration
 #
