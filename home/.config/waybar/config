@@ -71,9 +71,10 @@
             "activated": "",
             "deactivated": ""
         },
-        "tooltip": false
+        "tooltip": true
     },
     "network": {
+        "family": "ipv4",
         "format-disconnected": "",
         "format-ethernet": "",
         "format-wifi": "",
@@ -106,7 +107,7 @@
     },
     "custom/waybar-mpris": {
         "escape": true,
-        "exec": "waybar-mpris --autofocus --play \uf04b --pause \uf04c --order 'SYMBOL'",
+        "exec": "waybar-mpris --autofocus --play \uf04b --pause \uf04c --separator ' by ' --order 'SYMBOL:TITLE:ARTIST'",
         "max-length": 80,
         "on-click": "waybar-mpris --send toggle",
         "on-click-right": "waybar-mpris --send player-next",

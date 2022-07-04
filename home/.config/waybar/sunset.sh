@@ -23,7 +23,7 @@ function start(){
         wlsunset -l $latitude -L $longitude -t $temp_low -T $temp_high -d $duration &
     elif [ "${location}" = "manual" ];
     then
-        wlsunset -l $latitude -L $longitude &
+        wlsunset -t $temp_low -T $temp_high -l $latitude -L $longitude &
     else
         wlsunset -t $temp_low -T $temp_high -d $duration -S $sunrise -s $sunset &
     fi

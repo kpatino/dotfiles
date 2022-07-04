@@ -31,18 +31,6 @@ window#waybar {
     box-shadow: inset 0 -3px #ffffff;
 }
 
-#workspaces button.urgent,
-#pulseaudio.muted,
-#network.disabled,
-#network.disconnected,
-#tray > .needs-attention {
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
 #backlight,
 #battery,
 #bluetooth,
@@ -82,13 +70,42 @@ window#waybar {
     margin-right: 0;
 }
 
-@keyframes blink {
+@keyframes urgent {
     from {
         background-color: #FF453A;
     }
     to {
         background-color: rgba(0, 0, 0, 0);
     }
+}
+
+@keyframes blink {
+    from {
+        background-color: #BF5AF2;
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+#workspaces button.urgent,
+#pulseaudio.muted,
+#network.disabled,
+#network.disconnected,
+#tray > .needs-attention {
+    animation-name: urgent;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#mode {
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
 
 label:focus {
