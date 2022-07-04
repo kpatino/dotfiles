@@ -4,7 +4,6 @@ daemonize
 indicator-caps-lock
 font=Noto Sans
 font-size=22
-indicator-idle-visible
 indicator-radius=75
 indicator-thickness=15
 inside-color=0E0E0ECC
