@@ -1,15 +1,16 @@
 * {
+  font: "NotoSans Nerd Font 16";
   background-color: transparent;
+  ac: #0A84FF; /* Accent color */
   bg: rgba(14, 14, 14, 0.9); /* Background color */
-  ac: rgba(255, 255, 255, 0.1); /* Accent color */
+  br: #444444; /* Border color */
   txt: #FFFFFF; /* Text color */
-  text-color: @txt;
 }
 
 window {
   background-color: @bg;
   border: 4;
-  border-color: #303030;
+  border-color: @br;
   padding: 16 16 0 16;
   width: 768; /* 30% of the monitor's width */
   height: 720; /* 50% of the monitor's height */
@@ -34,9 +35,9 @@ element {
   padding: 16 16 16 16;
 }
 
-element selected {
+element selected,
+element-text selected {
   background-color: @ac;
-  text-color: @txt;
   transition: 40;
 }
 
@@ -59,10 +60,11 @@ inputbar {
 
 prompt {
   enabled: true;
-  padding: 8 12 16 12;
 }
 
-entry {
+entry,
+prompt {
+  text-color: @txt;
   padding: 8 12 16 12;
 }
 

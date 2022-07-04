@@ -5,6 +5,7 @@ configuration {
   location: 0;
   terminal: "foot";
   sidebar-mode: false;
+  scroll-method: 0;
   font:"NotoSans Nerd Font 16";
 }
 
