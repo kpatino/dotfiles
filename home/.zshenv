@@ -24,7 +24,9 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/default
-export _JAVA_OPTIONS="-Djava.util.prefs.userRoot='$XDG_CONFIG_HOME'/java -Dawt.useSystemAAFontSettings=on -Dide.ui.scale=1.25"
+export _JAVA_OPTIONS="-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java -Dawt.useSystemAAFontSettings=on -Dsun.java2d.uiScale=1.25"
+
+export ANDROID_HOME="$XDG_DATA_HOME"/android
 
 # Preferences
 export BROWSER="firefox"
