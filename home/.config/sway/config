@@ -35,7 +35,7 @@ set $wallpaper "$HOME/Pictures/Saved Pictures/Wallpapers/Landscapes/macos-monter
 # Your preferred Font name
 set $font NotoSans Nerd Font
 # Lock command
-set $lock swaylock --config $XDG_CONFIG_HOME/swaylock/config -i $wallpaper
+set $lock swaylock --config $XDG_CONFIG_HOME/swaylock/config -i $wallpaper && loginctl unlock-session self
 
 ### Output configuration
 #
@@ -57,15 +57,16 @@ output DP-1 {
 ### Idle configuration
 #
 exec swayidle -w \
-        timeout 300 '$lock; makoctl set-mode away' \
-            resume 'makoctl set-mode default' \
+        timeout 300 '$lock; makoctl mode -a away' \
+            resume 'makoctl mode -r away' \
         timeout 600 'swaymsg "output * dpms off"' \
-            resume 'swaymsg "output * dpms on"; makoctl set-mode default' \
+            resume 'swaymsg "output * dpms on"; makoctl mode -r away' \
         timeout 900 'systemctl suspend' \
-            resume 'swaymsg "output * dpms on"; makoctl set-mode default' \
-        before-sleep '$lock' \
-        after-resume 'swaymsg "output * dpms on"; makoctl set-mode default' \
-        lock '$lock; makoctl set-mode away' unlock 'makoctl set-mode default'
+            resume 'swaymsg "output * dpms on"; makoctl mode -r away' \
+        before-sleep '$lock; makoctl mode -a away' \
+        after-resume 'swaymsg "output * dpms on"; makoctl mode -r away' \
+        lock '$lock; makoctl mode -a away' \
+        unlock 'makoctl mode -r away'
 
 ### Input configuration
 #
