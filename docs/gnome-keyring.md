@@ -11,6 +11,7 @@ Some applications expect a keyring to be running to safely store credentials.
 
 1. Add `password optional pam_gnome_keyring.so` to the end of `/etc/pam.d/passwd`
 2. Add `export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)` to your `.zshenv` or `.bash_profile`
+3. Disable the systemd unit with `systemctl --user disable gnome-keyring-daemon.service`
 
 ## Relevant Links
 
