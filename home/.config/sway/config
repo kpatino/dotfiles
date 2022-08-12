@@ -31,7 +31,7 @@ set $term foot
 # Your preferred application launcher
 set $menu rofi -theme monterey -show-icons
 # Your preferred background image, must use double quotes for wallpaper
-set $wallpaper "$HOME/Pictures/Saved Pictures/Wallpapers/Landscapes/macos-monterey.jpeg"
+set $wallpaper "$HOME/Pictures/Saved Pictures/Wallpapers/Landscapes/Monterey.png"
 # Your preferred Font name
 set $font NotoSans Nerd Font
 # Lock command
@@ -55,6 +55,9 @@ output DP-1 {
 }
 
 ### Idle configuration
+# Sway 1.8 Replace dpms with power
+# See https://github.com/swaywm/sway/commit/11e05c57115e7f0e915e80f006468b7e1af4373b
+#
 #
 exec swayidle -w \
         timeout 300 '$lock; makoctl mode -a away' \
@@ -243,6 +246,8 @@ bindsym $mod+r mode "resize"
    bindsym XF86AudioPrev exec playerctl previous
    bindsym XF86AudioForward exec playerctl position 5+
    bindsym XF86AudioRewind exec playerctl position 5-
+   # Mute mic
+   bindsym $mod+Tab exec pamixer --source "alsa_input.usb-Kingston_HyperX_SoloCast-00.analog-stereo" -t
    # Windows screenshot shortcuts
    bindsym $mod+Shift+s exec grimshot save area - | swappy -f -
    bindsym $mod+Print exec grimshot save output - | swappy -f -
@@ -271,18 +276,25 @@ exec copyq --start-server
 #
 set $cursor-size 36
 set $cursor-theme "WhiteSur-cursors"
-set $gnome-schema org.gnome.desktop.interface
+set $desktop-interface org.gnome.desktop.interface
+set $wm-preferences org.gnome.desktop.wm.preferences
 set $gtk-theme "adw-gtk3-dark"
 set $icon-theme "WhiteSur-dark"
 
 exec_always {
-    gsettings set $gnome-schema color-scheme prefer-dark
-    gsettings set $gnome-schema cursor-size $cursor-size
-    gsettings set $gnome-schema cursor-theme $cursor-theme
-    gsettings set $gnome-schema gtk-theme $gtk-theme
-    gsettings set $gnome-schema icon-theme $icon-theme
-    gsettings set org.gnome.desktop.wm.preferences button-layout ""
-    gsettings set org.gnome.desktop.wm.preferences theme $gtk-theme
+    gsettings set $desktop-interface color-scheme prefer-dark
+    gsettings set $desktop-interface cursor-size $cursor-size
+    gsettings set $desktop-interface cursor-theme $cursor-theme
+    gsettings set $desktop-interface document-font-name 'Cantarell 12'
+    gsettings set $desktop-interface font-name 'Noto Sans 12'
+    gsettings set $desktop-interface gtk-theme $gtk-theme
+    gsettings set $desktop-interface icon-theme $icon-theme
+    gsettings set $desktop-interface monospace-font-name 'Source Code Pro 11'
+    gsettings set $desktop-interface text-scaling-factor '1.0'
+    gsettings set $wm-preferences button-layout ""
+    gsettings set $wm-preferences theme $gtk-theme
+    gsettings set $wm-preferences titlebar-font 'Noto Sans 12'
+    gsettings set org.gnome.nautilus.list-view default-visible-columns "['name', 'date_modified', 'type', 'size']"
 }
 
 seat seat0 xcursor_theme $cursor-theme $cursor-size
