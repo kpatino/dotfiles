@@ -29,7 +29,6 @@ Packages
 - bat
 - blueberry
 - copyq
-- duf
 - exa
 - foot
 - gnome-keyring
@@ -40,6 +39,7 @@ Packages
 - noto-fonts-cjk
 - noto-fonts-emoji
 - noto-fonts-extra
+- mako
 - pamixer
 - playerctl
 - polkit-gnome
@@ -61,12 +61,10 @@ Packages
 - zsh-completions
 - zsh-history-substring-search
 - zsh-syntax-highlighting
-- zsh-theme-powerlevel10k
 
 AUR packages
 
 - adw-gtk3
-- mako-git
 - rofi-lbonn-wayland-git
 - waybar-mpris-git
 - wlsunset

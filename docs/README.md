@@ -1,5 +1,10 @@
 # README
 
-Information contained here are notes regarding my current sway config and explanations as to why things are setup the way they are in case I forget. It may also be useful to others trying to get something to work.  
+Information contained here are notes/docs regarding my current sway config.  
 
-My setup also tends to use systemd provides utilities and programs such as systemd-networkd and systemd-boot because I don't want to install more packages for needs that are already provided.
+[Configuring cursors in Sway](cursors.md)  
+[Configuring flatpaks](flatpaks.md)  
+[Setting up GNOME Keyring](gnome-keyring.md)  
+[Setting up GNOME Polkit](gnome-polkit.md)  
+[Getting xdg-desktop-portal to work](xdg-desktop-portal.md)  
+[How to use the Zink driver for OpenGL games](zink.md)  
