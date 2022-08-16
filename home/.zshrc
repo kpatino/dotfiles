@@ -71,7 +71,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 eval "$(starship init zsh)"
 
 ## Alias section 
-alias duf='duf -theme ansi'
 alias ls='exa --icons'
 alias mp3-dl="yt-dlp --extract-audio --audio-format mp3 --audio-quality 0"
 alias ra='ranger'
