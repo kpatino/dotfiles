@@ -41,23 +41,18 @@ set $lock swaylock --config $XDG_CONFIG_HOME/swaylock/config -i $wallpaper && lo
 #
 # Configure background for all monitors
 output * bg $wallpaper fill
-# Configure DP-1 monitor settings
 # VRR causes flickering on my VG27A during normal use but not noticeable while gaming
 # 144 hz and below don't have max memory clock problems
 # 144hz flickers even when VRR is off
-output DP-1 {
+output 'ASUSTek COMPUTER INC VG27A M1LMQS120456' {
     subpixel none
-    #mode 2560x1440@143.972Hz
-    #mode 2560x1440@120.014Hz
     mode 2560x1440@164.999Hz
     adaptive_sync off
-    #adaptive_sync on
 }
 
 ### Idle configuration
 # Sway 1.8 Replace dpms with power
 # See https://github.com/swaywm/sway/commit/11e05c57115e7f0e915e80f006468b7e1af4373b
-#
 #
 exec swayidle -w \
         timeout 300 '$lock; makoctl mode -a away' \
@@ -287,6 +282,7 @@ exec_always {
     gsettings set $desktop-interface cursor-theme $cursor-theme
     gsettings set $desktop-interface document-font-name 'Cantarell 12'
     gsettings set $desktop-interface font-name 'Noto Sans 12'
+    gsettings set $desktop-interface gtk-enable-primary-paste false
     gsettings set $desktop-interface gtk-theme $gtk-theme
     gsettings set $desktop-interface icon-theme $icon-theme
     gsettings set $desktop-interface monospace-font-name 'Source Code Pro 11'
@@ -298,6 +294,9 @@ exec_always {
 }
 
 seat seat0 xcursor_theme $cursor-theme $cursor-size
+
+# I don't like the middle mouse button buffer
+exec wl-paste --primary --watch wl-copy --primary --clear
 
 ### Sway window behavior and looks
 #
@@ -331,39 +330,41 @@ for_window [app_id="pavucontrol"] floating enable
 #for_window [shell=".*"] title_format "%title : %shell"
 
 # Personal Firefox fixes
-for_window [title="^\ -\ Sharing\ Indicator$" app_id="firefox"] floating enable, sticky enable
 for_window [title="^Picture in picture$" app_id="firefox"] floating enable, sticky enable
 for_window [title="^Picture-in-Picture$" app_id="firefox"] floating enable, sticky enable
+for_window [title="^\ -\ Sharing\ Indicator$" app_id="firefox"] floating enable, sticky enable
 
 # Personal Gnome app fixes
 for_window [app_id="file-roller"] floating enable
 for_window [app_id="gedit"] floating enable
 for_window [app_id="gnome-system-monitor"] floating enable, resize set height 1280px width 960px
 for_window [app_id="org.gnome.Calculator"] floating enable
-for_window [app_id="xdg-desktop-portal-gtk" title="Select Mods"] floating enable, resize set height 1280px width 960px
 
 # Other personal fixes
+for_window [app_id="app.drey.EarTag"] floating enable
 for_window [app_id="com.github.rajsolai.textsnatcher"] floating enable
-for_window [title="ProtonUp-Qt - Wine\/Proton Installer" app_id="python3"] floating enable
 for_window [title="Game List" app_id="python3"] floating enable
+for_window [title="ProtonUp-Qt - Wine\/Proton Installer" app_id="python3"] floating enable
+# PolyMC add local mods window
+for_window [app_id="xdg-desktop-portal-gtk" title="^Select Mods$"] floating enable, resize set height 1024px width 768px
 
 # Fixes from manjaro sway github
 # https://github.com/Manjaro-Sway/desktop-settings/blob/sway/community/sway/etc/sway/config.d/98-application-defaults.conf
 # set floating mode for specific applications
-for_window [instance="lxappearance"] floating enable
-for_window [app_id="pamac-manager"] floating enable
-for_window [app_id="blueberry.py"] floating enable
-for_window [app_id="firefox" title="^Library$"] floating enable, sticky enable
-for_window [app_id="thunderbird" title=".*Reminder"] floating enable
-for_window [app_id="floating_shell_portrait"] floating enable, sticky enable, resize set width 30 ppt height 40 ppt
-for_window [app_id="floating_shell"] floating enable, sticky enable
+for_window [app_id="" title=".* is sharing your screen."] floating enable
 for_window [app_id="" title="Picture in picture"] floating enable, sticky enable
 for_window [app_id="" title="Picture-in-Picture"] floating enable, sticky enable
-for_window [instance="around"] floating enable, sticky enable
+for_window [app_id="blueberry.py"] floating enable
+for_window [app_id="firefox" title="Firefox .*— Sharing Indicator"] floating enable, sticky enable, move to scratchpad
+for_window [app_id="firefox" title="^Library$"] floating enable, sticky enable
+for_window [app_id="floating_shell"] floating enable, sticky enable
+for_window [app_id="floating_shell_portrait"] floating enable, sticky enable, resize set width 30 ppt height 40 ppt
+for_window [app_id="pamac-manager"] floating enable
+for_window [app_id="thunderbird" title=".*Reminder"] floating enable
 for_window [app_id="xsensors"] floating enable
-for_window [title="Save File"] floating enable
-for_window [title="Firefox .*— Sharing Indicator"] floating enable, sticky enable, move to scratchpad
-for_window [app_id="" title=".* is sharing your screen."] floating enable
+for_window [instance="around"] floating enable, sticky enable
+for_window [instance="lxappearance"] floating enable
+for_window [title="Save File"] floating enable, resize set height 1024px width 768px
 for_window [title="^wlay$"] floating enable
 
 # Steam (xwayland) gives an appid of null
