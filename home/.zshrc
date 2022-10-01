@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE="$XDG_STATE_HOME"/zsh/history
-HISTSIZE=9999
-SAVEHIST=9999
+HISTSIZE=999999
+SAVEHIST=$HISTSIZE
 ## Options section
 setopt appendhistory                                            # Immediately append history instead of overwriting
 setopt autocd                                                   # If only directory path is entered, cd there.
