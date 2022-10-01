@@ -47,7 +47,10 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 # QT settings
 export QT_PLUGIN_PATH=/usr/lib/qt/plugins
+# QT5 HiDPI
 export QT_WAYLAND_FORCE_DPI=physical
+# QT6 HiDPI
+export QT_USE_PHYSICAL_DPI=1
 # https://github.com/FedoraQt/QGnomePlatform
 export QT_QPA_PLATFORMTHEME='gnome'
 
