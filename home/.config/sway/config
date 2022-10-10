@@ -9,7 +9,7 @@ exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAN
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Wob for volume control. yes this is critical
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color "#0E0E0ECC" --bar-color "#FFFFFFFF" --overflow-bar-color "#FF453AFF"
+exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color "#0E0E0ECC" --bar-color "#FFFFFFFF" --overflow-bar-color "#FF453AFF"
 # Start notification daemon, letting dbus start mako makes cursor small when hovering over it
 exec mako
 # wlsunset/night light
@@ -233,7 +233,7 @@ bindsym $mod+r mode "resize"
    # Use pamixer to adjust volume
    bindsym XF86AudioRaiseVolume exec pamixer -ui 1 && pamixer --get-volume > $WOBSOCK
    bindsym XF86AudioLowerVolume exec pamixer -ud 1 && pamixer --get-volume > $WOBSOCK
-   bindsym XF86AudioMute exec pamixer --toggle-mute && ( pamixer --get-mute && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
+   bindsym XF86AudioMute exec pamixer --toggle-mute && ( [ "$(pamixer --get-mute)" = "true" ] && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
    # Use playerctl to control media
    bindsym XF86AudioPlay exec playerctl play-pause
    bindsym XF86AudioStop exec playerctl stop
