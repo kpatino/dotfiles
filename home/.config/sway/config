@@ -9,7 +9,7 @@ exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAN
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Wob for volume control. yes this is critical
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --background-color "#0E0E0ECC" --bar-color "#FFFFFFFF" --overflow-bar-color "#FF453AFF"
+exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --offset 0 --border 4 --padding 8 --anchor center --border-color "#444444FF" --background-color "#0E0E0EE6" --bar-color "#FFFFFFE6" --overflow-mode wrap --overflow-bar-color "#FF453AE6" --overflow-border-color "#444444FF" --overflow-background-color "#0E0E0EE6"
 # Start notification daemon, letting dbus start mako makes cursor small when hovering over it
 exec mako
 # wlsunset/night light
