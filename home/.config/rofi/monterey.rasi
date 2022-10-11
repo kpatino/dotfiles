@@ -2,70 +2,73 @@
   font: "NotoSans Nerd Font 16";
   background-color: transparent;
   ac: #0A84FF; /* Accent color */
-  bg: rgba(14, 14, 14, 0.9); /* Background color */
+  bg: #0E0E0EE6; /* Background color */
   br: #444444; /* Border color */
   txt: #FFFFFF; /* Text color */
 }
 
 window {
   background-color: @bg;
-  border: 4;
+  border: 4px;
   border-color: @br;
-  padding: 16 16 0 16;
-  width: 768; /* 30% of the monitor's width */
-  height: 720; /* 50% of the monitor's height */
+  width: 25%;
+  padding: 16px 16px 16px 16px;
 }
 
 mainbox {
   children: [ inputbar, listview];
+  spacing: 4px;
+}
+
+inputbar {
+  padding: 16px 16px 16px 16px;
+  text-color: @txt;
+  children: [ prompt, entry ];
+}
+
+prompt {
+  /* input bar child */
+  enabled: true;
+  text-color: inherit;
+  vertical-align: 0.5;
+  margin: 0px 16px 0px 0px; /* 16px bottom margin */
+}
+
+entry {
+  /* input bar child */
+  text-color: inherit;
+  vertical-align: 0.5;
 }
 
 listview {
   columns: 1;
-  lines:   3;
-  spacing: 4;
-  cycle:   false;
+  lines: 7;
+  spacing: 4px;
+  cycle: false;
   dynamic: true;
-  layout:  vertical;
+  layout: vertical;
 }
 
 element {
-  border: 1;
+  text-color: @txt;
   orientation: horizontal;
   padding: 16 16 16 16;
 }
 
-element selected,
-element-text selected {
-  background-color: @ac;
-  transition: 40;
-}
-
 element-icon {
-  size: 48;
+  size: 48px; /* icon size */
   horizontal-align: 0.5;
   vertical-align: 0.5;
 }
 
 element-text {
-  margin: 0 0 0 10;
+  text-color: @txt;
   vertical-align: 0.5;
-  text-color: @txt;
+  margin: 0% 0% 0% 0.5%; /* 0.5% left margin */
 }
 
-inputbar {
-  children: [ prompt, entry ];
-  padding: 4 8 4 8;
-}
-
-prompt {
-  enabled: true;
-}
-
-entry,
-prompt {
-  text-color: @txt;
-  padding: 8 12 16 12;
+element selected {
+  background-color: @ac;
 }
 
 /* vim:ft=css
