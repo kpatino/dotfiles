@@ -9,7 +9,7 @@ exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAN
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Wob for volume control. yes this is critical
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --offset 0 --border 4 --padding 8 --anchor center --border-color "#444444FF" --background-color "#0E0E0EE6" --bar-color "#FFFFFFE6" --overflow-mode wrap --overflow-bar-color "#FF453AE6" --overflow-border-color "#444444FF" --overflow-background-color "#0E0E0EE6"
+exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --offset 0 --border 4 --padding 8 --anchor center --border-color "#323232FF" --background-color "#0E0E0EE6" --bar-color "#FFFFFFE6" --overflow-mode wrap --overflow-bar-color "#FF453AE6" --overflow-border-color "#323232FF" --overflow-background-color "#0E0E0EE6"
 # Start notification daemon, letting dbus start mako makes cursor small when hovering over it
 exec mako
 # wlsunset/night light
@@ -31,7 +31,7 @@ set $term foot
 # Your preferred application launcher
 set $menu rofi -theme monterey -show-icons
 # Your preferred background image, must use double quotes for wallpaper
-set $wallpaper "$HOME/Pictures/Saved Pictures/Wallpapers/Landscapes/Monterey.png"
+set $wallpaper "$HOME/Pictures/Saved Pictures/Wallpapers/Landscapes/The-Desert-8.jpg"
 # Your preferred Font name
 set $font NotoSans Nerd Font
 # Lock command
@@ -45,7 +45,6 @@ output * bg $wallpaper fill
 # 144 hz and below don't have max memory clock problems
 # 144hz flickers even when VRR is off
 output 'ASUSTek COMPUTER INC VG27A M1LMQS120456' {
-    subpixel none
     mode 2560x1440@164.999Hz
     adaptive_sync off
 }
@@ -269,7 +268,7 @@ exec copyq --start-server
 
 ### Run commands everytime
 #
-set $cursor-size 36
+set $cursor-size 40
 set $cursor-theme "WhiteSur-cursors"
 set $desktop-interface org.gnome.desktop.interface
 set $wm-preferences org.gnome.desktop.wm.preferences
@@ -296,9 +295,6 @@ exec_always {
 
 seat seat0 xcursor_theme $cursor-theme $cursor-size
 
-# This actually causes issues when highlighting text
-#exec wl-paste --primary --watch wl-copy --primary --clear
-
 ### Sway window behavior and looks
 #
 # Sway border rules:
@@ -319,16 +315,13 @@ seat seat0 xcursor_theme $cursor-theme $cursor-size
 #
 # Set font
 #
-    font pango: $font 14
+font pango: $font 14
 
 ### Window rules
 #
 for_window [app_id="blueberry"] floating enable
 for_window [app_id="com.github.hluk.copyq"] floating enable, sticky enable, resize set height 800px width 600px, move position cursor, move down 330
 for_window [app_id="pavucontrol"] floating enable
-
-# Are you runing natively or through xwayland?
-#for_window [shell=".*"] title_format "%title : %shell"
 
 # Personal Firefox fixes
 for_window [title="^Picture in picture$" app_id="firefox"] floating enable, sticky enable
@@ -345,8 +338,7 @@ for_window [app_id="org.gnome.Calculator"] floating enable
 # Other personal fixes
 for_window [app_id="app.drey.EarTag"] floating enable
 for_window [app_id="com.github.rajsolai.textsnatcher"] floating enable
-for_window [title="Game List" app_id="net.davidotek.pupgui2"] floating enable
-for_window [title="ProtonUp-Qt - Wine\/Proton Installer" app_id="net.davidotek.pupgui2"] floating enable
+for_window [app_id="net.davidotek.pupgui2"] floating enable
 # PolyMC add local mods window
 for_window [app_id="xdg-desktop-portal-gtk" title="^Select Mods$"] floating enable, resize set height 1024px width 768px
 
