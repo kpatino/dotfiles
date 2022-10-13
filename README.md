@@ -23,53 +23,57 @@ Noto Sans
 ## dependencies being used
 
 Packages
-  
-- adwaita-qt5
-- adwaita-qt6
-- bat
-- blueberry
-- copyq
-- exa
-- foot
-- gnome-keyring
-- gnome-system-monitor
-- grim
-- grimshot
-- noto-fonts
-- noto-fonts-cjk
-- noto-fonts-emoji
-- noto-fonts-extra
-- mako
-- pamixer
-- playerctl
-- polkit-gnome
-- qgnomeplatform-qt5
-- qgnomeplatform-qt6
-- rofimoji
-- seahorse
-- slurp
-- starship
-- swappy
-- sway
-- swaybg
-- swayidle
-- swaylock
-- waybar
-- wl-clipboard
-- yt-dlp
-- zsh
-- zsh-autosuggestions
-- zsh-completions
-- zsh-history-substring-search
-- zsh-syntax-highlighting
+
+```
+adwaita-qt5
+adwaita-qt6
+bat
+blueberry
+copyq
+exa
+foot
+gnome-keyring
+gnome-system-monitor
+grim
+grimshot
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+noto-fonts-extra
+mako
+pamixer
+playerctl
+polkit-gnome
+qgnomeplatform-qt5
+qgnomeplatform-qt6
+rofimoji
+seahorse
+slurp
+starship
+swappy
+sway
+swaybg
+swayidle
+swaylock
+waybar
+wl-clipboard
+yt-dlp
+zsh
+zsh-autosuggestions
+zsh-completions
+zsh-history-substring-search
+zsh-syntax-highlighting
+```
 
 AUR packages
 
-- adw-gtk3
-- rofi-lbonn-wayland-git
-- waybar-mpris-git
-- wlsunset
-- wob
+```
+adw-gtk3
+rofi-lbonn-wayland-git
+waybar-mpris-git
+wlsunset
+wob
+```
 
 ## themes
 
