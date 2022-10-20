@@ -6,11 +6,18 @@ Really annoying to configure. In my experience I need to set the cursor in 3 dif
 
 Set up `~/.icons/default/index.theme`
 
-Then apply this flatpak override
+```ini
+[Icon Theme]
+Inherits=WhiteSur-cursors
+```
+
+Then apply these flatpak overrides for icons and themes installed to the user
 
 `flatpak override --user --filesystem=~/.icons:ro`
 
-May or may not need
+`flatpak override --user --filesystem=xdg-data/icons:ro`
+
+If icons and/or themes are installed system wide
 
 `flatpak override --user --filesystem=/usr/share/icons:ro`
 

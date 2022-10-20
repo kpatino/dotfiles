@@ -18,6 +18,11 @@ For adw-gtk3 install the following.
 - Light theme: `flatpak install org.gtk.Gtk3theme.adw-gtk3`
 - Dark theme: `flatpak install org.gtk.Gtk3theme.adw-gtk3-dark`
 
+Relevant overrides
+
+`flatpak override --user --filesystem=xdg-config/gtk-4.0:ro`
+`flatpak override --user --filesystem=xdg-config/gtk-3.0:ro`
+
 ## QT themes
 
 For qgnomeplatform I needed to download the right theme versions for PolyMC, OBS and Vorta  
