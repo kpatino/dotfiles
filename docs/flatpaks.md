@@ -21,6 +21,7 @@ For adw-gtk3 install the following.
 Relevant overrides
 
 `flatpak override --user --filesystem=xdg-config/gtk-4.0:ro`
+
 `flatpak override --user --filesystem=xdg-config/gtk-3.0:ro`
 
 ## QT themes
