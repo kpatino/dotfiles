@@ -75,10 +75,12 @@ alias ls='exa --icons'
 alias mp3-dl="yt-dlp --extract-audio --audio-format mp3 --audio-quality 0"
 alias ra='ranger'
 alias removeorphans='paru -c'
-alias rtop='radeontop -c -T'
 alias vi='vim'
 alias wlc='wl-copy --trim-newline'
 alias wlp='wl-paste'
 alias xssh='env TERM=xterm-256color ssh'
 alias xwsm='SDL_VIDEODRIVER=x11 wf-recorder -c rawvideo -m sdl -f pipe:xwayland-mirror'
 alias yt-dl="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
+
+alias protontricks="flatpak run com.github.Matoking.protontricks"
+alias protontricks-launch="flatpak run --command=protontricks-launch com.github.Matoking.protontricks"
