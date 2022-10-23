@@ -34,33 +34,9 @@ export EDITOR="vim"
 export SHELL="zsh"
 export TERMINAL="foot"
 
-# https://wiki.archlinux.org/title/Wayland#GUI_libraries
-export CLUTTER_BACKEND=wayland
-export ECORE_EVAS_ENGINE=wayland-egl
-export ELM_ENGINE=wayland_egl
-export MOZ_ENABLE_WAYLAND=1
-export QT_QPA_PLATFORM=wayland
-# https://github.com/swaywm/sway/wiki#disabling-client-side-qt-decorations
-export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-# https://github.com/swaywm/sway/wiki#issues-with-java-applications
-export _JAVA_AWT_WM_NONREPARENTING=1
-
-# QT settings
-export QT_PLUGIN_PATH=/usr/lib/qt/plugins
-# QT5 HiDPI
-export QT_WAYLAND_FORCE_DPI=physical
-# QT6 HiDPI
-export QT_USE_PHYSICAL_DPI=1
-# https://github.com/FedoraQt/QGnomePlatform
-export QT_QPA_PLATFORMTHEME='gnome'
-
 # Export languages
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
-# https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step
-# https://nurdletech.com/linux-notes/agents/keyring.html
-export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
 
 export PF_INFO="ascii title os host kernel uptime pkgs memory shell de palette"
