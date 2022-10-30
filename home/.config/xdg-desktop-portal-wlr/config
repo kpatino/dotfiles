@@ -1,0 +1,5 @@
+[screencast]
+exec_before=notify-send "XDG Desktop Portal" "Activated a screencast"
+exec_after=notify-send "XDG Desktop Portal" "Deactivated a screencast"
+max-fps=60
+chooser_type=none
