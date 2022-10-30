@@ -69,6 +69,7 @@ AUR packages
 
 ```
 adw-gtk3
+hyprpicker-git
 rofi-lbonn-wayland-git
 waybar-mpris-git
 wlsunset
