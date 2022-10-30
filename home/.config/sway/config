@@ -251,7 +251,7 @@ bindsym $mod+r mode "resize"
    # Windows task manager/gnome system monitor
    bindsym ctrl+Shift+Escape exec gnome-system-monitor
    # Color picker
-   bindsym $mod+Shift+p exec $HOME/.local/bin/html-color-picker-for-sway
+   bindsym $mod+Shift+p exec hyprpicker --no-fancy | wl-copy --trim-newline
 
 ### Status Bar:
 #
