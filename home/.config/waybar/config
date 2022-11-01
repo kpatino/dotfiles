@@ -18,52 +18,50 @@
         "clock"
     ],
     "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "sway/window": {
-        "format": "{}",
-        "max-length": 60
+        "format": "<span style=\"italic\">{}</span>",
+        "tooltip": false
     },
     "bluetooth": {
         "format": "{status}",
-        "format-connected": "",
-        "format-connected-battery": "",
-        "format-disabled": "",
         "format-off": "",
         "format-on": "",
+        "format-connected": "",
+        "format-disabled": "",
         "on-click": "blueberry",
         "tooltip": true,
-        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+        "tooltip-format": "{controller_alias}\t{status}\n{num_connections} connected",
+        "tooltip-format-disabled": "{controller_alias}\t{status}",
+        "tooltip-format-connected": "{controller_alias}\t{status}\n{num_connections} connected\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%"
     },
     "clock": {
-        "format": "{:%a %b %d   %I:%M %p}  ",
+        "format": "{:%a %b %d   %I:%M %p}",
         "interval": 60,
         "on-click": "makoctl restore",
         "timezone": "America/Chicago",
-        "today-format": "<b><u>{}</u></b>",
         "tooltip": true,
+        "today-format": "<b><u>{}</u></b>",
         "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "pulseaudio": {
-        "format": "{icon} {volume}{format_source}",
-        "format-bluetooth": " {volume}",
-        "format-muted": "婢",
-        "format-source": "",
-        "format-source-muted": " ",
+        "format": "{icon} {volume} {format_source}",
+        "format-bluetooth": " {volume} {format_source}",
+        "format-muted": "婢{volume} {format_source}",
+        "format-source": "",
+        "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
-            "headset": "",
-            "default": [
-                "",
-                "",
-                ""
-            ]
+            "default": ["", "", "墳"]
         },
         "scroll-step": 1,
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-middle": "pavucontrol -t 3",
+        "on-click-right": "pavucontrol -t 4",
+        "on-scroll-up": "pamixer -ui 1 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock",
+        "on-scroll-down": "pamixer -ud 1 && pamixer --get-volume > $XDG_RUNTIME_DIR/wob.sock",
+        "tooltip": true,
+        "tooltip-format": "{desc}\n{volume}% volume",
+        "max-volume" : 100
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -71,20 +69,25 @@
             "activated": "",
             "deactivated": ""
         },
-        "tooltip": true
+        "tooltip": true,
+        "tooltip-format-activated":"Idle Inhibit\nEnabled",
+        "tooltip-format-deactivated":"Idle Inhibit\nDisabled"
     },
     "network": {
+        "interval": 5,
         "family": "ipv4",
-        "format-disconnected": "",
+        "format": "{icon}",
         "format-ethernet": "",
         "format-wifi": "",
-        "interval": 5,
-        "max-length": 50,
+        "format-linked": "",
+        "format-disconnected": "",
+        "max-length": 4,
         "tooltip": true,
-        "tooltip-format": "{ifname}\t{ipaddr}/{cidr}",
-        "tooltip-format-disconnected": "{ifname}\t{ipaddr}/{cidr}",
-        "tooltip-format-ethernet": "{ifname}\t{ipaddr}/{cidr}",
-        "tooltip-format-wifi": "{ifname}\t{ipaddr}/{cidr}\n\n{signalStrength}%"
+        "tooltip-format": "{ipaddr}/{cidr}\n{gwaddr}",
+        "tooltip-format-disconnected": "{ipaddr}/{cidr}\nDisconnected",
+        "tooltip-format-ethernet": "{ipaddr}/{cidr}\n{gwaddr}",
+        "tooltip-format-wifi": "{ipaddr}/{cidr}\nessid}\t{signalStrength}%",
+        "on-click": "foot nmtui"
     },
     "tray": {
         "icon-size": 22,

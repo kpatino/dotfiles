@@ -4,62 +4,50 @@
     font-family: "NotoSans Nerd Font", "Noto Sans", "Noto Sans CJK HK", "Noto Sans CJK JP", "Noto Sans CJK KR",  "Noto Sans CJK SC", "Noto Sans CJK TC";
     font-weight: normal;
     font-size: 20px;
-    min-height: 0;
+    color: white;
 }
 
 window#waybar {
     background-color: rgba(14, 14, 14, 0.9);
-    color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
+    color: white;
 }
 
-#workspaces button {
-    padding: 0 10px;
-    background-color: transparent;
-    color: #ffffff;
+button {
+    transition-duration: 0.2s;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 20px;
+    color: white;
     box-shadow: inset 0 -3px transparent;
 }
 
-#workspaces button:hover {
+button:hover {
     background: rgba(255, 255, 255, 0.05);
-    box-shadow: inset 0 -3px rgba(255, 255, 255, 0.6);
+    box-shadow: inset 0 -3px rgba(255, 255, 255, 0.5);
+}
+
+button:active {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 -3px white;
 }
 
 #workspaces button.focused {
     background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px white;
 }
 
-#backlight,
-#battery,
 #bluetooth,
-#clock
-#cpu,
-#custom-media,
+#clock,
 #custom-sunset,
 #custom-waybar-mpris,
-#disk,
 #idle_inhibitor,
-#memory,
 #mode,
-#mpd,
 #network,
 #pulseaudio,
-#temperature,
 #tray {
-    padding: 0 10px;
-    margin: 0 4px;
-    color: #ffffff;
-}
-
-#clock {
-    padding: 0 10px;
-    margin: 0 4px;
-}
-
-#tray menu {
-    color: #FFFFFF;
+    min-width: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .modules-left > widget:first-child > #workspaces {
@@ -68,24 +56,6 @@ window#waybar {
 
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0;
-}
-
-@keyframes urgent {
-    from {
-        background-color: #FF453A;
-    }
-    to {
-        background-color: rgba(0, 0, 0, 0);
-    }
-}
-
-@keyframes blink {
-    from {
-        background-color: #BF5AF2;
-    }
-    to {
-        background-color: rgba(0, 0, 0, 0);
-    }
 }
 
 #workspaces button.urgent,
@@ -109,6 +79,31 @@ window#waybar {
     animation-direction: alternate;
 }
 
+@keyframes urgent {
+    from {
+        background-color: #FF453A;
+    }
+    to {
+        background-color: transparent;
+    }
+}
+
+@keyframes blink {
+    from {
+        background-color: #BF5AF2;
+    }
+    to {
+        background-color: transparent;
+    }
+}
+
+
 label:focus {
     background-color: #000000;
+}
+
+tooltip {
+    padding: 4px 4px;
+    background: rgba(14, 14, 14, 0.9);
+    border: 2px solid #444444;
 }
