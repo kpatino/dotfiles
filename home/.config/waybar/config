@@ -109,7 +109,7 @@
         "signal": 6
     },
     "custom/waybar-mpris": {
-        "escape": true,
+        "escape": false,
         "exec": "waybar-mpris --autofocus --play \uf04b --pause \uf04c --separator ' by ' --order 'SYMBOL:TITLE:ARTIST'",
         "max-length": 80,
         "on-click": "waybar-mpris --send toggle",
