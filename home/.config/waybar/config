@@ -87,7 +87,7 @@
         "tooltip-format-disconnected": "{ipaddr}/{cidr}\nDisconnected",
         "tooltip-format-ethernet": "{ipaddr}/{cidr}\n{gwaddr}",
         "tooltip-format-wifi": "{ipaddr}/{cidr}\nessid}\t{signalStrength}%",
-        "on-click": "foot nmtui"
+        "on-click": "mullvad-vpn"
     },
     "tray": {
         "icon-size": 22,

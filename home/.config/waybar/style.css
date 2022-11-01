@@ -13,27 +13,30 @@ window#waybar {
 }
 
 button {
-    transition-duration: 0.2s;
+    color: white;
     padding-left: 10px;
     padding-right: 10px;
     min-width: 20px;
-    color: white;
     box-shadow: inset 0 -3px transparent;
+    transition-duration: 0.1s;
 }
 
 button:hover {
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: inset 0 -3px rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: inset 0 -3px rgba(255, 255, 255, 0.6);
+    transition-duration: 0.1s;
 }
 
 button:active {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
     box-shadow: inset 0 -3px white;
+    transition-duration: 0.1s;
 }
 
 #workspaces button.focused {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.12);
     box-shadow: inset 0 -3px white;
+    transition-duration: 0.1s;
 }
 
 #bluetooth,
@@ -45,6 +48,8 @@ button:active {
 #network,
 #pulseaudio,
 #tray {
+    margin-left: 2px;
+    margin-right: 2px;
     min-width: 20px;
     padding-left: 10px;
     padding-right: 10px;
