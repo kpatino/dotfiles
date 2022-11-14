@@ -4,6 +4,7 @@
     "height": 40,
     "modules-left": [
         "sway/workspaces",
+        "sway/scratchpad",
         "sway/mode"
     ],
     "modules-center": [],
@@ -35,6 +36,13 @@
         "tooltip-format-enumerate-connected": "{device_alias}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%"
     },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
     "clock": {
         "format": "{:%a %b %d   %I:%M %p}",
         "interval": 60,
@@ -42,7 +50,8 @@
         "timezone": "America/Chicago",
         "tooltip": true,
         "today-format": "<b><u>{}</u></b>",
-        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "on-scroll": { "calendar": 1 }
     },
     "pulseaudio": {
         "format": "{icon} {volume} {format_source}",
@@ -109,7 +118,7 @@
         "signal": 6
     },
     "custom/waybar-mpris": {
-        "escape": false,
+        "escape": true,
         "exec": "waybar-mpris --autofocus --play \uf04b --pause \uf04c --separator ' by ' --order 'SYMBOL:TITLE:ARTIST'",
         "max-length": 80,
         "on-click": "waybar-mpris --send toggle",
