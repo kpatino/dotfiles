@@ -9,7 +9,7 @@ exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAN
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Wob for volume control. yes this is critical
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --offset 0 --border 4 --padding 8 --anchor center --border-color "#323232FF" --background-color "#0E0E0EE6" --bar-color "#FFFFFFE6" --overflow-mode wrap --overflow-bar-color "#FF453AE6" --overflow-border-color "#323232FF" --overflow-background-color "#0E0E0EE6"
+exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --offset 0 --border 2 --padding 8 --anchor center --border-color "#323232FF" --background-color "#0E0E0EE6" --bar-color "#FFFFFFE6" --overflow-mode wrap --overflow-bar-color "#FF453AE6" --overflow-border-color "#323232FF" --overflow-background-color "#0E0E0EE6"
 # Start notification daemon, letting dbus start mako makes cursor small when hovering over it
 exec mako
 # wlsunset/night light
@@ -47,6 +47,7 @@ output * bg $wallpaper fill
 output 'ASUSTek COMPUTER INC VG27A M1LMQS120456' {
     mode 2560x1440@164.999Hz
     adaptive_sync off
+    subpixel none
 }
 
 ### Idle configuration
@@ -272,7 +273,7 @@ set $cursor-size 40
 set $cursor-theme "WhiteSur-cursors"
 set $desktop-interface org.gnome.desktop.interface
 set $wm-preferences org.gnome.desktop.wm.preferences
-set $gtk-theme "adw-gtk3-dark"
+set $gtk-theme "adw-gtk3"
 set $icon-theme "WhiteSur-dark"
 
 exec_always {
@@ -281,11 +282,12 @@ exec_always {
     gsettings set $desktop-interface cursor-size $cursor-size
     gsettings set $desktop-interface cursor-theme $cursor-theme
     gsettings set $desktop-interface document-font-name 'Cantarell 12'
+    gsettings set $desktop-interface font-hinting 'medium'
     gsettings set $desktop-interface font-name 'Noto Sans 12'
     gsettings set $desktop-interface gtk-enable-primary-paste false
     gsettings set $desktop-interface gtk-theme $gtk-theme
     gsettings set $desktop-interface icon-theme $icon-theme
-    gsettings set $desktop-interface monospace-font-name 'Source Code Pro 11'
+    gsettings set $desktop-interface monospace-font-name 'Source Code Pro 12'
     gsettings set $desktop-interface text-scaling-factor '1.0'
     gsettings set $wm-preferences button-layout ""
     gsettings set $wm-preferences theme $gtk-theme
@@ -299,18 +301,19 @@ seat seat0 xcursor_theme $cursor-theme $cursor-size
 #
 # Sway border rules:
 #
-    default_border pixel 4
-    default_floating_border pixel 4
+    default_border pixel 2
+    default_floating_border normal 2
     hide_edge_borders both
     titlebar_border_thickness 2
+    titlebar_padding 4 4
 #
 # Sway client color definitions:
 #
     # class                  border  bground text    indicator child_border
-    client.focused           #444444 #303030 #FFFFFF #0A84FF   #0A84FF
-    client.focused_inactive  #444444 #303030 #FFFFFF #303030   #BF5AF2
-    client.focused_tab_title #444444 #303030 #FFFFFF #303030   #303030
-    client.unfocused         #232323 #171717 #888888 #171717   #444444
+    client.focused           #444444 #303030 #FFFFFF #444444   #444444
+    client.focused_tab_title #444444 #303030 #FFFFFF
+    client.focused_inactive  #444444 #171717 #888888 #232323   #232323
+    client.unfocused         #232323 #171717 #888888 #232323   #232323
     client.urgent            #444444 #FF453A #FFFFFF #FF453A   #FF453A
 #
 # Set font

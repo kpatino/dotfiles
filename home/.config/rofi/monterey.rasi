@@ -1,7 +1,7 @@
 * {
   font: "NotoSans Nerd Font 16";
   background-color: transparent;
-  ac: #0A84FF; /* Accent color */
+  ac: #9B5BE8; /* Accent color */
   bg: #0E0E0EE6; /* Background color */
   br: #444444; /* Border color */
   txt: #FFFFFF; /* Text color */
@@ -9,7 +9,7 @@
 
 window {
   background-color: @bg;
-  border: 4px;
+  border: 2px;
   border-color: @br;
   width: 25%;
   padding: 16px 16px 16px 16px;
@@ -50,7 +50,6 @@ listview {
 }
 
 element {
-  text-color: @txt;
   orientation: horizontal;
   padding: 16 16 16 16;
 }
