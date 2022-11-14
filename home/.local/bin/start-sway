@@ -3,7 +3,7 @@ export MOZ_ENABLE_WAYLAND=1
 
 # Qt Wayland
 export QT_PLUGIN_PATH=/usr/lib/qt/plugins
-export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORM="wayland;xcb"
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_WAYLAND_FORCE_DPI=physical
 export QT_USE_PHYSICAL_DPI=1
@@ -20,8 +20,12 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # https://nurdletech.com/linux-notes/agents/keyring.html
 export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
 
-export XDG_CURRENT_DESKTOP=sway
-#exec sway
-exec env WLR_RENDERER=vulkan sway
+# Environment variables pulled from the Steam Deck
+export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
 
-# > $XDG_CACHE_HOME/sway.log 2>&1
+export XDG_SESSION_DESKTOP=sway
+export XDG_CURRENT_DESKTOP=sway
+
+export WLR_RENDERER=vulkan
+
+exec sway $@
