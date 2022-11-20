@@ -9,7 +9,7 @@ exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAN
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Wob for volume control. yes this is critical
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob --offset 0 --border 2 --padding 8 --anchor center --border-color "#323232FF" --background-color "#0E0E0EE6" --bar-color "#FFFFFFE6" --overflow-mode wrap --overflow-bar-color "#FF453AE6" --overflow-border-color "#323232FF" --overflow-background-color "#0E0E0EE6"
+exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 # Start notification daemon, letting dbus start mako makes cursor small when hovering over it
 exec mako
 # wlsunset/night light
@@ -110,7 +110,7 @@ input "1133:16514:Logitech_MX_Master_3" {
     bindsym Ctrl+$alt+Delete exec $menu -modi system:$HOME/.config/rofi/powermenu.sh -show system
 
     # Emoji Menu
-    bindsym $mod+period exec rofimoji --skin-tone ask --action copy
+    bindsym $mod+period exec rofimoji --skin-tone ask --action menu
 
 #
 # Moving around:
