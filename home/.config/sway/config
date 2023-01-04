@@ -57,12 +57,12 @@ output 'ASUSTek COMPUTER INC VG27A M1LMQS120456' {
 exec swayidle -w \
         timeout 300 '$lock; makoctl mode -a away' \
             resume 'makoctl mode -r away' \
-        timeout 600 'swaymsg "output * dpms off"' \
-            resume 'swaymsg "output * dpms on"; makoctl mode -r away' \
+        timeout 600 'swaymsg "output * power off"' \
+            resume 'swaymsg "output * power on"; makoctl mode -r away' \
         timeout 900 'systemctl suspend' \
-            resume 'swaymsg "output * dpms on"; makoctl mode -r away' \
+            resume 'swaymsg "output * power on"; makoctl mode -r away' \
         before-sleep '$lock; makoctl mode -a away' \
-        after-resume 'swaymsg "output * dpms on"; makoctl mode -r away' \
+        after-resume 'swaymsg "output * power on"; makoctl mode -r away' \
         lock '$lock; makoctl mode -a away' \
         unlock 'makoctl mode -r away'
 
