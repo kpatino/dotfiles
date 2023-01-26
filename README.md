@@ -55,6 +55,7 @@ sway
 swaybg
 swayidle
 swaylock
+terminus-font
 waybar
 wl-clipboard
 yt-dlp
