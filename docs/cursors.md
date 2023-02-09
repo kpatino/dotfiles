@@ -21,6 +21,11 @@ If icons and/or themes are installed system wide
 
 `flatpak override --user --filesystem=/usr/share/icons:ro`
 
+## Some applications are using the default Adwaita cursors
+
+On Arch `/usr/share/icons/default/cursors` symlinks to `/usr/share/icons/Adwaita/cursors` and causes some apps to use the Adwaita cursors
+To fix this, delete the symlink `/usr/share/icons/default/cursors`
+
 ## Relevant links
 
 <https://wiki.archlinux.org/title/Cursor_themes#Configuration>
