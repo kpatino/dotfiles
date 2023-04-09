@@ -71,16 +71,14 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 eval "$(starship init zsh)"
 
 ## Alias section 
-alias ls='exa --icons'
+alias ip='ip -c'
+alias ls='exa --colour=auto --icons'
 alias mp3-dl="yt-dlp --extract-audio --audio-format mp3 --audio-quality 0"
 alias ra='ranger'
-alias removeorphans='paru -c'
 alias vi='vim'
 alias wlc='wl-copy --trim-newline'
 alias wlp='wl-paste'
 alias xssh='env TERM=xterm-256color ssh'
-alias xwsm='SDL_VIDEODRIVER=x11 wf-recorder -c rawvideo -m sdl -f pipe:xwayland-mirror'
-alias yt-dl="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
-
+alias yt-dl="yt-dlp -f 'bestvideo*+bestaudio/best' --remux-video mkv --sponsorblock-mark all --sponsorblock-chapter-title '%(category_names)l'"
 alias protontricks="flatpak run com.github.Matoking.protontricks"
 alias protontricks-launch="flatpak run --command=protontricks-launch com.github.Matoking.protontricks"

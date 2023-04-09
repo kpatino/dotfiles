@@ -1,6 +1,5 @@
 #!/bin/zsh
 # Add to path
-export PATH="$HOME/.local/bin:$PATH"
 export PATH="${PATH}:${HOME}/.local/bin/"
 
 # https://wiki.archlinux.org/title/XDG_Base_Directory#User_directories
