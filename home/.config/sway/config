@@ -56,8 +56,6 @@ output 'ASUSTek COMPUTER INC VG27A M1LMQS120456' {
 }
 
 ### Idle configuration
-# Sway 1.8 Replace dpms with power
-# See https://github.com/swaywm/sway/commit/11e05c57115e7f0e915e80f006468b7e1af4373b
 #
 exec swayidle -w \
         timeout 300 '$lock; makoctl mode -a away' \
@@ -352,11 +350,6 @@ for_window [app_id="xdg-desktop-portal-gtk"] floating enable
 for_window [app_id="app.drey.EarTag"] floating enable
 for_window [app_id="net.davidotek.pupgui2"] floating enable
 for_window [app_id="com.vysp3r.ProtonPlus"] floating enable
-# Prism Launcher gtk windows
-for_window [app_id="xdg-desktop-portal-gtk" title="^Select Mods$"] floating enable
-for_window [app_id="xdg-desktop-portal-gtk" title="^Select Resource packs$"] floating enable
-for_window [app_id="xdg-desktop-portal-gtk" title="^Select Shader packs$"] floating enable
-for_window [app_id="xdg-desktop-portal-gtk" title="^Select a Minecraft world zip$"] floating enable
 
 # Fixes from manjaro sway github
 # https://github.com/Manjaro-Sway/desktop-settings/blob/sway/community/sway/etc/sway/config.d/98-application-defaults.conf
