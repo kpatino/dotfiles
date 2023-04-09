@@ -30,28 +30,27 @@
         "format-disabled": "",
         "on-click": "blueberry",
         "tooltip": true,
-        "tooltip-format": "{controller_alias}\t{status}\n{num_connections} connected",
-        "tooltip-format-disabled": "{controller_alias}\t{status}",
-        "tooltip-format-connected": "{controller_alias}\t{status}\n{num_connections} connected\n{device_enumerate}",
+        "tooltip-format": "{controller_alias}\n{status}\n{num_connections} connected",
+        "tooltip-format-disabled": "{controller_alias}\n{status}",
+        "tooltip-format-connected": "{controller_alias}\n{status}\n{num_connections} connected\n{device_enumerate}",
         "tooltip-format-enumerate-connected": "{device_alias}",
         "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_battery_percentage}%"
     },
     "sway/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
-        "format-icons": ["", ""],
+        "format-icons": ["", ""],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
     "clock": {
-        "format": "{:%a %b %d   %I:%M %p}",
         "interval": 60,
-        "on-click": "makoctl restore",
+        "format": "{:%a %b %d  %I:%M %p}",
         "timezone": "America/Chicago",
+        "on-click": "makoctl restore",
         "tooltip": true,
-        "today-format": "<b><u>{}</u></b>",
-        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-        "on-scroll": { "calendar": 1 }
+        "today-format": "<span color='#9959E2'><b><u>{}</u></b></span>",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "pulseaudio": {
         "format": "{icon} {volume} {format_source}",
@@ -79,8 +78,8 @@
             "deactivated": ""
         },
         "tooltip": true,
-        "tooltip-format-activated":"Idle Inhibit\nEnabled",
-        "tooltip-format-deactivated":"Idle Inhibit\nDisabled"
+        "tooltip-format-activated":"<b>Idle Inhibit</b>\nEnabled",
+        "tooltip-format-deactivated":"<b>Idle Inhibit</b>\nDisabled"
     },
     "network": {
         "interval": 5,
@@ -95,8 +94,7 @@
         "tooltip-format": "{ipaddr}/{cidr}\n{gwaddr}",
         "tooltip-format-disconnected": "{ipaddr}/{cidr}\nDisconnected",
         "tooltip-format-ethernet": "{ipaddr}/{cidr}\n{gwaddr}",
-        "tooltip-format-wifi": "{ipaddr}/{cidr}\nessid}\t{signalStrength}%",
-        "on-click": "mullvad-vpn"
+        "tooltip-format-wifi": "{ipaddr}/{cidr}\nessid}\t{signalStrength}%"
     },
     "tray": {
         "icon-size": 22,
@@ -105,16 +103,16 @@
     },
     "custom/sunset": {
         "interval": "once",
-        "tooltip": false,
+        "tooltip": true,
         "return-type": "json",
         "format": "{icon}",
         "format-icons": {
             "on": "",
             "off": ""
         },
-        "exec": "~/.config/waybar/sunset.sh",
-        "on-click": "~/.config/waybar/sunset.sh toggle; pkill -RTMIN+6 waybar",
-        "exec-if": "~/.config/waybar/sunset.sh check",
+        "exec": "$XDG_CONFIG_HOME/waybar/sunset.sh",
+        "on-click": "$XDG_CONFIG_HOME/waybar/sunset.sh toggle; pkill -RTMIN+6 waybar",
+        "exec-if": "$XDG_CONFIG_HOME/waybar/sunset.sh check",
         "signal": 6
     },
     "custom/waybar-mpris": {
