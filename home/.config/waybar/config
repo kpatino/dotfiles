@@ -94,7 +94,7 @@
         "tooltip-format": "{ipaddr}/{cidr}\n{gwaddr}",
         "tooltip-format-disconnected": "{ipaddr}/{cidr}\nDisconnected",
         "tooltip-format-ethernet": "{ipaddr}/{cidr}\n{gwaddr}",
-        "tooltip-format-wifi": "{ipaddr}/{cidr}\nessid}\t{signalStrength}%"
+        "tooltip-format-wifi": "{essid}\t{signalStrength}%\n{ipaddr}/{cidr}\n{gwaddr}"
     },
     "tray": {
         "icon-size": 22,
