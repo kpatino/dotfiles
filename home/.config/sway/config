@@ -79,7 +79,7 @@ input "1133:16500:Logitech_G305" {
 input "1133:16514:Logitech_MX_Master_3" {
    accel_profile "flat"
    pointer_accel 0
-   scroll_factor 1.25
+   scroll_factor 1.0
 }
 
 # Disable primary clipboard option
@@ -117,7 +117,8 @@ input "1133:16514:Logitech_MX_Master_3" {
     bindsym Ctrl+$alt+Delete exec $menu -modi system:$HOME/.config/rofi/powermenu.sh -show system
 
     # Emoji Menu
-    bindsym $mod+period exec rofimoji --skin-tone ask --action menu
+    #bindsym $mod+period exec rofimoji --skin-tone ask --action menu
+    bindsym $mod+period exec flatpak run it.mijorus.smile
 
 #
 # Moving around:
@@ -350,6 +351,8 @@ for_window [app_id="xdg-desktop-portal-gtk"] floating enable
 for_window [app_id="app.drey.EarTag"] floating enable
 for_window [app_id="net.davidotek.pupgui2"] floating enable
 for_window [app_id="com.vysp3r.ProtonPlus"] floating enable
+for_window [app_id="org.gnome.gitlab.YaLTeR.VideoTrimmer"] floating enable
+for_window [app_id="it.mijorus.smile"] floating enable
 
 # Fixes from manjaro sway github
 # https://github.com/Manjaro-Sway/desktop-settings/blob/sway/community/sway/etc/sway/config.d/98-application-defaults.conf
