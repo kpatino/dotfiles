@@ -367,15 +367,13 @@ for_window [title="^Save File$"] floating enable, resize set height 1024px width
 for_window [title="^wlay$"] floating enable
 
 # Steam (xwayland) gives an appid of null
-for_window [title="^Controller Layout$" class="steamwebhelper"] floating enable
-for_window [title="^Friends List$" class="Steam"] floating enable
-for_window [title="^Friends List$" class="steamwebhelper"] floating enable
-for_window [title="^Game Servers$" class="steamwebhelper"] floating enable
-for_window [title="^Music Player$" class="Steam"] floating enable
-for_window [title="^Players$" class="steamwebhelper"] floating enable
-for_window [title="^Screenshot Uploader$" class="Steam"] floating enable
-for_window [title="^Screenshot Uploader$" class="steamwebhelper"] floating enable
-for_window [title="^Steam - System Information$" class="Steam"] floating enable
+for_window [title="^Controller Layout$" class="steam"] floating enable
+for_window [title="^Friends List$" class="steam"] floating enable
+for_window [title="^Game Servers$" class="steam"] floating enable
+for_window [title="^Music Player$" class="steam"] floating enable
+for_window [title="^Players$" class="steam"] floating enable
+for_window [title="^Screenshot Manager$" class="steam"] floating enable
+for_window [title="^Screenshot Uploader$" class="steam"] floating enable
 
 # Game fixes
 for_window [title="Team Fortress 2" class="hl2_linux"] fullscreen enable
