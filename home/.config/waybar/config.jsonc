@@ -91,10 +91,10 @@
         "format-disconnected": "",
         "max-length": 4,
         "tooltip": true,
-        "tooltip-format": "{ipaddr}/{cidr}\n{gwaddr}",
-        "tooltip-format-disconnected": "{ipaddr}/{cidr}\nDisconnected",
-        "tooltip-format-ethernet": "{ipaddr}/{cidr}\n{gwaddr}",
-        "tooltip-format-wifi": "{essid}\t{signalStrength}%\n{ipaddr}/{cidr}\n{gwaddr}"
+        "tooltip-format": "<b>Network</b>\n{ipaddr}/{cidr}\n{gwaddr}",
+        "tooltip-format-disconnected": "<b>Network</b>\n{ipaddr}/{cidr}\nDisconnected",
+        "tooltip-format-ethernet": "<b>Network</b>\n{ipaddr}/{cidr}\n{gwaddr}",
+        "tooltip-format-wifi": "<b>Wi-Fi</b>\n{essid}\t{signalStrength}%\n{ipaddr}/{cidr}\n{gwaddr}"
     },
     "tray": {
         "icon-size": 22,
