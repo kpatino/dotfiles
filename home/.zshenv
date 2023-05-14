@@ -39,6 +39,3 @@ export LANGUAGE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 export PF_INFO="ascii title os host kernel uptime pkgs memory shell de palette"
-
-# Added by Toolbox App
-export PATH="$PATH:/home/kpatino/.local/share/JetBrains/Toolbox/scripts"
