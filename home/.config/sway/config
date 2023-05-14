@@ -379,4 +379,6 @@ for_window [title="^Screenshot Uploader$" class="steam"] floating enable
 for_window [title="Team Fortress 2" class="hl2_linux"] fullscreen enable
 for_window [title="Counter-Strike: Global Offensive" class="csgo_linux64"] fullscreen enable
 
+for_window [class="^steam_app_*"] inhibit idle
+
 include @sysconfdir@/sway/config.d/*
