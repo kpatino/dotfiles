@@ -4,7 +4,7 @@ i think my config goes hard feel free to copy
 
 ## info
 
-using github as a backup for my linux dotfiles and system configuration  
+my linux dotfiles and system configuration  
 software used in dotfiles are listed below under dependencies  
 
 ## preview
@@ -13,18 +13,11 @@ software used in dotfiles are listed below under dependencies
   <img src="https://raw.githubusercontent.com/kpatino/dotfiles/main/screenshots/desktop%200.png" alt="screenshot of my swaywm rice" width=80% height=80%>
 </p>
 
-## fonts
-
-Noto Sans  
-[NotoSans Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Noto/Sans/complete)  
-[Cascadia Code](https://github.com/microsoft/cascadia-code)  
-[CaskaydiaCove Nerd Font Mono](https://github.com/imaandrew/caskaydia-cove)  
-
 ## dependencies being used
 
-Packages
+### Packages
 
-```
+```text
 adwaita-qt5
 adwaita-qt6
 bat
@@ -36,12 +29,13 @@ gnome-keyring
 gnome-system-monitor
 grim
 grimshot
+mako
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
-mako
 pamixer
+pavucontrol
 playerctl
 polkit-gnome
 qgnomeplatform-qt5
@@ -56,8 +50,13 @@ swaybg
 swayidle
 swaylock
 terminus-font
+ttf-cascadia-code
+ttf-cascadia-code-nerd
 waybar
 wl-clipboard
+xdg-desktop-portal
+xdg-desktop-portal-gtk
+xdg-desktop-portal-wlr
 yt-dlp
 zsh
 zsh-autosuggestions
@@ -66,9 +65,9 @@ zsh-history-substring-search
 zsh-syntax-highlighting
 ```
 
-AUR packages
+### AUR packages
 
-```
+```text
 adw-gtk3
 hyprpicker-git
 rofi-lbonn-wayland-git
@@ -79,8 +78,14 @@ wob
 
 ## themes
 
-Icon Theme: [WhiteSur by vinceliuice](https://github.com/vinceliuice/WhiteSur-icon-theme)  
-Cursor Theme: [WhiteSur-cursors by vinceliuice](https://github.com/vinceliuice/WhiteSur-cursors)
+Icon Themes:
+
+- [WhiteSur by vinceliuice](https://github.com/vinceliuice/WhiteSur-icon-theme)  
+- [Colloid by vinceliuice](https://github.com/vinceliuice/Colloid-icon-theme)  
+
+Cursor Theme
+
+- [WhiteSur-cursors by vinceliuice](https://github.com/vinceliuice/WhiteSur-cursors)
 
 ## misc
 
