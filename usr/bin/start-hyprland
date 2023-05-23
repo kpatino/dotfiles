@@ -1,0 +1,29 @@
+# Firefox Wayland
+export MOZ_ENABLE_WAYLAND=1
+
+# Qt Wayland
+export QT_PLUGIN_PATH=/usr/lib/qt/plugins
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export QT_WAYLAND_FORCE_DPI=physical
+export QT_USE_PHYSICAL_DPI=1
+export QT_QPA_PLATFORMTHEME='gnome'
+
+# Elementary/EFL Wayland
+export ECORE_EVAS_ENGINE=wayland-egl
+export ELM_ENGINE=wayland_egl
+
+# https://github.com/swaywm/sway/wiki#issues-with-java-applications
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+# https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step
+# https://nurdletech.com/linux-notes/agents/keyring.html
+export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+
+# Environment variables pulled from the Steam Deck
+export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
+
+export XDG_SESSION_DESKTOP=hyprland
+export XDG_CURRENT_DESKTOP=hyprland
+
+exec Hyprland $@

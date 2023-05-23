@@ -1,0 +1,16 @@
+input * {
+    accel_profile "flat"
+    pointer_accel 0
+    scroll_factor 1.0
+}
+
+output 'ASUSTek COMPUTER INC VG27A M1LMQS120456' {
+    mode 2560x1440@143.972Hz
+    subpixel rgb
+}
+
+exec --no-startup-id systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+
+exec "regreet; swaymsg exit"
+include @sysconfdir@/sway/config.d/*
