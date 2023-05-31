@@ -50,7 +50,7 @@
         "on-click": "makoctl restore",
         "tooltip": true,
         "today-format": "<span color='#9959E2'><b><u>{}</u></b></span>",
-        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "<span size='18pt' font='Noto Sans'><tt><small>{calendar}</small></tt></span>"
     },
     "pulseaudio": {
         "format": "{icon} {volume} {format_source}",
