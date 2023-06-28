@@ -315,6 +315,8 @@ seat seat0 xcursor_theme $cursor-theme $cursor-size
     hide_edge_borders both
     titlebar_border_thickness 2
     titlebar_padding 4 4
+    gaps outer 0
+    gaps inner 0
 #
 # Sway client color definitions:
 #
@@ -356,6 +358,15 @@ for_window [app_id="it.mijorus.smile"] floating enable
 
 # Fixes from manjaro sway github
 # https://github.com/Manjaro-Sway/desktop-settings/blob/sway/community/sway/etc/sway/config.d/98-application-defaults.conf
+# set floating mode for generated windows
+for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+
 # set floating mode for specific applications
 for_window [app_id="blueberry.py"] floating enable
 for_window [app_id="firefox" title="Firefox .*— Sharing Indicator"] floating enable, sticky enable, move to scratchpad
@@ -374,6 +385,7 @@ for_window [title="^Music Player$" class="steam"] floating enable
 for_window [title="^Players$" class="steam"] floating enable
 for_window [title="^Screenshot Manager$" class="steam"] floating enable
 for_window [title="^Screenshot Uploader$" class="steam"] floating enable
+for_window [title="^System Information$" class="steam"] floating enable
 
 # Game fixes
 for_window [title="Team Fortress 2" class="hl2_linux"] fullscreen enable
