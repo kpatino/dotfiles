@@ -72,6 +72,9 @@ zsh-syntax-highlighting
 ```text
 adw-gtk3
 hyprpicker-git
+jdk11-temurin
+jdk17-temurin
+jdk8-temurin
 rofi-lbonn-wayland-git
 waybar-mpris-git
 wlsunset
