@@ -23,12 +23,14 @@ adwaita-qt6
 bat
 blueberry
 copyq
+dbus-broker
 exa
 foot
 gnome-keyring
 gnome-system-monitor
 grim
 grimshot
+iptables-nft
 mako
 noto-fonts
 noto-fonts-cjk
