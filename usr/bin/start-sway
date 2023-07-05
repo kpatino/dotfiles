@@ -13,6 +13,9 @@ export QT_QPA_PLATFORMTHEME='gnome'
 export ECORE_EVAS_ENGINE=wayland-egl
 export ELM_ENGINE=wayland_egl
 
+# Steam
+export STEAM_FORCE_DESKTOPUI_SCALING=1.25
+
 # https://github.com/swaywm/sway/wiki#issues-with-java-applications
 export _JAVA_AWT_WM_NONREPARENTING=1
 
@@ -24,6 +27,8 @@ export SSH_AUTH_SOCK
 
 # Environment variables pulled from the Steam Deck
 export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
+
+export RADV_PERFTEST=rt
 
 export XDG_SESSION_DESKTOP=sway
 export XDG_CURRENT_DESKTOP=sway
