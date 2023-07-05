@@ -18,7 +18,9 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 # https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step
 # https://nurdletech.com/linux-notes/agents/keyring.html
-export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
+# https://bbs.archlinux.org/viewtopic.php?id=277192
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
 
 # Environment variables pulled from the Steam Deck
 export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
