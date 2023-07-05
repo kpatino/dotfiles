@@ -9,7 +9,7 @@ PRESETS=('default' 'fallback')
 #default_config="/etc/mkinitcpio.conf"
 default_image="/boot/initramfs-linux-tkg-cfs.img"
 default_uki="/efi/EFI/Linux/arch-linux-tkg-cfs.efi"
-default_options="--cmdline /etc/kernel/cmdline --splash=/usr/share/systemd/bootctl/splash-arch.bmp"
+default_options="--cmdline /etc/kernel/cmdline"
 
 #fallback_config="/etc/mkinitcpio.conf"
 fallback_image="/boot/initramfs-linux-tkg-cfs-fallback.img"
