@@ -26,12 +26,16 @@ copyq
 dbus-broker
 exa
 foot
+gamescope
 gnome-keyring
 gnome-system-monitor
 grim
 grimshot
 iptables-nft
+iwd
 mako
+mangohud
+networkmanager
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
@@ -40,9 +44,9 @@ pamixer
 pavucontrol
 playerctl
 polkit-gnome
+power-profiles-daemon
 qgnomeplatform-qt5
 qgnomeplatform-qt6
-rofimoji
 seahorse
 slurp
 starship
