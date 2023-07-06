@@ -70,7 +70,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # Prompt
 eval "$(starship init zsh)"
 
-## Alias section 
+## Alias section
 alias ip='ip -c'
 alias ls='exa --colour=auto --icons'
 alias mp3-dl="yt-dlp --extract-audio --audio-format mp3 --audio-quality 0"
