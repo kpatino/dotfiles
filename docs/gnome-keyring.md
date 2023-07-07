@@ -20,4 +20,5 @@ Some applications expect a keyring to be running to safely store credentials.
 
 <https://wiki.archlinux.org/title/GNOME/Keyring#PAM_step>  
 <https://nurdletech.com/linux-notes/agents/keyring.html>  
+<https://bbs.archlinux.org/viewtopic.php?id=277192>  
 <https://github.com/microsoft/vscode-docs/blob/vnext/docs/editor/settings-sync.md#other-linux-desktop-environments>
