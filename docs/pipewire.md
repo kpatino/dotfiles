@@ -2,11 +2,15 @@
 
 ## Pipewire Packages
 
+- alsa-card-profiles
 - gst-plugin-pipewire
+- lib32-libpipewire
 - lib32-pipewire
 - lib32-pipewire-jack
+- libpipewire
 - pipewire
 - pipewire-alsa
+- pipewire-audio
 - pipewire-jack
 - pipewire-pulse
 - wireplumber
