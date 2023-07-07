@@ -1,8 +1,0 @@
-mode=drun
-width=25%
-height=50%
-image_size=48
-location=center
-prompt=Search
-term=foot
-insensitive=false
