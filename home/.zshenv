@@ -1,6 +1,6 @@
 #!/bin/zsh
 # Add to path
-export PATH="${PATH}:${HOME}/.local/bin/"
+#export PATH="${PATH}:${HOME}/.local/bin/"
 
 # https://wiki.archlinux.org/title/XDG_Base_Directory#User_directories
 export XDG_CONFIG_HOME=$HOME/.config
@@ -28,10 +28,8 @@ export _JAVA_OPTIONS="-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java -Dawt.u
 export ANDROID_HOME="$XDG_DATA_HOME"/android
 
 # Preferences
-export BROWSER="firefox"
-export EDITOR="vim"
-export SHELL="zsh"
-export TERMINAL="foot"
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
 # Export languages
 export LANG=en_US.UTF-8
