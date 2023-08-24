@@ -45,8 +45,7 @@ output * bg $wallpaper fill
 # 144 hz and below don't have max memory clock problems
 # 144hz flickers even when VRR is off
 output 'ASUSTek COMPUTER INC VG27A M1LMQS120456' {
-    #mode 2560x1440@164.999Hz
-    mode 2560x1440@143.972Hz
+    mode 2560x1440@164.999Hz
     adaptive_sync off
     subpixel rgb
     # Wait for better fractional-scale-v1 support
@@ -312,7 +311,7 @@ seat seat0 xcursor_theme $cursor-theme $cursor-size
 #
     default_border pixel 2
     default_floating_border normal 2
-    hide_edge_borders both
+    hide_edge_borders smart
     titlebar_border_thickness 2
     titlebar_padding 4 4
     gaps outer 0
@@ -323,7 +322,7 @@ seat seat0 xcursor_theme $cursor-theme $cursor-size
     # class                  border  bground text    indicator child_border
     client.focused           #444444 #303030 #FFFFFF #444444   #444444
     client.focused_tab_title #444444 #303030 #FFFFFF
-    client.focused_inactive  #444444 #171717 #888888 #232323   #232323
+    client.focused_inactive  #232323 #171717 #FFFFFF #232323   #232323
     client.unfocused         #232323 #171717 #888888 #232323   #232323
     client.urgent            #444444 #FF453A #FFFFFF #FF453A   #FF453A
 #
@@ -331,9 +330,14 @@ seat seat0 xcursor_theme $cursor-theme $cursor-size
 #
 font pango: $font 14
 
+# Don't allow applications to inhibit shortcuts, i.e. grab total control of the
+# keyboard. Chrome currently abuses this by enabling it for all "--app=..."
+# shortcuts.
+seat * shortcuts_inhibitor disable
+
 ### Window rules
 #
-for_window [app_id="com.github.hluk.copyq"] floating enable, sticky enable, resize set height 800px width 600px, move position cursor, move down 330
+for_window [app_id="com.github.hluk.copyq"] floating enable, sticky enable, move position cursor, move down 330
 for_window [app_id="pavucontrol"] floating enable
 
 # Personal Firefox fixes
@@ -372,9 +376,9 @@ for_window [app_id="blueberry.py"] floating enable
 for_window [app_id="firefox" title="Firefox .*— Sharing Indicator"] floating enable, sticky enable, move to scratchpad
 for_window [app_id="firefox" title="^Library$"] floating enable, sticky enable
 for_window [app_id="floating_shell"] floating enable, sticky enable
-for_window [app_id="floating_shell_portrait"] floating enable, sticky enable, resize set width 30 ppt height 40 ppt
+for_window [app_id="floating_shell_portrait"] floating enable, sticky enable
 for_window [app_id="thunderbird" title=".*Reminder"] floating enable
-for_window [title="^Save File$"] floating enable, resize set height 1024px width 768px
+for_window [title="^Save File$"] floating enable
 for_window [title="^wlay$"] floating enable
 
 # Steam (xwayland) gives an appid of null
