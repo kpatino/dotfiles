@@ -12,6 +12,7 @@
         "tray",
         "custom/waybar-mpris",
         "custom/sunset",
+        "gamemode",
         "idle_inhibitor",
         "pulseaudio",
         "bluetooth",
@@ -54,12 +55,12 @@
     },
     "pulseaudio": {
         "format": "{icon} {volume} {format_source}",
-        "format-bluetooth": " {volume} {format_source}",
-        "format-muted": "婢{volume} {format_source}",
-        "format-source": "",
-        "format-source-muted": "",
+        "format-bluetooth": "󰂰 {volume} {format_source}",
+        "format-muted": "󰝟 {volume} {format_source}",
+        "format-source": "󰍬",
+        "format-source-muted": "󰍭",
         "format-icons": {
-            "default": ["", "", "墳"]
+            "default": ["󰕿", "󰖀", "󰕾"]
         },
         "scroll-step": 1,
         "on-click": "pavucontrol",
@@ -100,6 +101,16 @@
         "icon-size": 22,
         "show-passive-items": false,
         "spacing": 10
+    },
+    "gamemode": {
+        "format": "{glyph}",
+        "format-alt": "{glyph} {count}",
+        "glyph": "󰊗",
+        "hide-not-running": true,
+        "use-icon": true,
+        "icon-name": "input-gaming-symbolic",
+        "tooltip": true,
+        "tooltip-format": "Games running: {count}"
     },
     "custom/sunset": {
         "interval": "once",

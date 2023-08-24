@@ -44,11 +44,12 @@ button:active {
 #clock,
 #custom-sunset,
 #custom-waybar-mpris,
-#scratchpad,
+#gamemode,
 #idle_inhibitor,
 #mode,
 #network,
 #pulseaudio,
+#scratchpad,
 #tray {
     margin-left: 2px;
     margin-right: 2px;
