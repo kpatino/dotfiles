@@ -24,10 +24,10 @@
     },
     "bluetooth": {
         "format": "{status}",
-        "format-off": "",
-        "format-on": "",
-        "format-connected": "",
-        "format-disabled": "",
+        "format-off": "󰂲",
+        "format-on": "󰂯",
+        "format-connected": "󰂱",
+        "format-disabled": "󰂲",
         "on-click": "blueberry",
         "tooltip": true,
         "tooltip-format": "{controller_alias}\n{status}\n{num_connections} connected",
@@ -49,8 +49,8 @@
         "timezone": "America/Chicago",
         "on-click": "makoctl restore",
         "tooltip": true,
-        "today-format": "<span color='#9959E2'><b><u>{}</u></b></span>",
-        "tooltip-format": "<span size='18pt' font='Noto Sans'><tt><small>{calendar}</small></tt></span>"
+        "today-format": "<b><u>{}</u></b>",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
     },
     "pulseaudio": {
         "format": "{icon} {volume} {format_source}",
@@ -85,10 +85,10 @@
         "interval": 5,
         "family": "ipv4",
         "format": "{icon}",
-        "format-ethernet": "",
+        "format-ethernet": "󰌘",
         "format-wifi": "",
-        "format-linked": "",
-        "format-disconnected": "",
+        "format-linked": "󰌚",
+        "format-disconnected": "󰌙",
         "max-length": 4,
         "tooltip": true,
         "tooltip-format": "<b>Network</b>\n{ipaddr}/{cidr}\n{gwaddr}",
@@ -107,8 +107,8 @@
         "return-type": "json",
         "format": "{icon}",
         "format-icons": {
-            "on": "",
-            "off": ""
+            "on": "󱠂",
+            "off": "󰌶"
         },
         "exec": "$XDG_CONFIG_HOME/waybar/sunset.sh",
         "on-click": "$XDG_CONFIG_HOME/waybar/sunset.sh toggle; pkill -RTMIN+6 waybar",
