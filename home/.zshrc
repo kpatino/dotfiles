@@ -67,6 +67,23 @@ source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring
 # Use syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# foot integration
+function osc7-pwd() {
+    emulate -L zsh # also sets localoptions for us
+    setopt extendedglob
+    local LC_ALL=C
+    printf '\e]7;file://%s%s\e\' $HOST ${PWD//(#m)([^@-Za-z&-;_~])/%${(l:2::0:)$(([##16]#MATCH))}}
+}
+
+function chpwd-osc7-pwd() {
+    (( ZSH_SUBSHELL )) || osc7-pwd
+}
+add-zsh-hook -Uz chpwd chpwd-osc7-pwd
+
+precmd() {
+    print -Pn "\e]133;A\e\\"
+}
+
 # Prompt
 eval "$(starship init zsh)"
 
@@ -79,6 +96,6 @@ alias vi='vim'
 alias wlc='wl-copy --trim-newline'
 alias wlp='wl-paste'
 alias xssh='env TERM=xterm-256color ssh'
-alias yt-dl="yt-dlp -f 'bestvideo*+bestaudio/best' --remux-video mkv --sponsorblock-mark all --sponsorblock-chapter-title '%(category_names)l'"
+alias yt-dl="yt-dlp -f 'bestvideo*+bestaudio/best' --sponsorblock-mark all --sponsorblock-chapter-title '%(category_names)l'"
 alias protontricks="flatpak run com.github.Matoking.protontricks"
 alias protontricks-launch="flatpak run --command=protontricks-launch com.github.Matoking.protontricks"
