@@ -1,1 +1,1 @@
-rd.luks.name=LUKSDEV_UUID=luksdev root=/dev/mapper/luksdev rd.luks.options=keyfile-timeout=10s rd.luks.options=discard rd.luks.key=LUKSDEV_UUID=/keyfile:UUID=KEYFILE_UUID zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs
+root="LABEL=Arch Linux" rootflags=subvol=@ rw rootfstype=btrfs zswap.enabled=0
