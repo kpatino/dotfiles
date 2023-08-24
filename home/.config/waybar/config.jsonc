@@ -9,10 +9,10 @@
     ],
     "modules-center": [],
     "modules-right": [
+        "gamemode",
         "tray",
         "custom/waybar-mpris",
         "custom/sunset",
-        "gamemode",
         "idle_inhibitor",
         "pulseaudio",
         "bluetooth",
@@ -75,8 +75,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "󰈈",
+            "deactivated": "󰛐"
         },
         "tooltip": true,
         "tooltip-format-activated":"<b>Idle Inhibit</b>\nEnabled",
@@ -87,7 +87,7 @@
         "family": "ipv4",
         "format": "{icon}",
         "format-ethernet": "󰌘",
-        "format-wifi": "",
+        "format-wifi": "󰖩",
         "format-linked": "󰌚",
         "format-disconnected": "󰌙",
         "max-length": 4,
@@ -107,8 +107,10 @@
         "format-alt": "{glyph} {count}",
         "glyph": "󰊗",
         "hide-not-running": true,
-        "use-icon": true,
+        "use-icon": false,
         "icon-name": "input-gaming-symbolic",
+        "icon-size": 0,
+        "icon-spacing": 0,
         "tooltip": true,
         "tooltip-format": "Games running: {count}"
     },
@@ -118,8 +120,8 @@
         "return-type": "json",
         "format": "{icon}",
         "format-icons": {
-            "on": "󱠂",
-            "off": "󰌶"
+            "on": "󱩌",
+            "off": "󱩍"
         },
         "exec": "$XDG_CONFIG_HOME/waybar/sunset.sh",
         "on-click": "$XDG_CONFIG_HOME/waybar/sunset.sh toggle; pkill -RTMIN+6 waybar",
@@ -128,7 +130,7 @@
     },
     "custom/waybar-mpris": {
         "escape": true,
-        "exec": "waybar-mpris --autofocus --play \uf04b --pause \uf04c --separator ' by ' --order 'SYMBOL:TITLE:ARTIST'",
+        "exec": "waybar-mpris --autofocus --play 󰐊 --pause 󰏤 --separator ' by ' --order 'SYMBOL:TITLE:ARTIST'",
         "max-length": 80,
         "on-click": "waybar-mpris --send toggle",
         "on-click-right": "waybar-mpris --send player-next",
