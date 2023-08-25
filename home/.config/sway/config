@@ -42,10 +42,9 @@ set $lock swaylock --config $XDG_CONFIG_HOME/swaylock/config -i $wallpaper && lo
 # Configure background for all monitors
 output * bg $wallpaper fill
 # VRR causes flickering on my VG27A during normal use but not noticeable while gaming
-# 144 hz and below don't have max memory clock problems
-# 144hz flickers even when VRR is off
+# Ecountering strange performance issues with 165Hz
 output 'ASUSTek COMPUTER INC VG27A M1LMQS120456' {
-    mode 2560x1440@164.999Hz
+    mode 2560x1440@143.972Hz
     adaptive_sync off
     subpixel rgb
     # Wait for better fractional-scale-v1 support
@@ -79,6 +78,10 @@ input "1133:16514:Logitech_MX_Master_3" {
    accel_profile "flat"
    pointer_accel 0
    scroll_factor 1.0
+}
+input "12815:20548:Glorious_GMMK_Pro_ANSI_Keyboard" {
+   xkb_layout us,latam
+   xkb_options grp:switch
 }
 
 # Disable primary clipboard option
