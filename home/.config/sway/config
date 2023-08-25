@@ -75,13 +75,13 @@ input "1133:16500:Logitech_G305" {
     scroll_factor 1.0
 }
 input "1133:16514:Logitech_MX_Master_3" {
-   accel_profile "flat"
-   pointer_accel 0
-   scroll_factor 1.0
+    accel_profile "flat"
+    pointer_accel 0
+    scroll_factor 1.0
 }
 input "12815:20548:Glorious_GMMK_Pro_ANSI_Keyboard" {
-   xkb_layout us,latam
-   xkb_options grp:switch
+    xkb_layout us,latam
+    xkb_options grp:switch
 }
 
 # Disable primary clipboard option
@@ -240,29 +240,29 @@ bindsym $mod+r mode "resize"
 #
 # Custom binds:
 #
-   # Use pamixer to adjust volume
-   bindsym XF86AudioRaiseVolume exec pamixer -ui 1 && pamixer --get-volume > $WOBSOCK
-   bindsym XF86AudioLowerVolume exec pamixer -ud 1 && pamixer --get-volume > $WOBSOCK
-   bindsym XF86AudioMute exec pamixer --toggle-mute && ( [ "$(pamixer --get-mute)" = "true" ] && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
-   # Use playerctl to control media
-   bindsym XF86AudioPlay exec playerctl play-pause
-   bindsym XF86AudioStop exec playerctl stop
-   bindsym XF86AudioNext exec playerctl next
-   bindsym XF86AudioPrev exec playerctl previous
-   bindsym XF86AudioForward exec playerctl position 5+
-   bindsym XF86AudioRewind exec playerctl position 5-
-   # Mute mic
-   bindsym $mod+Tab exec pamixer --source "alsa_input.usb-Kingston_HyperX_SoloCast-00.analog-stereo" -t
-   # Windows screenshot shortcuts
-   bindsym $mod+Shift+s exec grimshot save area - | swappy -f -
-   bindsym $mod+Print exec grimshot save output - | swappy -f -
-   bindsym $alt+Print exec grimshot save window - | swappy -f -
-   # Windows clipboard shortcut
-   bindsym $mod+v exec copyq toggle
-   # Windows task manager/gnome system monitor
-   bindsym ctrl+Shift+Escape exec gnome-system-monitor
-   # Color picker
-   bindsym $mod+Shift+p exec hyprpicker --no-fancy | wl-copy --trim-newline
+    # Use pamixer to adjust volume
+    bindsym XF86AudioRaiseVolume exec pamixer -ui 1 && pamixer --get-volume > $WOBSOCK
+    bindsym XF86AudioLowerVolume exec pamixer -ud 1 && pamixer --get-volume > $WOBSOCK
+    bindsym XF86AudioMute exec pamixer --toggle-mute && ( [ "$(pamixer --get-mute)" = "true" ] && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
+    # Use playerctl to control media
+    bindsym XF86AudioPlay exec playerctl play-pause
+    bindsym XF86AudioStop exec playerctl stop
+    bindsym XF86AudioNext exec playerctl next
+    bindsym XF86AudioPrev exec playerctl previous
+    bindsym XF86AudioForward exec playerctl position 5+
+    bindsym XF86AudioRewind exec playerctl position 5-
+    # Mute mic
+    bindsym $mod+Tab exec pamixer --source "alsa_input.usb-Kingston_HyperX_SoloCast-00.analog-stereo" -t
+    # Windows screenshot shortcuts
+    bindsym $mod+Shift+s exec grimshot save area - | swappy -f -
+    bindsym $mod+Print exec grimshot save output - | swappy -f -
+    bindsym $alt+Print exec grimshot save window - | swappy -f -
+    # Windows clipboard shortcut
+    bindsym $mod+v exec copyq toggle
+    # Windows task manager/gnome system monitor
+    bindsym ctrl+Shift+Escape exec gnome-system-monitor
+    # Color picker
+    bindsym $mod+Shift+p exec hyprpicker --no-fancy | wl-copy --trim-newline
 
 ### Status Bar:
 #
