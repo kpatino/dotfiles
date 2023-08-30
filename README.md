@@ -18,8 +18,6 @@ software used in dotfiles are listed below under dependencies
 ### Packages
 
 ```text
-adwaita-qt5
-adwaita-qt6
 bat
 blueberry
 copyq
@@ -45,8 +43,6 @@ pavucontrol
 playerctl
 polkit-gnome
 power-profiles-daemon
-qgnomeplatform-qt5
-qgnomeplatform-qt6
 seahorse
 slurp
 starship
@@ -58,6 +54,7 @@ swaylock
 terminus-font
 ttf-cascadia-code
 ttf-cascadia-code-nerd
+ttf-noto-nerd
 waybar
 wl-clipboard
 xdg-desktop-portal
