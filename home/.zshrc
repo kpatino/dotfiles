@@ -1,5 +1,5 @@
 # Lines configured by zsh-newuser-install
-HISTFILE="$XDG_CACHE_HOME"/zsh/history
+HISTFILE="$XDG_STATE_HOME"/zsh/history
 HISTSIZE=999999
 SAVEHIST=$HISTSIZE
 ## Options section
@@ -90,12 +90,8 @@ eval "$(starship init zsh)"
 ## Alias section
 alias ip='ip -c'
 alias ls='exa --colour=auto --icons'
-alias mp3-dl="yt-dlp --extract-audio --audio-format mp3 --audio-quality 0"
 alias ra='ranger'
 alias vi='vim'
 alias wlc='wl-copy --trim-newline'
 alias wlp='wl-paste'
 alias xssh='env TERM=xterm-256color ssh'
-alias yt-dl="yt-dlp -f 'bestvideo*+bestaudio/best' --sponsorblock-mark all --sponsorblock-chapter-title '%(category_names)l'"
-alias protontricks="flatpak run com.github.Matoking.protontricks"
-alias protontricks-launch="flatpak run --command=protontricks-launch com.github.Matoking.protontricks"

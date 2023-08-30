@@ -1,7 +1,4 @@
 #!/bin/zsh
-# Add to path
-#export PATH="${PATH}:${HOME}/.local/bin/"
-
 # https://wiki.archlinux.org/title/XDG_Base_Directory#User_directories
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
@@ -23,7 +20,7 @@ export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export PYLINTHOME="$XDG_CACHE_HOME"/pylint
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export WINEPREFIX="$XDG_DATA_HOME"/wineprefixes/default
-export _JAVA_OPTIONS="-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java -Dawt.useSystemAAFontSettings=on -Dsun.java2d.uiScale=1.25"
+export _JAVA_OPTIONS="-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java -Dawt.useSystemAAFontSettings=on"
 
 export ANDROID_HOME="$XDG_DATA_HOME"/android
 
