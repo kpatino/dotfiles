@@ -3,11 +3,10 @@ export MOZ_ENABLE_WAYLAND=1
 
 # Qt Wayland
 export QT_PLUGIN_PATH=/usr/lib/qt/plugins
-export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORM="wayland"
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_WAYLAND_FORCE_DPI=physical
 export QT_USE_PHYSICAL_DPI=1
-export QT_QPA_PLATFORMTHEME='gnome'
 
 # Elementary/EFL Wayland
 export ECORE_EVAS_ENGINE=wayland-egl
