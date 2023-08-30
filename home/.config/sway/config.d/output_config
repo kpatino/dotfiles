@@ -1,0 +1,17 @@
+# Read `man 5 sway-output` for a complete reference.
+
+### Output configuration
+#
+# VRR causes flickering on my VG27A during normal use but not noticeable while gaming
+# Ecountering strange performance issues with 165Hz
+output 'ASUSTek COMPUTER INC VG27A M1LMQS120456' {
+    mode 2560x1440@143.972Hz
+    adaptive_sync off
+    subpixel rgb
+    # Wait for better fractional-scale-v1 support
+    # https://github.com/swaywm/sway/pull/7448
+    # https://gitlab.freedesktop.org/wlroots/wlroots/-/merge_requests/3511
+    #scale 1.25
+}
+
+# vim:ft=sh

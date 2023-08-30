@@ -15,6 +15,13 @@ exec mako
 # wlsunset/night light
 exec '[ -x "$(command -v wlsunset)" ] && $XDG_CONFIG_HOME/waybar/sunset.sh "on"'
 
+### Run non-critical applications/services on startup
+#
+# Borg backups
+exec com.borgbase.Vorta
+# Clipboard menu
+exec copyq --start-server
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -37,21 +44,9 @@ set $font NotoSans Nerd Font
 # Lock command
 set $lock swaylock --config $XDG_CONFIG_HOME/swaylock/config -i $wallpaper && loginctl unlock-session self
 
-### Output configuration
+### Background configuration
 #
-# Configure background for all monitors
 output * bg $wallpaper fill
-# VRR causes flickering on my VG27A during normal use but not noticeable while gaming
-# Ecountering strange performance issues with 165Hz
-output 'ASUSTek COMPUTER INC VG27A M1LMQS120456' {
-    mode 2560x1440@143.972Hz
-    adaptive_sync off
-    subpixel rgb
-    # Wait for better fractional-scale-v1 support
-    # https://github.com/swaywm/sway/pull/7448
-    # https://gitlab.freedesktop.org/wlroots/wlroots/-/merge_requests/3511
-    #scale 1.25
-}
 
 ### Idle configuration
 #
@@ -66,27 +61,6 @@ exec swayidle -w \
         after-resume 'swaymsg "output * power on"; makoctl mode -r away' \
         lock '$lock; makoctl mode -a away' \
         unlock 'makoctl mode -r away'
-
-### Input configuration
-#
-input "1133:16500:Logitech_G305" {
-    accel_profile "flat"
-    pointer_accel 0
-    scroll_factor 1.0
-}
-input "1133:16514:Logitech_MX_Master_3" {
-    accel_profile "flat"
-    pointer_accel 0
-    scroll_factor 1.0
-}
-input "12815:20548:Glorious_GMMK_Pro_ANSI_Keyboard" {
-    xkb_layout us,latam
-    xkb_options grp:switch
-}
-
-# Disable primary clipboard option
-# https://github.com/swaywm/sway/commit/c32a507303e38c7bf0b8054108bec45ff67e92c2
-#primary_selection disabled
 
 ### Key bindings
 #
@@ -121,6 +95,8 @@ input "12815:20548:Glorious_GMMK_Pro_ANSI_Keyboard" {
     # Emoji Menu
     #bindsym $mod+period exec rofimoji --skin-tone ask --action menu
     bindsym $mod+period exec flatpak run it.mijorus.smile
+
+    bindsym $mod+Ctrl+d exec pkill rofi
 
 #
 # Moving around:
@@ -240,42 +216,34 @@ bindsym $mod+r mode "resize"
 #
 # Custom binds:
 #
-    # Use pamixer to adjust volume
-    bindsym XF86AudioRaiseVolume exec pamixer -ui 1 && pamixer --get-volume > $WOBSOCK
-    bindsym XF86AudioLowerVolume exec pamixer -ud 1 && pamixer --get-volume > $WOBSOCK
-    bindsym XF86AudioMute exec pamixer --toggle-mute && ( [ "$(pamixer --get-mute)" = "true" ] && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
-    # Use playerctl to control media
-    bindsym XF86AudioPlay exec playerctl play-pause
-    bindsym XF86AudioStop exec playerctl stop
-    bindsym XF86AudioNext exec playerctl next
-    bindsym XF86AudioPrev exec playerctl previous
-    bindsym XF86AudioForward exec playerctl position 5+
-    bindsym XF86AudioRewind exec playerctl position 5-
-    # Mute mic
-    bindsym $mod+Tab exec pamixer --source "alsa_input.usb-Kingston_HyperX_SoloCast-00.analog-stereo" -t
-    # Windows screenshot shortcuts
-    bindsym $mod+Shift+s exec grimshot save area - | swappy -f -
-    bindsym $mod+Print exec grimshot save output - | swappy -f -
-    bindsym $alt+Print exec grimshot save window - | swappy -f -
-    # Windows clipboard shortcut
-    bindsym $mod+v exec copyq toggle
-    # Windows task manager/gnome system monitor
-    bindsym ctrl+Shift+Escape exec gnome-system-monitor
-    # Color picker
-    bindsym $mod+Shift+p exec hyprpicker --no-fancy | wl-copy --trim-newline
+   # Use pamixer to adjust volume
+   bindsym XF86AudioRaiseVolume exec pamixer -ui 1 && pamixer --get-volume > $WOBSOCK
+   bindsym XF86AudioLowerVolume exec pamixer -ud 1 && pamixer --get-volume > $WOBSOCK
+   bindsym XF86AudioMute exec pamixer --toggle-mute && ( [ "$(pamixer --get-mute)" = "true" ] && echo 0 > $WOBSOCK ) || pamixer --get-volume > $WOBSOCK
+   # Use playerctl to control media
+   bindsym XF86AudioPlay exec playerctl play-pause
+   bindsym XF86AudioStop exec playerctl stop
+   bindsym XF86AudioNext exec playerctl next
+   bindsym XF86AudioPrev exec playerctl previous
+   bindsym XF86AudioForward exec playerctl position 5+
+   bindsym XF86AudioRewind exec playerctl position 5-
+   # Mute mic
+   bindsym $mod+Tab exec pamixer --default-source -t
+   # Windows screenshot shortcuts
+   bindsym $mod+Shift+s exec grimshot save area - | swappy -f -
+   bindsym $mod+Print exec grimshot save output - | swappy -f -
+   bindsym $alt+Print exec grimshot save window - | swappy -f -
+   # Windows clipboard shortcut
+   bindsym $mod+v exec copyq toggle
+   # Windows task manager/gnome system monitor
+   bindsym ctrl+Shift+Escape exec gnome-system-monitor
+   # Color picker
+   bindsym $mod+Shift+p exec hyprpicker --no-fancy | wl-copy --trim-newline
 
 ### Status Bar:
 #
-bar {
-    swaybar_command waybar
-}
+bar swaybar_command waybar
 
-### Run non-critical applications/services on startup
-#
-# Borg backups
-exec com.borgbase.Vorta
-# Clipboard menu
-exec copyq --start-server
 
 ### Run commands everytime
 #
@@ -285,6 +253,8 @@ set $desktop-interface org.gnome.desktop.interface
 set $wm-preferences org.gnome.desktop.wm.preferences
 set $gtk-theme "adw-gtk3"
 set $icon-theme "Colloid-dark"
+
+seat seat0 xcursor_theme $cursor-theme $cursor-size
 
 exec_always {
     gsettings set $desktop-interface clock-format 12h
@@ -305,8 +275,6 @@ exec_always {
     gsettings set $wm-preferences titlebar-font 'Noto Sans 12'
     gsettings set org.gnome.nautilus.list-view default-visible-columns "['name', 'date_modified', 'type', 'size']"
 }
-
-seat seat0 xcursor_theme $cursor-theme $cursor-size
 
 ### Sway window behavior and looks
 #
@@ -338,66 +306,13 @@ font pango: $font 14
 # shortcuts.
 seat * shortcuts_inhibitor disable
 
-### Window rules
-#
-for_window [app_id="com.github.hluk.copyq"] floating enable, sticky enable, move position cursor, move down 330
-for_window [app_id="pavucontrol"] floating enable
+# Disable primary clipboard option
+# https://github.com/swaywm/sway/commit/c32a507303e38c7bf0b8054108bec45ff67e92c2
+#primary_selection disabled
 
-# Personal Firefox fixes
-for_window [title="^Picture in picture$" app_id="firefox"] floating enable, sticky enable
-for_window [title="^Picture-in-Picture$" app_id="firefox"] floating enable, sticky enable
-for_window [title="^\ -\ Sharing\ Indicator$" app_id="firefox"] floating enable, sticky enable
-for_window [title="^About Mozilla Firefox$" app_id="firefox"] floating enable
+focus_on_window_activation smart
 
-# Personal Gnome/gtk fixes
-for_window [app_id="file-roller"] floating enable
-for_window [app_id="gedit"] floating enable
-for_window [app_id="gnome-system-monitor"] floating enable, resize set height 1280px width 960px
-for_window [app_id="org.gnome.Calculator"] floating enable
-for_window [app_id="xdg-desktop-portal-gtk"] floating enable
-
-# Other personal fixes
-for_window [app_id="app.drey.EarTag"] floating enable
-for_window [app_id="net.davidotek.pupgui2"] floating enable
-for_window [app_id="com.vysp3r.ProtonPlus"] floating enable
-for_window [app_id="org.gnome.gitlab.YaLTeR.VideoTrimmer"] floating enable
-for_window [app_id="it.mijorus.smile"] floating enable
-
-# Fixes from manjaro sway github
-# https://github.com/Manjaro-Sway/desktop-settings/blob/sway/community/sway/etc/sway/config.d/98-application-defaults.conf
-# set floating mode for generated windows
-for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="bubble"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_role="Preferences"] floating enable
-for_window [window_type="dialog"] floating enable
-for_window [window_type="menu"] floating enable
-
-# set floating mode for specific applications
-for_window [app_id="blueberry.py"] floating enable
-for_window [app_id="firefox" title="Firefox .*— Sharing Indicator"] floating enable, sticky enable, move to scratchpad
-for_window [app_id="firefox" title="^Library$"] floating enable, sticky enable
-for_window [app_id="floating_shell"] floating enable, sticky enable
-for_window [app_id="floating_shell_portrait"] floating enable, sticky enable
-for_window [app_id="thunderbird" title=".*Reminder"] floating enable
-for_window [title="^Save File$"] floating enable
-for_window [title="^wlay$"] floating enable
-
-# Steam (xwayland) gives an appid of null
-for_window [title="^Controller Layout$" class="steam"] floating enable
-for_window [title="^Friends List$" class="steam"] floating enable
-for_window [title="^Game Servers$" class="steam"] floating enable
-for_window [title="^Music Player$" class="steam"] floating enable
-for_window [title="^Players$" class="steam"] floating enable
-for_window [title="^Screenshot Manager$" class="steam"] floating enable
-for_window [title="^Screenshot Uploader$" class="steam"] floating enable
-for_window [title="^System Information$" class="steam"] floating enable
-
-# Game fixes
-for_window [title="Team Fortress 2" class="hl2_linux"] fullscreen enable
-for_window [title="Counter-Strike: Global Offensive" class="csgo_linux64"] fullscreen enable
-
-for_window [class="^steam_app_*"] inhibit idle
-
+include $XDG_CONFIG_HOME/sway/config.d/*
 include @sysconfdir@/sway/config.d/*
+
+# vim:ft=sh
