@@ -1,7 +1,7 @@
 * {
   font: "NotoSans Nerd Font 16";
   background-color: transparent;
-  ac: #9B5BE8; /* Accent color */
+  ac: #3584E4; /* Accent color */
   bg: #0E0E0EE6; /* Background color */
   br: #444444; /* Border color */
   txt: #FFFFFF; /* Text color */
@@ -55,7 +55,7 @@ element {
 }
 
 element-icon {
-  size: 48px; /* icon size */
+  size: 56px; /* icon size */
   horizontal-align: 0.5;
   vertical-align: 0.5;
 }
