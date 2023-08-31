@@ -1,35 +1,34 @@
-#!/bin/bash
-# taken from https://github.com/Manjaro-Sway/desktop-settings/blob/sway/community/sway/usr/share/sway/scripts/sunset.sh
+#!/bin/env bash
+# https://github.com/Manjaro-Sway/desktop-settings/blob/sway/community/sway/usr/share/sway/scripts/sunset.sh
+
+config="$HOME/.config/wlsunset/config"
 
 #Startup function
-function start(){
-    [[ -f "$HOME/.config/wlsunset/config" ]] && source "$HOME/.config/wlsunset/config"
+start() {
+    [ -f "$config" ] && . "$config"
     temp_low=${temp_low:-"3500"}
     temp_high=${temp_high:-"6500"}
     duration=${duration:-"900"}
     sunrise=${sunrise:-"07:00"}
     sunset=${sunset:-"19:00"}
-    fallback_longitude=${fallback_longitude:-"-65.0"}
-    fallback_latitude=${fallback_latitude:-"-65.0"}
     location=${location:-"on"}
+    fallback_longitude=${fallback_longitude:-"8.7"}
+    fallback_latitude=${fallback_latitude:-"50.1"}
 
     if [ "${location}" = "on" ]; then
-        if [[ -z ${longitude+x} ]] || [[ -z ${latitude+x} ]]; then
+        if [ -z ${longitude+x} ] || [ -z ${latitude+x} ]; then
             GEO_CONTENT=$(curl -sL http://ip-api.com/json/)
         fi
-        longitude=${longitude:-$(echo $GEO_CONTENT | jq '.lon // empty')}
+        longitude=${longitude:-$(echo "$GEO_CONTENT" | jq '.lon // empty')}
         longitude=${longitude:-$fallback_longitude}
-        latitude=${latitude:-$(echo $GEO_CONTENT | jq '.lat // empty')}
+        latitude=${latitude:-$(echo "$GEO_CONTENT" | jq '.lat // empty')}
         latitude=${latitude:-$fallback_latitude}
 
-        echo longitude: $longitude latitude: $latitude
+        echo longitude: "$longitude" latitude: "$latitude"
 
-        wlsunset -l $latitude -L $longitude -t $temp_low -T $temp_high -d $duration &
-    elif [ "${location}" = "manual" ];
-    then
-        wlsunset -t $temp_low -T $temp_high -l $latitude -L $longitude &
+        wlsunset -l "$latitude" -L "$longitude" -t "$temp_low" -T "$temp_high" -d "$duration" &
     else
-        wlsunset -t $temp_low -T $temp_high -d $duration -S $sunrise -s $sunset &
+        wlsunset -t "$temp_low" -T "$temp_high" -d "$duration" -S "$sunrise" -s "$sunset" &
     fi
 }
 
