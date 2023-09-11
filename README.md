@@ -22,7 +22,7 @@ bat
 blueberry
 copyq
 dbus-broker
-exa
+eza
 foot
 gamescope
 gnome-keyring

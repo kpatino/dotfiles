@@ -89,7 +89,7 @@ eval "$(starship init zsh)"
 
 ## Alias section
 alias ip='ip -c'
-alias ls='exa --colour=auto --icons'
+alias ls='eza --colour=auto --icons --hyperlink'
 alias ra='ranger'
 alias vi='vim'
 alias wlc='wl-copy --trim-newline'
