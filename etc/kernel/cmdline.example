@@ -1,1 +1,1 @@
-root="LABEL=Arch Linux" rootflags=subvol=@ rw rootfstype=btrfs split_lock_detect=off nmi_watchdog=0 zswap.enabled=0 amd_pstate=active
+root="LABEL=Arch Linux" rootflags=subvol=@ rw rootfstype=btrfs nowatchdog split_lock_detect=off zswap.enabled=0 amd_pstate=active
