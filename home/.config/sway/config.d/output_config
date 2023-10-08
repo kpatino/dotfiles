@@ -8,6 +8,7 @@ output 'ASUSTek COMPUTER INC VG27A M1LMQS120456' {
     mode 2560x1440@143.972Hz
     adaptive_sync off
     subpixel rgb
+    #render_bit_depth 10
     # Wait for better fractional-scale-v1 support
     # https://github.com/swaywm/sway/pull/7448
     # https://gitlab.freedesktop.org/wlroots/wlroots/-/merge_requests/3511

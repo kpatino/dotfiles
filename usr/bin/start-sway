@@ -26,8 +26,6 @@ export SSH_AUTH_SOCK=/run/user/$(id -u)/keyring/ssh
 # Environment variables pulled from the Steam Deck
 export SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS=0
 
-export RADV_PERFTEST=rt
-
 export XDG_SESSION_DESKTOP=sway
 export XDG_CURRENT_DESKTOP=sway
 

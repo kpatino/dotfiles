@@ -3,15 +3,17 @@
 ### Run critical services
 #
 # GTK 20 second fix from swaywm wiki
-exec --no-startup-id systemctl --user import-environment {,WAYLAND_}DISPLAY SWAYSOCK; systemctl --user start sway-session.target
+exec --no-startup-id systemctl --user import-environment {,WAYLAND_}DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP; systemctl --user start sway-session.target
 exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
-# GNOME Polkit
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# MATE PolicyKit agent
+exec /usr/lib/mate-polkit/polkit-mate-authentication-agent-1
 # Wob for volume control. yes this is critical
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 # Start notification daemon, letting dbus start mako makes cursor small when hovering over it
 exec mako
+# Copyq autopaste - ydotool daemon
+exec ydotoold
 # wlsunset/night light
 exec '[ -x "$(command -v wlsunset)" ] && $XDG_CONFIG_HOME/waybar/sunset.sh "on"'
 
@@ -252,7 +254,7 @@ set $cursor-theme "WhiteSur-cursors"
 set $desktop-interface org.gnome.desktop.interface
 set $wm-preferences org.gnome.desktop.wm.preferences
 set $gtk-theme "adw-gtk3"
-set $icon-theme "Colloid-dark"
+set $icon-theme "WhiteSur-dark"
 
 seat seat0 xcursor_theme $cursor-theme $cursor-size
 

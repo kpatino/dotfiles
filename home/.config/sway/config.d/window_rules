@@ -1,3 +1,5 @@
+# Read `man 5 sway` for a complete reference.
+
 ### Window rules
 #
 for_window [app_id="com.github.hluk.copyq"] floating enable, sticky enable, move position cursor, move down 330
@@ -18,10 +20,11 @@ for_window [app_id="xdg-desktop-portal-gtk"] floating enable
 
 # Other personal fixes
 for_window [app_id="app.drey.EarTag"] floating enable
-for_window [app_id="net.davidotek.pupgui2"] floating enable
 for_window [app_id="com.vysp3r.ProtonPlus"] floating enable
-for_window [app_id="org.gnome.gitlab.YaLTeR.VideoTrimmer"] floating enable
+for_window [app_id="io.missioncenter.MissionCenter"] floating enable
 for_window [app_id="it.mijorus.smile"] floating enable
+for_window [app_id="net.davidotek.pupgui2"] floating enable
+for_window [app_id="org.gnome.gitlab.YaLTeR.VideoTrimmer"] floating enable
 
 # Fixes from manjaro sway github
 # https://github.com/Manjaro-Sway/desktop-settings/blob/sway/community/sway/etc/sway/config.d/98-application-defaults.conf
@@ -57,6 +60,7 @@ for_window [title="^System Information$" class="steam"] floating enable
 # Game fixes
 for_window [title="Team Fortress 2" class="hl2_linux"] fullscreen enable, inhibit idle
 for_window [title="Counter-Strike: Global Offensive" class="csgo_linux64"] fullscreen enable, inhibit idle
+for_window [class="gamescope"] inhibit idle
 
 for_window [class="^steam_app_*$"] inhibit idle
 
