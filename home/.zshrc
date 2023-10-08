@@ -92,6 +92,7 @@ alias ip='ip -c'
 alias ls='eza --colour=auto --icons --hyperlink'
 alias ra='ranger'
 alias vi='vim'
+alias yt-dl="yt-dlp -f 'bestvideo*+bestaudio/best' --sponsorblock-mark all --sponsorblock-chapter-title '%(category_names)l'"
 alias wlc='wl-copy --trim-newline'
 alias wlp='wl-paste'
 alias xssh='env TERM=xterm-256color ssh'
