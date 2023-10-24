@@ -42,7 +42,6 @@ pamixer
 pavucontrol
 playerctl
 polkit-gnome
-power-profiles-daemon
 seahorse
 slurp
 starship
