@@ -90,9 +90,10 @@ eval "$(starship init zsh)"
 ## Alias section
 alias ip='ip -c'
 alias ls='eza --colour=auto --icons --hyperlink'
+alias mp3-dl="yt-dlp --extract-audio --audio-format mp3 --audio-quality 0"
 alias ra='ranger'
 alias vi='vim'
-alias yt-dl="yt-dlp -f 'bestvideo*+bestaudio/best' --sponsorblock-mark all --sponsorblock-chapter-title '%(category_names)l'"
 alias wlc='wl-copy --trim-newline'
 alias wlp='wl-paste'
 alias xssh='env TERM=xterm-256color ssh'
+alias yt-dl="yt-dlp -f 'bestvideo*+bestaudio/best' --sponsorblock-mark all --sponsorblock-chapter-title '%(category_names)l'"
