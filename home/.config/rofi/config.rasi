@@ -1,5 +1,5 @@
 configuration {
-  icon-theme: "WhiteSur-dark";
+  icon-theme: "Colloid-dark";
   display-drun: "";
   display-run: "";
   location: 0;
