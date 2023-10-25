@@ -14,13 +14,16 @@ for_window [title="^About Mozilla Firefox$" app_id="firefox"] floating enable
 # Personal Gnome/gtk fixes
 for_window [app_id="file-roller"] floating enable
 for_window [app_id="gedit"] floating enable
+for_window [app_id="gnome-network-displays"] floating enable
 for_window [app_id="gnome-system-monitor"] floating enable, resize set height 1280px width 960px
 for_window [app_id="org.gnome.Calculator"] floating enable
 for_window [app_id="xdg-desktop-portal-gtk"] floating enable
 
 # Other personal fixes
 for_window [app_id="app.drey.EarTag"] floating enable
+for_window [app_id="com.transmissionbt.Transmission*"] floating enable
 for_window [app_id="com.vysp3r.ProtonPlus"] floating enable
+for_window [app_id="de.haeckerfelix.Fragments"] floating enable
 for_window [app_id="io.missioncenter.MissionCenter"] floating enable
 for_window [app_id="it.mijorus.smile"] floating enable
 for_window [app_id="net.davidotek.pupgui2"] floating enable
@@ -56,12 +59,5 @@ for_window [title="^Players$" class="steam"] floating enable
 for_window [title="^Screenshot Manager$" class="steam"] floating enable
 for_window [title="^Screenshot Uploader$" class="steam"] floating enable
 for_window [title="^System Information$" class="steam"] floating enable
-
-# Game fixes
-for_window [title="Team Fortress 2" class="hl2_linux"] fullscreen enable, inhibit idle
-for_window [title="Counter-Strike: Global Offensive" class="csgo_linux64"] fullscreen enable, inhibit idle
-for_window [class="gamescope"] inhibit idle
-
-for_window [class="^steam_app_*$"] inhibit idle
 
 # vim:ft=sh
