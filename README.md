@@ -83,10 +83,9 @@ wob
 
 ## themes
 
-Icon Themes:
+Icon Theme:
 
-- [WhiteSur by vinceliuice](https://github.com/vinceliuice/WhiteSur-icon-theme)  
-- [Colloid by vinceliuice](https://github.com/vinceliuice/Colloid-icon-theme)  
+- [Colloid by vinceliuice](https://github.com/vinceliuice/Colloid-icon-theme)
 
 Cursor Theme
 
