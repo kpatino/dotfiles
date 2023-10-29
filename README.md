@@ -28,11 +28,11 @@ gamescope
 gnome-keyring
 gnome-system-monitor
 grim
-grimshot
 iptables-nft
 iwd
 mako
 mangohud
+mate-polkit
 networkmanager
 noto-fonts
 noto-fonts-cjk
@@ -41,7 +41,6 @@ noto-fonts-extra
 pamixer
 pavucontrol
 playerctl
-polkit-gnome
 seahorse
 slurp
 starship
@@ -71,6 +70,7 @@ zsh-syntax-highlighting
 
 ```text
 adw-gtk3
+grimshot
 hyprpicker-git
 jdk11-temurin
 jdk17-temurin
