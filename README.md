@@ -72,9 +72,6 @@ zsh-syntax-highlighting
 adw-gtk3
 grimshot
 hyprpicker-git
-jdk11-temurin
-jdk17-temurin
-jdk8-temurin
 rofi-lbonn-wayland-git
 waybar-mpris-git
 wlsunset
