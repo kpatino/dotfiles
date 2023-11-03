@@ -7,9 +7,10 @@ export XDG_STATE_HOME=$HOME/.local/state
 
 # https://wiki.archlinux.org/title/XDG_Base_Directory#Supported
 export ANDROID_HOME="$XDG_DATA_HOME"/android
-export ANSIBLE_CONFIG="${XDG_CONFIG_HOME}/ansible.cfg"
+export ANSIBLE_CONFIG="${XDG_CONFIG_HOME}/ansible/ansible.cfg"
 export ANSIBLE_GALAXY_CACHE_DIR="${XDG_CACHE_HOME}/ansible/galaxy_cache"
 export ANSIBLE_HOME="${XDG_CONFIG_HOME}/ansible"
+export ANSIBLE_INVENTORY="${XDG_CONFIG_HOME}/ansible/inventory"
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export GOPATH="$XDG_DATA_HOME"/go
