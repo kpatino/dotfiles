@@ -6,12 +6,7 @@ ALL_microcode=(/boot/*-ucode.img)
 
 PRESETS=('default' 'fallback')
 
-#default_config="/etc/mkinitcpio.conf"
-default_image="/boot/initramfs-linux-tkg-bore.img"
 default_uki="/efi/EFI/Linux/arch-linux-tkg-bore.efi"
-default_options="--cmdline /etc/kernel/cmdline"
 
-#fallback_config="/etc/mkinitcpio.conf"
-fallback_image="/boot/initramfs-linux-tkg-bore-fallback.img"
 fallback_uki="/efi/EFI/Linux/arch-linux-tkg-bore-fallback.efi"
-fallback_options="-S autodetect --cmdline /etc/kernel/fallback_cmdline"
+fallback_options="-S autodetect"

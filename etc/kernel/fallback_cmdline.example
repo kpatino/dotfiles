@@ -1,1 +1,0 @@
-root="LABEL=Arch Linux" rootflags=subvol=@ rw rootfstype=btrfs zswap.enabled=0
