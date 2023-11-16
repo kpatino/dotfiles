@@ -50,10 +50,17 @@ swaybg
 swayidle
 swaylock
 terminus-font
+ttf-bitstream-vera
 ttf-cascadia-code
 ttf-cascadia-code-nerd
+ttf-croscore
+ttf-dejavu
+ttf-lato
+ttf-liberation
 ttf-noto-nerd
+ttf-roboto
 waybar
+webp-pixbuf-loader
 wl-clipboard
 xdg-desktop-portal
 xdg-desktop-portal-gtk
