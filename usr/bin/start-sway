@@ -1,6 +1,3 @@
-# Firefox Wayland
-export MOZ_ENABLE_WAYLAND=1
-
 # Qt Wayland
 export QT_PLUGIN_PATH=/usr/lib/qt/plugins
 export QT_QPA_PLATFORM="wayland"
