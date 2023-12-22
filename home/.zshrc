@@ -91,6 +91,8 @@ eval "$(starship init zsh)"
 alias ip='ip -c'
 alias ls='eza --colour=auto --icons --hyperlink'
 alias mp3-dl="yt-dlp --extract-audio --audio-format mp3 --audio-quality 0"
+alias protontricks-launch='flatpak run --command=protontricks-launch com.github.Matoking.protontricks'
+alias protontricks='flatpak run com.github.Matoking.protontricks'
 alias ra='ranger'
 alias vi='vim'
 alias wlc='wl-copy --trim-newline'
