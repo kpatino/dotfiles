@@ -62,6 +62,7 @@ ttf-roboto
 waybar
 webp-pixbuf-loader
 wl-clipboard
+wlsunset
 xdg-desktop-portal
 xdg-desktop-portal-gtk
 xdg-desktop-portal-wlr
@@ -81,7 +82,6 @@ grimshot
 hyprpicker-git
 rofi-lbonn-wayland-git
 waybar-mpris-git
-wlsunset
 wob
 ```
 
