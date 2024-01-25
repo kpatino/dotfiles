@@ -24,14 +24,6 @@ Relevant overrides
 
 `flatpak override --user --filesystem=xdg-config/gtk-3.0:ro`
 
-## QT themes
-
-For qgnomeplatform I needed to download the right theme versions for PolyMC, OBS and Vorta  
-I needed to install versions 5.15, and 5.15-21.08 (PolyMC and Vorta)
-
-- `flatpak install org.kde.KStyle.Adwaita`
-- `flatpak install org.kde.PlatformTheme.QGnomePlatform`
-
 ## Cursors not working
 
 See [cursors.md](cursors.md)
