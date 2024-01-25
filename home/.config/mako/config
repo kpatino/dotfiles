@@ -1,9 +1,9 @@
 max-history=8
 sort=-time
 font=NotoSans Nerd Font, Noto Sans, Noto Sans CJK HK, Noto Sans CJK JP, Noto Sans CJK KR, Noto Sans CJK SC, Noto Sans CJK TC 16
-background-color=#0E0E0EE6
+background-color=#0E0E0EF3
 text-color=#FFFFFF
-width=420
+width=440
 height=150
 margin=10
 padding=10

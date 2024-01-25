@@ -2,7 +2,7 @@
   font: "NotoSans Nerd Font 16";
   background-color: transparent;
   ac: #3584E4; /* Accent color */
-  bg: #0E0E0EE6; /* Background color */
+  bg: #0E0E0EF3; /* Background color */
   br: #444444; /* Border color */
   txt: #FFFFFF; /* Text color */
 }
