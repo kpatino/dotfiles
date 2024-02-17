@@ -13,8 +13,6 @@ set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
 # Start notification daemon, letting dbus start mako makes cursor small when hovering over it
 exec mako
-# Copyq autopaste - ydotool daemon
-#exec ydotoold
 # wlsunset/night light
 exec '[ -x "$(command -v wlsunset)" ] && $XDG_CONFIG_HOME/waybar/sunset.sh "on"'
 
@@ -41,7 +39,8 @@ set $term foot
 # Your preferred application launcher
 set $menu rofi -theme monterey -show-icons
 # Your preferred background image, must use double quotes for wallpaper
-set $wallpaper "$HOME/Pictures/Saved Pictures/Wallpapers/Landscapes/The-Desert-8.jpg"
+#set $wallpaper "$HOME/Pictures/Wallpapers/Landscapes/The-Desert-8.jpg"
+set $wallpaper "$HOME/Pictures/Wallpapers/Landscapes/10-15-7-Dusk.jpg"
 # Your preferred Font name
 set $font NotoSans Nerd Font
 # Lock command
@@ -49,6 +48,7 @@ set $lock swaylock --config $XDG_CONFIG_HOME/swaylock/config -i $wallpaper && lo
 
 ### Background configuration
 #
+# Set wallpaper
 output * bg $wallpaper fill
 
 ### Idle configuration
@@ -256,23 +256,21 @@ set $desktop-interface org.gnome.desktop.interface
 set $wm-preferences org.gnome.desktop.wm.preferences
 set $gtk-theme "adw-gtk3-dark"
 set $icon-theme "Colloid-dark"
+set $color-scheme "prefer-dark"
 
 seat seat0 xcursor_theme $cursor-theme $cursor-size
 
 exec_always {
     gsettings set $desktop-interface clock-format 12h
-    gsettings set $desktop-interface color-scheme prefer-dark
+    gsettings set $desktop-interface color-scheme $color-scheme
     gsettings set $desktop-interface cursor-size $cursor-size
     gsettings set $desktop-interface cursor-theme $cursor-theme
     gsettings set $desktop-interface document-font-name 'Cantarell 12'
-    gsettings set $desktop-interface font-hinting 'full'
-    gsettings set $desktop-interface font-antialiasing 'subpixel'
     gsettings set $desktop-interface font-name 'Noto Sans 12'
     gsettings set $desktop-interface gtk-enable-primary-paste false
     gsettings set $desktop-interface gtk-theme $gtk-theme
     gsettings set $desktop-interface icon-theme $icon-theme
     gsettings set $desktop-interface monospace-font-name 'Source Code Pro 12'
-    gsettings set $desktop-interface text-scaling-factor '1.0'
     gsettings set $wm-preferences button-layout ""
     gsettings set $wm-preferences theme $gtk-theme
     gsettings set $wm-preferences titlebar-font 'Noto Sans 12'
@@ -285,7 +283,7 @@ exec_always {
 #
     default_border pixel 2
     default_floating_border normal 2
-    hide_edge_borders smart
+    hide_edge_borders --i3 smart
     titlebar_border_thickness 2
     titlebar_padding 4 4
     gaps outer 0
