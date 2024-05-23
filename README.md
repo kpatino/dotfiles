@@ -15,57 +15,38 @@ software used in dotfiles are listed below under dependencies
 
 ## dependencies being used
 
+I installed the plasma group and then installed the kde apps I needed like ark and dolphin.
+
 ### Packages
 
 ```text
 bat
-blueberry
-copyq
 dbus-broker
 eza
 foot
 gamescope
-gnome-keyring
-gnome-system-monitor
-grim
 iptables-nft
 iwd
-mako
 mangohud
-mate-polkit
 networkmanager
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 pamixer
-pavucontrol
 playerctl
-seahorse
-slurp
 starship
-swappy
-sway
-swaybg
-swayidle
-swaylock
 terminus-font
-ttf-bitstream-vera
 ttf-cascadia-code
-ttf-cascadia-code-nerd
 ttf-croscore
 ttf-dejavu
-ttf-lato
+ttf-hack
 ttf-liberation
 ttf-noto-nerd
-ttf-roboto
-waybar
-webp-pixbuf-loader
 wl-clipboard
-wlsunset
 xdg-desktop-portal
 xdg-desktop-portal-gtk
-xdg-desktop-portal-wlr
+xdg-desktop-portal-kde
 yt-dlp
 zsh
 zsh-autosuggestions
@@ -74,29 +55,7 @@ zsh-history-substring-search
 zsh-syntax-highlighting
 ```
 
-### AUR packages
-
-```text
-adw-gtk3
-grimshot
-hyprpicker-git
-rofi-lbonn-wayland-git
-waybar-mpris-git
-wob
-```
-
 ## themes
-
-Icon Theme:
-
-- [Colloid by vinceliuice](https://github.com/vinceliuice/Colloid-icon-theme)
-
-Cursor Theme
-
-- [WhiteSur-cursors by vinceliuice](https://github.com/vinceliuice/WhiteSur-cursors)
-
-## misc
 
 - [lepton firefox css](https://github.com/black7375/Firefox-UI-Fix/)
 - [terminal color palette](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color/)
-- [pfetch](https://github.com/dylanaraps/pfetch)
